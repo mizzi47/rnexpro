@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "compressorjs": "^1.2.1",
+    "frappe-gantt": "^0.6.1",
+    "print-js": "^1.6.0"
+  }
+}
