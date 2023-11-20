@@ -44,6 +44,11 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= base_url() ?>assets/js/pages/dashboard.js"></script>
 <script src="<?= base_url() ?>/node_modules/print-js/dist/print.js"></script>
+<!-- DOCX -->
+<script src="<?php echo site_url('node_modules/docxtemplater/') ?>build/docxtemplater.js"></script>
+<script src="<?php echo site_url('node_modules/pizzip/') ?>dist/pizzip.js"></script>
+<script src="<?php echo site_url('node_modules/pizzip/') ?>dist/pizzip-utils.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
 <script>
 
     var list_scope = [
@@ -139,11 +144,9 @@
         $('#display_update').val();
         $('#display_pending').val();
         $('#display_issue').val();
-        console.log(selected_dailylog_id);
         var selected_dailylog = list_dailylog.find(({
             dailylog_id
         }) => dailylog_id === selected_dailylog_id);
-        console.log(selected_dailylog);
         $('#display_update').val(selected_dailylog['update']);
         $('#display_pending').val(selected_dailylog['pending']);
         $('#display_issue').val(selected_dailylog['issue']);
@@ -208,7 +211,6 @@
                 // Hide the success button or the complete form.
             });
             this.on("successmultiple", function(files, response) {
-                console.log(response);
                 window.location.href = '<?php echo site_url('dailylog/dailylog_index/')?>'+response+'';
             });
             this.on("errormultiple", function(files, response) {
@@ -391,19 +393,20 @@
             dataType: 'text',
             success: function(data) {
                 var listjob = JSON.parse(data);
-                console.log(data);
                 if (listjob.length !== 0) {
                     $.each(listjob, function(count, item) {
                         count++;
                         job_id = item['job_id'];
                         job_name = item['job_name'];
                         var actionButton = '<button id="' + job_id +
-                            '" title="View Daily Log" onclick="window.location.href=\'<?php echo base_url('dailylog/dailylog_index') ?>/' + job_id + '\'" type="button" class="btn btn-sm btn-info"><i class="fa fa-file"></i>&nbsp View Job</button>&nbsp';
-                        var tempobj = {
+                            '" title="View Daily Log" onclick="window.location.href=\'<?php echo base_url('dailylog/dailylog_index') ?>/' + job_id + '\'" type="button" class="btn btn-sm btn-info"><i class="fa fa-file"></i>&nbsp View Daily Logs</button>&nbsp';
+                            var changeorderButton = '<button id="' + job_id +
+                            '" title="Change Order" onclick="window.location.href=\'<?php echo base_url('changeorder/index') ?>/' + job_id + '\'" type="button" class="btn btn-sm btn-warning"><i class="fa fa-file"></i>&nbsp Change Order</button>&nbsp';
+                            var tempobj = {
                             No: count,
                             Job_name: item['job_name'],
                             Client: item['owner'],
-                            Action: actionButton,
+                            Action: actionButton+changeorderButton,
                         }
                         table_list_job.row.add(tempobj).draw();
                     })

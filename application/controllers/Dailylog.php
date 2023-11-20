@@ -303,18 +303,18 @@ class Dailylog extends CI_Controller
 	}
 	function getJob_Web()
 	{
-		$user_role = $this->input->cookie('role');
-		$user_id = $this->input->cookie('userid');
-		if ($user_role == 1) {
-			$this->db->where('status', 'In-progress');
-			$data = $this->db->get('job')->result_array();
-		} else {
-			$this->db->where('status', 'In-progress');
-			$this->db->like('access', $user_id . '|', 'after');
-			$this->db->or_like('access', '|' . $user_id . '|', 'both');
-			$this->db->or_like('access', '|' . $user_id, 'before');
-			$data = $this->db->get('job')->result_array();
-		}
+		// $user_role = $this->input->cookie('role');
+		// $user_id = $this->input->cookie('userid');
+		// if ($user_role == 1) {
+		$this->db->where('status', 'In-progress');
+		$data = $this->db->get('job')->result_array();
+		// } else {
+		// 	$this->db->where('status', 'In-progress');
+		// 	$this->db->like('access', $user_id . '|', 'after');
+		// 	$this->db->or_like('access', '|' . $user_id . '|', 'both');
+		// 	$this->db->or_like('access', '|' . $user_id, 'before');
+		// 	$data = $this->db->get('job')->result_array();
+		// }
 		echo json_encode($data);
 	}
 

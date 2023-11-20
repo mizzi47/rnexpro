@@ -20,14 +20,15 @@
                 <div class="card-body">
                     <div class="card">
                         <div class="card-body">
-                            <svg id="gantt"></svg>
+                            <!-- <svg id="gantt"></svg>
                             <div class="mx-auto mt-3 btn-group" role="group">
                                 <button type="button" onclick="changeMode('Quarter Day')" class="btn btn-sm btn-light">Quarter Day</button>
                                 <button type="button" onclick="changeMode('Half Day')" class="btn btn-sm btn-light">Half Day</button>
                                 <button type="button" onclick="changeMode('Day')" class="btn btn-sm btn-light">Day</button>
                                 <button type="button" onclick="changeMode('Week')" class="btn btn-sm btn-light">Week</button>
                                 <button type="button" onclick="changeMode('Week')" class="btn btn-sm btn-light">Month</button>
-                            </div>
+                            </div> -->
+                            <div id="timeline" style=""></div>
                         </div>
                     </div>
                 </div>
@@ -68,7 +69,91 @@
         </div>
     </div>
 </div>
-<script src="<?= base_url() ?>node_modules/frappe-gantt/dist/frappe-gantt.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['timeline']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var container = document.getElementById('timeline');
+        var chart = new google.visualization.Timeline(container);
+        var dataTable = new google.visualization.DataTable();
+        var tasks = [];
+        $(document).ready(function() {
+            $.ajax({
+                url: '<?php echo base_url() ?>ganttchart/getGantt',
+                method: 'post',
+                data: {
+                    job_id: <?php echo $job_id ?>,
+                },
+                dataType: 'text',
+                success: function(data) {
+                    var all_schedule = JSON.parse(data);
+                    CountSchedule = all_schedule.length;
+                    for (var i = 0; i < all_schedule.length; i++) {
+                        var savedSchedules = {
+                            id: all_schedule[i]['schedule_id'],
+                            name: all_schedule[i]['title'],
+                            body: all_schedule[i]['body'],
+                            start: all_schedule[i]['start'],
+                            end: all_schedule[i]['end'],
+                            progress: 100
+                        };
+                        tasks.push(savedSchedules);
+                    }
+                    console.log(tasks);
+                    dataTable.addColumn({
+                        type: 'string',
+                        id: 'Title'
+                    });
+                    dataTable.addColumn({
+                        type: 'date',
+                        id: 'Start'
+                    });
+                    dataTable.addColumn({
+                        type: 'date',
+                        id: 'End'
+                    });
+                    for (var i = 0; i < tasks.length; i++) {
+                        dataTable.addRows([
+                            [all_schedule[i]['title'], new Date(all_schedule[i]['start']), new Date(all_schedule[i]['end'])],
+                        ]);
+                    }
+
+                    var options = {
+                        "hAxis": {
+                            "gridlines": {
+                                "count": "-1",
+                                "units": {
+                                    "minutes": {
+                                        "format": [
+                                            "HH:mm"
+                                        ]
+                                    },
+                                    "hours": {
+                                        "format": [
+                                            "MM/dd HH",
+                                            "HH"
+                                        ]
+                                    },
+                                    "days": {
+                                        "format": [
+                                            "yyyy/MM/dd"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    chart.draw(dataTable, options);
+                }
+            });
+        })
+    }
+</script>
+<!-- <script src="<?= base_url() ?>node_modules/frappe-gantt/dist/frappe-gantt.min.js"></script>
 <script>
     var gantt;
     var tasks = []
@@ -158,4 +243,4 @@
         date.setDate(date.getDate() + 1);
         return date;
     }
-</script>
+</script> -->

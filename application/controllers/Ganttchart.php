@@ -32,29 +32,37 @@ class Ganttchart extends CI_Controller
 
     public function view_gantt_download($job_id)
     {
-        // $data['allSchedule'] = $this->Schedule_model->getScheduleById($job_id);
+        $dataschedule = $this->Schedule_model->getScheduleById((int)$job_id);
         // $this->load->view('templates/header');
         // $this->load->view('ganttchart/download_ganttchart', $data);
         // $this->load->view('templates/footer');
-        $doc = new DomDocument("1.0", "UTF-8");
-        $doc->preserveWhiteSpace = false;
-        $doc->formatOutput = true;
-        $doc->load(base_url() .'/assets/gantt_template.xml');
-        $taskMainTag = $doc->getElementsByTagName("Tasks")->item(0);
-        $occ = $doc->createElement('task');
-        $occ = $taskMainTag->appendChild($occ);
-        // $signed_values = array("name" => $r_name, "age" => $r_age, "number" => $r_number, "team" => $r_team, "bike" => $r_bike);
-
-        // $occ = $doc->createElement('rider');
-        // $occ = $catTag->appendChild($occ);
-
-        // foreach ($signed_values as $fieldname => $fieldvalue) {
-        //     $child = $doc->createElement($fieldname);
-        //     $child = $occ->appendChild($child);
-        //     $value = $doc->createTextNode($fieldvalue);
-        //     $value = $child->appendChild($value);
-        // }
-        echo $doc->saveXML();
+        $dom = new DomDocument('1.0');
+        $dom->preserveWhiteSpace = false;
+        $dom->formatOutput = true;
+        $dom->load(base_url() . '/assets/gantt_template.xml');
+        $tasks = $dom->documentElement->getElementsByTagName('Tasks')[0];
+        $taskdom = new DOMDocument();
+        $taskdom->load(base_url() . '/assets/task_template.xml');
+        $task = $taskdom->getElementsByTagName('Task')[0];
+        $count = 1;
+        foreach($dataschedule as $ds){
+            $task->getElementsByTagName('UID')[0]->nodeValue = $count;
+            $task->getElementsByTagName('ID')[0]->nodeValue = $count;
+            $task->getElementsByTagName('Name')[0]->nodeValue = $ds['title'];
+            $task->getElementsByTagName('CreateDate')[0]->nodeValue = $ds['start'];
+            $task->getElementsByTagName('Start')[0]->nodeValue = $ds['start'];
+            $task->getElementsByTagName('Finish')[0]->nodeValue = $ds['end'];
+            $date1 = strtotime($ds['start']);
+            $date2 = strtotime($ds['end']);
+            $diff = $date2 - $date1;
+            $days = floor($diff / (60 * 60 * 24));
+            $task->getElementsByTagName('Duration')[0]->nodeValue = 'PT'. $days * 8 . 'H0M0S';
+            $tasks->appendChild($dom->importNode($task, true));
+            $count++;
+        }
+        header('Content-type: "text/xml"; Charset="utf8"');
+        header('Content-disposition: attachment; filename="data.xml"');
+        echo $dom->SaveXML();
     }
 
     public function getGantt()
