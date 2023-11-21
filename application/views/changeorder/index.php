@@ -281,6 +281,12 @@
                 success: function(result) {
                     data = JSON.parse(result);
                     arrItem = data['changeorder_item'];
+                    var total = 0;
+                    for (var i = 0; i < arrItem.length; i++) {
+                        arrItem[i]['amount'] = arrItem[i]['qty'] * arrItem[i]['rate'];
+                        arrItem[i]['count'] = i + 1;
+                        total = total + arrItem[i]['amount'];
+                    }
                     object = {
                         "client_name": data['jobs'][0]['owner'],
                         "client_ic": data['jobs'][0]['no_laporan_polis'],
@@ -288,10 +294,7 @@
                         "client_title": data['jobs'][0]['job_name'],
                         "code_id": data['changeorder'][0]['code_id'],
                         "print_date": "<?php echo date('d/m/Y') ?>",
-                    }
-                    for (var i = 0; i < arrItem.length; i++) {
-                        arrItem[i]['amount'] = arrItem[i]['qty'] * arrItem[i]['rate'];
-                        arrItem[i]['count'] = i + 1;
+                        "total": total,
                     }
                     object.itemco = arrItem;
                     console.log(object)
