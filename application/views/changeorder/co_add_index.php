@@ -212,7 +212,7 @@
                         "client_ic": data['no_laporan_polis'],
                         "client_phone": data['phone'],
                         "client_title": data['job_name'],
-                        "code_id": '',
+                        "code_id": data['job_name'],
                         "print_date": "<?php echo date('d/m/Y') ?>",
                     }
                     loadFile("<?php echo site_url() ?>/assets/covo-template.docx",

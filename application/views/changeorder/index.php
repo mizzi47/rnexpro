@@ -249,7 +249,7 @@
                             count++;
                             var actionButton = '<button id="' + item['id'] +
                                 '" title="Delete CO/VO" onclick="window.location.href=\'<?php echo base_url('changeorder/deleteCo') ?>/' + job_id + '/' + item['id'] + '\'" type="button" class="btn btn-sm btn-danger form-control"><i class="fa fa-trash"></i>&nbsp Delete CO/VO</button>&nbsp';
-                            var print = ' <a onclick="generateCO()" class="btn btn-sm btn-info form-control" id="code_id" id="print"><span><i class="fa fa-print"></i></span> Print</a>';
+                            var print = ' <a onclick="generateCO('+item['id']+')" class="btn btn-sm btn-info form-control" id="code_id" id="print"><span><i class="fa fa-print"></i></span> Print</a>';
                             var tempobj = {
                                 no: count,
                                 code_id: item['code_id'],
@@ -269,25 +269,32 @@
         function loadFile(url, callback) {
             PizZipUtils.getBinaryContent(url, callback);
         }
-        window.generateCO = function generateCO() {
+        window.generateCO = function generateCO(id) {
             $.ajax({
-                url: '<?php echo site_url() ?>changeorder/generateCO',
+                url: '<?php echo site_url() ?>changeorder/generateCo',
                 method: 'post',
                 dataType: 'text',
                 data: {
-                    job_id: <?php echo $job_id ?>
+                    job_id: <?php echo $job_id ?>,
+                    id: id
                 },
                 success: function(result) {
                     data = JSON.parse(result);
-                    console.log(data)
+                    arrItem = data['changeorder_item'];
                     object = {
-                        "client_name": data['owner'],
-                        "client_ic": data['no_laporan_polis'],
-                        "client_phone": data['phone'],
-                        "client_title": data['job_name'],
-                        "code_id": '',
+                        "client_name": data['jobs'][0]['owner'],
+                        "client_ic": data['jobs'][0]['no_laporan_polis'],
+                        "client_phone": data['jobs'][0]['phone'],
+                        "client_title": data['jobs'][0]['job_name'],
+                        "code_id": data['changeorder'][0]['code_id'],
                         "print_date": "<?php echo date('d/m/Y') ?>",
                     }
+                    for (var i = 0; i < arrItem.length; i++) {
+                        arrItem[i]['amount'] = arrItem[i]['qty'] * arrItem[i]['rate'];
+                        arrItem[i]['count'] = i + 1;
+                    }
+                    object.itemco = arrItem;
+                    console.log(object)
                     loadFile("<?php echo site_url() ?>/assets/covo-template.docx",
                         function(error, content) {
                             if (error) {

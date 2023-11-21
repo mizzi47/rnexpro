@@ -44,6 +44,7 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= base_url() ?>assets/js/pages/dashboard.js"></script>
 <script src="<?= base_url() ?>/node_modules/print-js/dist/print.js"></script>
+<script src="<?= base_url() ?>node_modules/frappe-gantt/dist/frappe-gantt.min.js"></script>
 <!-- DOCX -->
 <script src="<?php echo site_url('node_modules/docxtemplater/') ?>build/docxtemplater.js"></script>
 <script src="<?php echo site_url('node_modules/pizzip/') ?>dist/pizzip.js"></script>
@@ -372,7 +373,7 @@
             ],
 
         });
-
+        
         function onloadPageDailyLog() {
             $("body").addClass("loading");
             $("#btn_show_dailyLogAddModal").prop("disabled", false);

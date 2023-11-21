@@ -50,6 +50,22 @@ class Changeorder_model extends CI_Model
         return $this->db->get('changeorder')->result_array();
     }
 
+    function getCoById($id = null)
+    {
+        if ($id != null) {
+            $this->db->where('id', $id);
+        }
+        return $this->db->get('changeorder')->result_array();
+    }
+
+    function getCoItemById($id = null)
+    {
+        if ($id != null) {
+            $this->db->where('changeorder_id', $id);
+        }
+        return $this->db->get('changeorder_item')->result_array();
+    }
+
     function deleteCo($co_id = null)
     {
         $this->db->trans_start();

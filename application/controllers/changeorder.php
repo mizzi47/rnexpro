@@ -54,7 +54,10 @@ class Changeorder extends CI_Controller
     public function generateCo()
     {
         $job_id = $_POST['job_id'];
+        $id = $_POST['id'];
+        $data['changeorder'] = $this->model->getCoById((int)$id);
+        $data['changeorder_item'] = $this->model->getCoItemById((int)$id);
         $data['jobs'] = $this->Job_model->getJobs((int)$job_id);
-        echo json_encode($data['jobs'][0]);
+        echo json_encode($data);
     }
 }
