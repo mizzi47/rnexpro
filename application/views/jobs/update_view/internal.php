@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <div class="card bg-light mb-3">
             <div class="card-header">
-                <h3 class="card-title">Internal User</h3>
+                <h3 class="card-title">Project In Charge</h3>
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-hover">
@@ -42,7 +42,7 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Internal Users</th>
+                            <th>Project In Charges</th>
                             <th>Job Viewing Access</th>
                         </tr>
                     </thead>

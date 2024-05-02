@@ -8,6 +8,10 @@ class Jobs extends CI_Controller
 		parent::__construct();
 		$this->db->save_queries = false;
 		$this->load->model('Job_model');
+		if (!isset($_SESSION['userid'])) {
+			$this->session->set_flashdata('msg-warning', 'Please login');
+			redirect('');
+		}
 	}
 
 	public function index()
@@ -227,6 +231,19 @@ class Jobs extends CI_Controller
 
 	public function close($id)
 	{
+		$active = "Close";
+
+		$params = array(
+			'status' => $active
+		);
+		$this->db->where("job_id", $id);
+		$this->db->update('job', $params);
+		$this->session->set_flashdata('msg-success-add', 'Job status updated.');
+		redirect("jobs/view");
+	}
+
+	public function completed($id)
+	{
 		$active = "Completed";
 
 		$params = array(
@@ -251,13 +268,26 @@ class Jobs extends CI_Controller
 		redirect("jobs/view");
 	}
 
+	public function incoming($id)
+	{
+		$active = "Incoming";
+
+		$params = array(
+			'status' => $active
+		);
+		$this->db->where("job_id", $id);
+		$this->db->update('job', $params);
+		$this->session->set_flashdata('msg-success-add', 'Job status updated.');
+		redirect("jobs/view");
+	}
+
 	public function delete($id)
 	{
 		$this->db->trans_start();
 		$this->db->where("job_id", $id);
 		$this->db->delete('job');
-		$this->db->trans_complete();
-		$this->db->trans_start();
+		$this->db->where("job_id", $id);
+		$this->db->delete('schedule');
 		$this->db->where("job_id", $id);
 		$this->db->delete('dailylog');
 		$this->db->trans_complete();
@@ -302,18 +332,19 @@ class Jobs extends CI_Controller
 	{
 		$job_id = (int) $_POST['job_id'];
 		$params = array(
-			'schedulecolor' => $_POST['color_hex'],
+			'bgColor' => $_POST['color_hex'],
 		);
 		// var_dump($params);
 		// die();
+		$this->db->trans_start();
 		$this->db->where('job_id', $job_id);
-		$this->db->update('job', $params);
-		if ($this->db->affected_rows()) {
-			$this->session->set_flashdata('msg-success-add', 'Schedule color successfully updated.');
-			echo 'success';
+		$this->db->update('schedule', $params);
+		$this->db->trans_complete();
+
+		if ($this->db->trans_status() === FALSE) {
+			echo 'false';
 		} else {
-			$this->session->set_flashdata('msg-fail-add', 'Schedule color update failed.');
-			echo 'fail';
+			echo json_encode('true');
 		}
 	}
 }

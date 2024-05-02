@@ -5,7 +5,7 @@
           <div class="container-fluid">
               <div class="row mb-2">
                   <div class="col-sm-6">
-                      <h1 class="m-0 text-dark">Jobs</h1>
+                      <h1 class="m-0 text-dark">Project</h1>
                   </div><!-- /.col -->
                   <div class="col-sm-6">
                       <ol class="breadcrumb float-sm-right">
@@ -37,7 +37,7 @@
                                               <a class="nav-link active" id="custom-tabs-owner-tab" data-toggle="tab" href="#custom-tabs-owner" role="tab" aria-controls="custom-tabs-owner" aria-selected="false">Owner</a>
                                           </li>
                                           <li class="nav-item">
-                                              <a class="nav-link" id="custom-tabs-internal-tab" data-toggle="tab" href="#custom-tabs-internal" role="tab" aria-controls="custom-tabs-internal" aria-selected="false">Internal Users</a>
+                                              <a class="nav-link" id="custom-tabs-internal-tab" data-toggle="tab" href="#custom-tabs-internal" role="tab" aria-controls="custom-tabs-internal" aria-selected="false">Project In Charges</a>
                                           </li>
                                           <!-- <li class="nav-item">
                                               <a class="nav-link" id="custom-tabs-vendors-tab" data-toggle="tab" href="#custom-tabs-vendors" role="tab" aria-controls="custom-tabs-vendors" aria-selected="false">Subs/Vendors</a>

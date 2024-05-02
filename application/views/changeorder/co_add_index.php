@@ -43,7 +43,7 @@
                                                 </div>
                                                 <div class='input-group'>
                                                     <div class="col-md-4">
-                                                        <label for="">Code ID:</label>
+                                                        <label for="">Reference Code:</label>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <input type="text" placeholder="Code ID" id="code_id" name="code_id" rows="5" class="form-control" required></input>

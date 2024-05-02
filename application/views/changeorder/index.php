@@ -40,20 +40,20 @@
                                                     <div class="card-body">
                                                         <table>
                                                             <tr>
-                                                                <td>Job Name</td>
+                                                                <td>Project Name</td>
                                                                 <td></td>
                                                                 <td>:</td>
                                                                 <td></td>
                                                                 <td style="text-transform: capitalize;">
                                                                     <?php echo $value['job_name'] ?></td>
                                                             </tr>
-                                                            <tr>
+                                                            <!-- <tr>
                                                                 <td>Job Prefix</td>
                                                                 <td></td>
                                                                 <td>:</td>
                                                                 <td></td>
-                                                                <td><?php echo $value['job_prefix'] ?></td>
-                                                            </tr>
+                                                                <td><?php //echo $value['job_prefix'] ?></td>
+                                                            </tr> -->
                                                             <tr>
                                                                 <td>Status</td>
                                                                 <td></td>
@@ -75,13 +75,13 @@
                                                                 <td></td>
                                                                 <td><?php echo $value['contract'] ?></td>
                                                             </tr>
-                                                            <tr>
+                                                            <!-- <tr>
                                                                 <td>Job Group</td>
                                                                 <td></td>
                                                                 <td>:</td>
                                                                 <td></td>
-                                                                <td><?php echo $value['job_group'] ?></td>
-                                                            </tr>
+                                                                <td><?php //echo $value['job_group'] ?></td>
+                                                            </tr> -->
                                                             <tr>
                                                                 <td>Project Managers</td>
                                                                 <td></td>
@@ -187,7 +187,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th>No</th>
-                                                        <th>CO/VO Code ID</th>
+                                                        <th>Reference Code</th>
                                                         <th>Created Date</th>
                                                         <th>Issued Date</th>
                                                         <th>Action</th>

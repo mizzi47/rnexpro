@@ -25,10 +25,10 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-row">
-                                <div class="col">
+                                <div class="col-md-4">
                                     <button class="btn btn-info" onclick="cal.prev();setDate();"><span><i class="fa-solid fa fa-chevron-circle-left"></i></span>
                                         Previous</button>
-                                    <button class="btn btn-success" onclick="cal.today();setDate();">Today</button>
+                                    <button class="btn btn-info" onclick="cal.today();setDate();">Today</button>
                                     <button class="btn btn-info" onclick="cal.next();setDate();">Next <span><i class="fa-solid fa fa-chevron-circle-right"></i></button>
                                 </div>
                                 <div class="col">
@@ -41,6 +41,12 @@
                                             <option value="<?= $j['job_id'] ?>"><?= $j['job_name'] ?></option>
                                         <?php } ?>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <div class="col-md-4">
+                                    <input type="month">
+                                    <button class="btn btn-success" onclick="cal.today();setDate();">Go</button>
                                 </div>
                             </div>
                         </div>
@@ -62,20 +68,20 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class='input-group date' id='datetimepicker3'>
+                <div class='input-group date'>
                     <div class="col-md-4">
-                        <label for="selected_dateStart">Start Date:</label>
+                        <label for="display_date_start">Start Date:</label>
                     </div>
                     <div class="col-md-2">
-                        <input type="text" id="display_date_start" value="" disabled>
+                        <input type="date" id="display_date_start" value="<?= date('Y-m-d'); ?>" required>
                     </div>
                 </div>
-                <div class='input-group date' id='datetimepicker3'>
+                <div class='input-group date'>
                     <div class="col-md-4">
-                        <label for="selected_dateEnd">End Date:</label>
+                        <label for="display_date_end">End Date:</label>
                     </div>
                     <div class="col-md-2">
-                        <input type="text" id="display_date_end" value="" disabled>
+                        <input type="date" id="display_date_end" value="<?= date('Y-m-d'); ?>" required>
                     </div>
                 </div>
                 <div class='input-group'>
@@ -135,7 +141,7 @@
                 <div class="modal-body">
                     <div class='input-group'>
                         <div class="col-md-4">
-                            <label for="details_view_job">Job Name:</label>
+                            <label for="details_view_job">Project Name:</label>
                         </div>
                         <div class="col-md-8">
                             <input type="text" name="job_name" class="form-control" id="details_view_job" value="" disabled>
@@ -187,7 +193,7 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class='input-group date' id='datetimepicker3'>
+                    <div class='input-group date'>
                         <div class="col-md-4">
                             <label for="details_view_date_start">Start Date:</label>
                         </div>

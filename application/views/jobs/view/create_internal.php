@@ -2,14 +2,14 @@
     <div class="col-lg-12">
         <div class="card bg-light mb-3">
             <div class="card-header">
-                <h3 class="card-title">Internal User</h3>
+                <h3 class="card-title">Project In Charge</h3>
             </div>
             <div class="card-body">
                 <?php echo form_open('jobs/create_internal') ?>
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Internal User</th>
+                            <th>Project In Charge</th>
                             <th>Job Viewing Access</th>
                         </tr>
                     </thead>

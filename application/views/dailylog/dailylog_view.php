@@ -5,7 +5,15 @@
         padding: 5px;
         width: 150px;
     }
+
+    .cropped-ofp {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        object-position: 25% 25%;
+    }
 </style>
+<link rel="stylesheet" type="text/css" href="<?= base_url() ?>plugins/ekko-lightbox/ekko-lightbox.css">
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid">
@@ -75,16 +83,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card">
+                                    <!-- <div class="card">
                                         <div class="card-body">
                                             <div class="row">
                                                 <h5>Info:</h5>
                                             </div>
                                             <div class="row">
-                                                <p><?php echo $dailylog[0]['info'] ?></p>
+                                                <p><?php //echo $dailylog[0]['info'] 
+                                                    ?></p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -99,22 +108,7 @@
                                 <div class="card-header">
                                     <div class="d-flex flex-row">
                                         <div class="p-2">
-                                            <h5>Description With Images</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <?php foreach ($dailylog_files_old as $dfold) { ?>
-                                                        <a target="_blank" href="<?php echo base_url() ?>uploads/<?php echo $dfold['file_name'] ?>">
-                                                            <img id="imgtn" src="<?php echo base_url() ?>uploads/<?php echo $dfold['file_name'] ?>" alt="<?php echo base_url() ?>uploads/<?php echo $dfold['file_name'] ?>">
-                                                        </a>
-                                                    <?php } ?>
-                                                </div>
-                                            </div>
+                                            <h5>List of Atttachment(s) with Description</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -122,19 +116,43 @@
                                     <?php $i = 1;
                                     foreach ($dailylog_files_description as $dfDesc) { ?>
                                         <div class="row">
-                                            <div class="col">
-                                                <div class="card">
+                                            <div class="col-md-12">
+                                                <div class="card border border-secondary">
                                                     <div class="card-body">
-                                                        <h5><?php echo $dfDesc['description_name'] ?></h5>
-                                                        <?php foreach ($dailylog_files as $df) { ?>
-                                                            <?php if ($df['description_id'] == $dfDesc['dailylog_files_description_id']) { ?>
-                                                                <a target="_blank" href="<?php echo base_url() ?>uploads/<?php echo $df['file_name'] ?>">
-                                                                    <img id="imgtn" src="<?php echo base_url() ?>uploads/<?php echo $df['file_name'] ?>" alt="<?php echo base_url() ?>uploads/<?php echo $df['file_name'] ?>">
-                                                                </a>
-                                                        <?php }
-                                                        } ?>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="card">
+                                                                    <div class="card-header">
+                                                                        Description:
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <p><?php echo $dfDesc['description_name'] ?></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="card">
+                                                                    <div class="card-header">
+                                                                        Image:
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <div class="row">
+                                                                            <?php foreach ($dailylog_files as $df) { ?>
+                                                                                <?php if ($df['description_id'] == $dfDesc['dailylog_files_description_id']) { ?>
+                                                                                    <div class="col-sm-2">
+                                                                                        <a href="<?php echo base_url() ?>uploads/<?php echo $df['file_name'] ?>" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                                                                                            <img src="<?php echo base_url() ?>uploads/<?php echo $df['file_name'] ?>" class="img-thumbnail cropped-ofp">
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <!-- <img src="<?php echo base_url() ?>uploads/<?php echo $df['file_name'] ?>" alt=""> -->
+                                                                            <?php }
+                                                                            } ?>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="card-footer"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -148,16 +166,13 @@
             </div>
         </div>
     </section>
+
 </div>
 <script>
-    window.onload = function(e) {
-        var myGallery = new FgGallery('.fg-gallery', {
-            cols: 8,
-            style: {
-                border: '10px solid #fff',
-                height: '60px',
-                boxShadow: '0 2px 10px -5px #000'
-            }
-        })
-    }
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });
 </script>
+<script src="<?= base_url() ?>plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+<script src="<?= base_url() ?>plugins/ekko-lightbox/ekko-lightbox.js"></script>

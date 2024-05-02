@@ -18,19 +18,17 @@
         <div class="container-fluid">
             <div class="card card-default">
                 <div class="card-body">
-                    <div class="card">
+                    <div id="printable" class="card">
+                        <div class="card-header">
+                            <h5>Project Name: <u><?php echo $selected_job[0]['job_name'] ?></u></h5>
+                        </div>
                         <div class="card-body">
-                            <!-- <svg id="gantt"></svg>
-                            <div class="mx-auto mt-3 btn-group" role="group">
-                                <button type="button" onclick="changeMode('Quarter Day')" class="btn btn-sm btn-light">Quarter Day</button>
-                                <button type="button" onclick="changeMode('Half Day')" class="btn btn-sm btn-light">Half Day</button>
-                                <button type="button" onclick="changeMode('Day')" class="btn btn-sm btn-light">Day</button>
-                                <button type="button" onclick="changeMode('Week')" class="btn btn-sm btn-light">Week</button>
-                                <button type="button" onclick="changeMode('Week')" class="btn btn-sm btn-light">Month</button>
-                            </div> -->
                             <div id="timeline" style=""></div>
                         </div>
                     </div>
+                </div>
+                <div class="card-footer">
+                    <input type="button" class="btn btn-info" onclick="printDiv('printableArea')" value="Print Chart" />
                 </div>
             </div>
         </div>
@@ -123,6 +121,10 @@
                     }
 
                     var options = {
+                        height: 1200,
+                        timeline: {
+                            groupByRowLabel: true
+                        },
                         "hAxis": {
                             "gridlines": {
                                 "count": "-1",
@@ -152,95 +154,15 @@
             });
         })
     }
+
+    function printDiv() {
+        var printContents = document.getElementById('printable').innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
 </script>
-<!-- <script src="<?= base_url() ?>node_modules/frappe-gantt/dist/frappe-gantt.min.js"></script>
-<script>
-    var gantt;
-    var tasks = []
-    $(document).ready(function() {
-        $.ajax({
-            url: '<?php echo base_url() ?>ganttchart/getGantt',
-            method: 'post',
-            data: {
-                job_id: <?php echo $job_id ?>,
-            },
-            dataType: 'text',
-            success: function(data) {
-                var all_schedule = JSON.parse(data);
-                CountSchedule = all_schedule.length;
-                for (var i = 0; i < all_schedule.length; i++) {
-                    var rawdate = new Date(all_schedule[i]['start']);
-                    var realdate = addOneDay(rawdate);
-                    var savedSchedules = {
-                        id: all_schedule[i]['schedule_id'],
-                        name: all_schedule[i]['title'],
-                        body: all_schedule[i]['body'],
-                        start: realdate.toISOString(),
-                        end: all_schedule[i]['end'],
-                        progress: 100
-                    };
-                    tasks.push(savedSchedules);
-                }
-                gantt = new Gantt("#gantt", tasks, {
-                    on_click: function(task) {
-                        $("#details_view_date_start").val(task.start);
-                        $("#details_view_date_end").val(task.end);
-                        $("#details_view_title").val(task.name);
-                        $("#details_view_body").val(task.body);
-                        $("#viewDetails").modal("show");
-                    },
-                    on_date_change: function(task, start, end) {
-                        var rawdate = new Date(start.toISOString());
-                        var realdate = addOneDay(rawdate);
-                        $.ajax({
-                            url: '<?php echo base_url() ?>ganttchart/updateGantt',
-                            method: 'post',
-                            data: {
-                                schedule_id: task.id,
-                                start: start.toISOString(),
-                                end: end.toISOString(),
-                            },
-                            dataType: 'text',
-                            success: function(data) {
-                                console.log(data);
-                                if(data == 'SUCCESS'){
-                                    toastr.success("SCHEDULE UPDATED", data);
-                                }else{
-                                    toastr.error("SCHEDULE UPDATE FAIL", data);
-                                }
-                            },
-                            error: function(jqXHR, exception) {
-                                var msg = '';
-                                if (jqXHR.status === 0) {
-                                    msg = 'Not connect.\n Verify Network.';
-                                } else if (jqXHR.status == 404) {
-                                    msg = 'Requested page not found. [404]';
-                                } else if (jqXHR.status == 500) {
-                                    msg = 'Internal Server Error [500].';
-                                } else if (exception === 'parsererror') {
-                                    msg = 'Requested JSON parse failed.';
-                                } else if (exception === 'timeout') {
-                                    msg = 'Time out error.';
-                                } else if (exception === 'abort') {
-                                    msg = 'Ajax request aborted.';
-                                } else {
-                                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                                }
-                                window.alert(msg);
-                            },
-                        });
-                    },
-                });
-            }
-        });
-    })
-
-    function changeMode(modeSelected) {
-        gantt.change_view_mode(modeSelected);
-    }
-
-    function addOneDay(date = new Date()) {
-        date.setDate(date.getDate() + 1);
-        return date;
-    }
-</script> -->

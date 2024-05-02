@@ -8,11 +8,17 @@ class Welcome extends CI_Controller
 		parent::__construct();
 
 		$this->load->model('Login_model');
+		$this->load->model('User_model');
 	}
 
 	public function index()
 	{
 		$this->load->view('login');
+	}
+
+	public function register()
+	{
+		$this->load->view('register');
 	}
 
 	public function auth()
@@ -58,6 +64,36 @@ class Welcome extends CI_Controller
 			}
 		} else {
 			$this->index();
+		}
+	}
+
+	public function register_user()
+	{
+		if (isset($_POST) && count($_POST) > 0) {
+			$firstname = $this->input->post('first_name');
+			$lastname = $this->input->post('last_name');
+
+			$name = $firstname . ' ' . $lastname;
+
+			$params = array(
+				'username' => $this->input->post('username'),
+				'name' =>  $name,
+				'password' => $this->input->post('password'),
+				'email' => $this->input->post('email'),
+				'role' => 4,
+				'phone' => $this->input->post('phone'),
+				'status' => 'A'
+			);
+			// var_dump($params);
+			// die();
+			$insertId = $this->User_model->addUser($params);
+			if($insertId == null){
+				$this->session->set_flashdata('msg-warning', 'Registration fail');
+				redirect('welcome/register');
+			}else{
+				$this->session->set_flashdata('msg-success', 'Registration Success');
+				redirect('welcome/index');
+			}
 		}
 	}
 

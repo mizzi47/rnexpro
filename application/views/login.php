@@ -8,6 +8,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url() ?>RexinProSoft_logo.jpeg">
   <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url() ?>favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/img/RexinProSoft_logo_16x16.jpeg">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -88,15 +89,15 @@
 
                   <div class="d-grid">
                     <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" name="submit">Login</button>
-                  </div>
-
                 </form>
+                <a class="btn btn-lg btn-secondary btn-login text-uppercase fw-bold mb-2" type="button" href="<?php echo base_url('welcome/register') ?>">Register</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </body>
 <!-- jQuery -->
@@ -107,3 +108,12 @@
 <script src="assets/js/adminlte.min.js"></script>
 
 </html>
+<script>
+  $(document).ready(function() {
+    <?php if ($this->session->flashdata('msg-warning')) : ?>
+      // document.getElementById('notice').play();
+      toastr.warning("<?php echo $this->session->flashdata('msg-warning') ?>", "WARNING");
+    <?php endif; ?>
+  })
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>

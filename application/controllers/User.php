@@ -7,6 +7,10 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->model('User_model');
+        if (!isset($_SESSION['userid'])) {
+			$this->session->set_flashdata('msg-warning', 'Please login');
+            redirect('');
+        }
     }
 
     public function index()
@@ -113,6 +117,18 @@ class User extends CI_Controller
         );
         $this->db->where("id", $id);
         $this->db->update('user', $params);
+        redirect("user/index");
+    }
+
+    public function deleteUser($id)
+    {
+        $active = "B";
+
+        $params = array(
+            'status' => $active
+        );
+        $this->db->where("id", $id);
+        $this->db->delete('user');
         redirect("user/index");
     }
     

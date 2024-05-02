@@ -37,7 +37,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
-                                                    <th>Job Name</th>
+                                                    <th>Project Name</th>
                                                     <th>Client</th>
                                                     <th>Daily Log</th>
                                                 </tr>

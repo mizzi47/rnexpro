@@ -6,21 +6,21 @@
     </div>
     <div class="card-body">
         <div class="form-group row">
-            <div class="col-lg-3">
-                <label class="col-sm-12 col-form-label">Job Name <font color="red">*</font></label>
+            <div class="col-lg-8">
+                <label class="col-sm-12 col-form-label">Project Name <font color="red">*</font></label>
                 <div class="col-sm-12">
                     <input type="text" name="job_name" class="form-control" value="<?php echo $kerja['job_name'] ?>"
                         required>
                 </div>
             </div>
-            <div class="col-lg-3">
+            <!-- <div class="col-lg-3">
                 <label class="col-sm-12 col-form-label">Job Prefix</label>
                 <div class="col-sm-12">
                     <input type="text" name="job_prefix" value="<?php echo $kerja['job_prefix'] ?>"
                         class="form-control">
                 </div>
-            </div>
-            <div class="col-lg-6">
+            </div> -->
+            <div class="col-lg-4">
                 <label class="col-sm-12 col-form-label">Status</label>
                 <div class="col-sm-12">
                     <select class="form-control" name="status">
@@ -32,14 +32,14 @@
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <label class="col-sm-12 col-form-label">Job Type <font color="red">*</font></label>
                 <div class="col-sm-12">
                     <input type="text" name="type" value="<?php echo $kerja['job_type'] ?>" class="form-control"
                         required>
                 </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <label class="col-sm-12 col-form-label">Contract Price</label>
                 <div class="col-sm-12">
                     <input type="number" step="0.01" name="price" value="<?php echo $kerja['contract'] ?>"
@@ -48,13 +48,13 @@
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-lg-6">
+            <!-- <div class="col-lg-6">
                 <label class="col-sm-12 col-form-label">Job Group</label>
                 <div class="col-sm-12">
                     <input type="text" name="group" value="<?php echo $kerja['job_group'] ?>" class="form-control">
                 </div>
-            </div>
-            <div class="col-lg-6">
+            </div> -->
+            <div class="col-lg-4">
                 <label class="col-sm-12 col-form-label">Project Managers</label>
                 <div class="col-sm-12">
                     <select name="manager" class="form-control">
@@ -108,7 +108,6 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <br>
             <label class="col-sm-12 col-form-label">Square Meters</label>
             <div class="col-sm-12">
                 <input type="text" name="meters" value="<?php echo $kerja['meters'] ?>" class="form-control">

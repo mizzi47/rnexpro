@@ -116,7 +116,7 @@
                                       <thead>
                                           <tr>
                                               <th>No</th>
-                                              <th>Job Name</th>
+                                              <th>Project Name</th>
                                               <th>Updated By</th>
                                               <th>Date</th>
                                               <th>Date Created</th>
@@ -133,7 +133,7 @@
                                                   <td><?php echo $dl['logdate'] ?></td>
                                                   <td><?php echo $dl['logdate_created'] ?></td>
                                                   <td>
-                                                      <button id="<?php echo $dl['dailylog_id'] ?>" title="View Attachments" onclick="window.location.href = '<?php echo site_url('dailylog/attachment/') ?><?php echo $dl['job_id']?>/<?php echo $dl['dailylog_id']?>'" type="button" class="btn btn-sm btn-info"><i class="fa fa-eye"></i> View Details</button>
+                                                      <button id="<?php echo $dl['dailylog_id'] ?>" title="View Details" onclick="window.location.href = '<?php echo site_url('dailylog/view/') ?><?php echo $dl['job_id']?>/<?php echo $dl['dailylog_id']?>'" type="button" class="btn btn-sm btn-info"><i class="fa fa-eye"></i> View Details</button>
                                                   </td>
                                               </tr>
                                           <?php $count++;

@@ -6,7 +6,7 @@
         <div class="card-body">
             <table>
                 <tr>
-                    <td>Job Name</td>
+                    <td>Project Name</td>
                     <td></td>
                     <td>:</td>
                     <td></td>

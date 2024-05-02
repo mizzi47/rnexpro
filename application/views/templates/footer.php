@@ -51,7 +51,6 @@
 <script src="<?php echo site_url('node_modules/pizzip/') ?>dist/pizzip-utils.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
 <script>
-
     var list_scope = [
         'Wet Work',
         'Ceiling',
@@ -165,62 +164,12 @@
                 },
                 dataType: 'text',
                 success: function(response) {
-                    window.location.href = "<?php echo base_url() ?>dailylog/dailylog_index/"+job_id+"";
+                    window.location.href = "<?php echo base_url() ?>dailylog/dailylog_index/" + job_id + "";
                 }
             });
         }
     }
-
-    Dropzone.options.uploadForm = { // The camelized version of the ID of the form element
-        addRemoveLinks: true,
-        acceptedFiles: 'image/*',
-        autoProcessQueue: false,
-        uploadMultiple: true,
-        parallelUploads: 100,
-        maxFiles: 100,
-        paramName: "file",
-        accept: function(file, done) {
-            if (file.name == "1356237.jpg") {
-                done("Naha, you don't.");
-            } else {
-                done();
-            }
-        },
-        // The setting up of the dropzone
-        init: function() {
-
-            var myDropzone = this;
-
-            // First change the button to actually tell Dropzone to process the queue.
-            this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
-                // if ($('#uploadForm').valid()) {
-
-                    e.preventDefault();
-
-                    e.stopPropagation();
-
-                    myDropzone.processQueue();
-
-                // }
-
-            });
-
-            // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
-            // of the sending event because uploadMultiple is set to true.
-            this.on("sendingmultiple", function() {
-                // Gets triggered when the form is actually being sent.
-                // Hide the success button or the complete form.
-            });
-            this.on("successmultiple", function(files, response) {
-                window.location.href = '<?php echo site_url('dailylog/dailylog_index/')?>'+response+'';
-            });
-            this.on("errormultiple", function(files, response) {
-                // Gets triggered when there was an error sending the files.
-                // Maybe show form again, and notify user of error
-            });
-        }
-
-    }
+   
     Dropzone.options.uploadFormExisting = { // The camelized version of the ID of the form element
         addRemoveLinks: true,
         acceptedFiles: 'image/*',
@@ -232,14 +181,14 @@
         init: function() {
             var myDropzone = this;
             this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    myDropzone.processQueue();
+                e.preventDefault();
+                e.stopPropagation();
+                myDropzone.processQueue();
 
             });
             this.on("successmultiple", function(files, response) {
                 var callback = JSON.parse(response);
-                window.location.href = '<?php echo site_url('dailylog/attachment/')?>'+callback['job_id']+'/'+callback['dailylog_id']+'';
+                window.location.href = '<?php echo site_url('dailylog/attachment/') ?>' + callback['job_id'] + '/' + callback['dailylog_id'] + '';
             });
         }
 
@@ -373,7 +322,7 @@
             ],
 
         });
-        
+
         function onloadPageDailyLog() {
             $("body").addClass("loading");
             $("#btn_show_dailyLogAddModal").prop("disabled", false);
@@ -401,13 +350,13 @@
                         job_name = item['job_name'];
                         var actionButton = '<button id="' + job_id +
                             '" title="View Daily Log" onclick="window.location.href=\'<?php echo base_url('dailylog/dailylog_index') ?>/' + job_id + '\'" type="button" class="btn btn-sm btn-info"><i class="fa fa-file"></i>&nbsp View Daily Logs</button>&nbsp';
-                            var changeorderButton = '<button id="' + job_id +
+                        var changeorderButton = '<button id="' + job_id +
                             '" title="Change Order" onclick="window.location.href=\'<?php echo base_url('changeorder/index') ?>/' + job_id + '\'" type="button" class="btn btn-sm btn-warning"><i class="fa fa-file"></i>&nbsp Change Order</button>&nbsp';
-                            var tempobj = {
+                        var tempobj = {
                             No: count,
                             Job_name: item['job_name'],
                             Client: item['owner'],
-                            Action: actionButton+changeorderButton,
+                            Action: actionButton + changeorderButton,
                         }
                         table_list_job.row.add(tempobj).draw();
                     })

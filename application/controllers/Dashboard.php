@@ -8,6 +8,10 @@ class Dashboard extends CI_Controller
 		parent::__construct();
 		$this->db->save_queries = false;
 		$this->load->model('Dashboard_model');
+		if (!isset($_SESSION['userid'])) {
+			$this->session->set_flashdata('msg-warning', 'Please login');
+            redirect('');
+        }
 	}
 
 	public function index()

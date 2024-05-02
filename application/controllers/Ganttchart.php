@@ -9,10 +9,14 @@ class Ganttchart extends CI_Controller
         $this->load->model('Schedule_model');
         $this->load->model('Job_model');
         $this->load->library('session');
+        if (!isset($_SESSION['userid'])) {
+            $this->session->set_flashdata('msg-warning', 'Please login');
+            redirect('');
+        }
     }
     public function index()
     {
-        $data['job'] = $this->Job_model->getJob();
+        $data['job'] = $this->Job_model->getJobsInprogress();
         $this->load->view('templates/header');
         $this->load->view('templates/navbar');
         $this->load->view('templates/sidebar');
@@ -23,11 +27,18 @@ class Ganttchart extends CI_Controller
     public function view_gantt($job_id)
     {
         $data['job_id'] = $job_id;
-        $this->load->view('templates/header');
-        $this->load->view('templates/navbar');
-        $this->load->view('templates/sidebar');
-        $this->load->view('ganttchart/ganttchart', $data);
-        $this->load->view('templates/footer');
+        $data['selected_job'] = $this->Job_model->getJob($job_id);
+        $data['checkScheduleIfExist'] = $this->Schedule_model->checkScheduleIfExist($job_id);
+        if (count($data['checkScheduleIfExist']) == 0) {
+            $this->session->set_flashdata('msg-warning', 'No schedule found, please insert at least one');
+            redirect('ganttchart');
+        } else {
+            $this->load->view('templates/header');
+            $this->load->view('templates/navbar');
+            $this->load->view('templates/sidebar');
+            $this->load->view('ganttchart/ganttchart', $data);
+            $this->load->view('templates/footer');
+        }
     }
 
     public function view_gantt_download($job_id)
@@ -45,7 +56,7 @@ class Ganttchart extends CI_Controller
         $taskdom->load(base_url() . '/assets/task_template.xml');
         $task = $taskdom->getElementsByTagName('Task')[0];
         $count = 1;
-        foreach($dataschedule as $ds){
+        foreach ($dataschedule as $ds) {
             $task->getElementsByTagName('UID')[0]->nodeValue = $count;
             $task->getElementsByTagName('ID')[0]->nodeValue = $count;
             $task->getElementsByTagName('Name')[0]->nodeValue = $ds['title'];
@@ -56,7 +67,7 @@ class Ganttchart extends CI_Controller
             $date2 = strtotime($ds['end']);
             $diff = $date2 - $date1;
             $days = floor($diff / (60 * 60 * 24));
-            $task->getElementsByTagName('Duration')[0]->nodeValue = 'PT'. $days * 8 . 'H0M0S';
+            $task->getElementsByTagName('Duration')[0]->nodeValue = 'PT' . $days * 8 . 'H0M0S';
             $tasks->appendChild($dom->importNode($task, true));
             $count++;
         }

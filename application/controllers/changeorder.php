@@ -4,21 +4,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Changeorder extends CI_Controller
 {
     function __construct()
-	{
-		parent::__construct();
-		$this->load->model('Changeorder_model', 'model');
+    {
+        parent::__construct();
+        $this->load->model('Changeorder_model', 'model');
         $this->load->model('Job_model', 'Job_model');
         $this->load->library('session');
-	}
+        if (!isset($_SESSION['userid'])) {
+            $this->session->set_flashdata('msg-warning', 'Please login');
+            redirect('');
+        }
+    }
     public function index()
     {
         $data['job_id'] = (int) $this->uri->segment(3);
         $data['jobs'] = $this->Job_model->getJobs($this->uri->segment(3));
         $this->load->view('templates/header');
-		$this->load->view('templates/navbar');
-		$this->load->view('templates/sidebar');
-		$this->load->view('changeorder/index', $data);
-		$this->load->view('templates/footer');
+        $this->load->view('templates/navbar');
+        $this->load->view('templates/sidebar');
+        $this->load->view('changeorder/index', $data);
+        $this->load->view('templates/footer');
     }
 
     public function co_add_index()
@@ -26,10 +30,10 @@ class Changeorder extends CI_Controller
         $data['job_id'] = (int) $this->uri->segment(3);
         $data['jobs'] = $this->Job_model->getJobs($this->uri->segment(3));
         $this->load->view('templates/header');
-		$this->load->view('templates/navbar');
-		$this->load->view('templates/sidebar');
-		$this->load->view('changeorder/co_add_index', $data);
-		$this->load->view('templates/footer');
+        $this->load->view('templates/navbar');
+        $this->load->view('templates/sidebar');
+        $this->load->view('changeorder/co_add_index', $data);
+        $this->load->view('templates/footer');
     }
 
     public function getCo()

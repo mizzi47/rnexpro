@@ -24,12 +24,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Jobs</h1>
+                    <h1 class="m-0 text-dark">Project</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="#">Jobs</a></li>
+                        <li class="breadcrumb-item"><a href="#">Project</a></li>
                         <li class="breadcrumb-item active">View Jobs</li>
                     </ol>
                 </div><!-- /.col -->
@@ -46,7 +46,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Jobs</h3>
+                            <h3 class="card-title">Project</h3>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive table-bordered">
@@ -54,7 +54,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Job Name</th>
+                                            <th>Project Name</th>
                                             <th>Job Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -76,7 +76,7 @@
                                                 </td>
                                                 <td>
                                                     <a href="<?php echo base_url('ganttchart/view_gantt') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-info"></i>Gantt Chart</a>
-                                                    <a href="<?php echo base_url('ganttchart/downloadtimeline') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-warning"></i>Download Timeline</a>
+                                                    <a href="<?php echo base_url('ganttchart/view_gantt_download') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-warning"></i>Download Timeline</a>
                                                 </td>
                                             </tr>
                                         <?php } ?>

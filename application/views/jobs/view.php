@@ -11,6 +11,18 @@
         }
     };
 
+    function incomingThisJob(ids) {
+        if (confirm('You want to set this job status to incoming?')) {
+            window.location = "<?php echo base_url(); ?>/jobs/incoming/" + ids;
+        }
+    };
+
+    function completeThisJob(ids) {
+        if (confirm('You want to complete this job ?')) {
+            window.location = "<?php echo base_url(); ?>/jobs/complete/" + ids;
+        }
+    };
+
     function deleteThisJob(ids) {
         if (confirm('You want to delete this job ?')) {
             window.location = "<?php echo base_url(); ?>/jobs/delete/" + ids;
@@ -24,12 +36,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Jobs</h1>
+                    <h1 class="m-0 text-dark">Project</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="#">Jobs</a></li>
+                        <li class="breadcrumb-item"><a href="#">Project</a></li>
                         <li class="breadcrumb-item active">View Jobs</li>
                     </ol>
                 </div><!-- /.col -->
@@ -46,7 +58,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Jobs</h3>
+                            <h3 class="card-title">Project</h3>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive table-bordered">
@@ -54,13 +66,12 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Job Name</th>
+                                            <th>Project Name</th>
                                             <th>Job Type</th>
                                             <th>Owner</th>
                                             <th>Status</th>
-                                            <th>Internal User</th>
+                                            <th>Project In Charge</th>
                                             <th>Action</th>
-                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -72,13 +83,42 @@
                                                 <td><?php echo $kerja['job_type'] ?></td>
                                                 <td style="text-transform: capitalize;"><?php echo $kerja['owner'] ?></td>
                                                 <td>
-                                                    <?php if ($kerja['status'] == 'In-progress') { ?>
-                                                        <span class="badge badge-primary"><?php echo $kerja['status'] ?></span>
-                                                    <?php } else if ($kerja['status'] == 'Incoming') { ?>
-                                                        <span class="badge badge-warning"><?php echo $kerja['status'] ?></span>
-                                                    <?php } else if ($kerja['status'] == 'Completed') { ?>
-                                                        <span class="badge badge-success"><?php echo $kerja['status'] ?></span>
-                                                    <?php } ?>
+                                                    <div class="btn-group">
+                                                        <?php if ($kerja['status'] == 'In-progress') { ?>
+                                                            <button type="button" class="btn btn-primary" disabled><?php echo $kerja['status'] ?></button>
+                                                            <div class="btn-group">
+                                                                <button type="button" class="btn btn-primary dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/incoming/') . $kerja['job_id'] ?>">Incoming</a>
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/open/') . $kerja['job_id'] ?>">In-progress</a>
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/completed/') . $kerja['job_id'] ?>">Completed</a>
+                                                                </div>
+                                                            </div>
+                                                        <?php } else if ($kerja['status'] == 'Incoming') { ?>
+                                                            <button type="button" class="btn btn-warning" disabled><?php echo $kerja['status'] ?></button>
+                                                            <div class="btn-group">
+                                                                <button type="button" class="btn btn-warning dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/incoming/') . $kerja['job_id'] ?>">Incoming</a>
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/open/') . $kerja['job_id'] ?>">In-progress</a>
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/completed/') . $kerja['job_id'] ?>">Completed</a>
+                                                                </div>
+                                                            </div>
+                                                        <?php } else if ($kerja['status'] == 'Completed') { ?>
+                                                            <button type="button" class="btn btn-success" disabled><?php echo $kerja['status'] ?></button>
+                                                            <div class="btn-group">
+                                                                <button type="button" class="btn btn-success dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/incoming/') . $kerja['job_id'] ?>">Incoming</a>
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/open/') . $kerja['job_id'] ?>">In-progress</a>
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/completed/') . $kerja['job_id'] ?>">Completed</a>
+                                                                </div>
+                                                            </div>
+                                                        <?php } ?>
+                                                    </div>
                                                 </td>
                                                 <td style="text-transform: capitalize;">
                                                     <?php
@@ -91,25 +131,20 @@
                                                     ?>
                                                 </td>
                                                 <td>
+                                                    <a href="<?php echo base_url('jobs/summary') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-info"></i>View</a>
                                                     <?php if ($kerja['status'] == "In-progress") { ?>
-                                                        <a href="<?php echo base_url('jobs/summary') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-info"></i>View</a>
+
                                                         <a href="<?php echo base_url('jobs/update_job_index') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                        <button class="btn btn-sm btn-success" onclick="closeThisJob(<?php echo $kerja['job_id'] ?>)">Complete</button>
-                                                        <button type="button" data-id="<?php echo $kerja['job_id'] ?>" class="btn_setcolor btn-sm btn btn-primary" data-toggle="modal" data-target="#setcolormodal">Set Schedule Color</button>
+                                                        <!-- <button type="button" data-id="<?php echo $kerja['job_id'] ?>" class="btn_setcolor btn-sm btn btn-primary" data-toggle="modal" data-target="#setcolormodal">Set Schedule Color</button> -->
 
                                                     <?php } else if ($kerja['status'] == "Incoming") { ?>
-                                                        <a href="<?php echo base_url('jobs/summary') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-info">View</a>
+
                                                         <a href="<?php echo base_url('jobs/update_job_index') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-warning">Edit</a>
-                                                        <button class="btn btn-sm btn-primary" onclick="openThisJob(<?php echo $kerja['job_id'] ?>)">Open</button>
-                                                        <button type="button" data-id="<?php echo $kerja['job_id'] ?>" class="btn_setcolor btn-sm btn btn-primary" data-toggle="modal" data-target="#setcolormodal">Set Schedule Color</button>
+                                                        <!-- <button type="button" data-id="<?php echo $kerja['job_id'] ?>" class="btn_setcolor btn-sm btn btn-primary" data-toggle="modal" data-target="#setcolormodal">Set Schedule Color</button> -->
 
                                                     <?php } else { ?>
-                                                        <a href="<?php echo base_url('jobs/summary') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-info">View</a>
-                                                        <button class="btn btn-sm btn-primary" onclick="openThisJob(<?php echo $kerja['job_id'] ?>)">Open</button>
-                                                        <button type="button" data-id="<?php echo $kerja['job_id'] ?>" class="btn_setcolor btn-sm btn btn-primary" data-toggle="modal" data-target="#setcolormodal">Set Schedule Color</button>
+                                                        <!-- <button type="button" data-id="<?php echo $kerja['job_id'] ?>" class="btn_setcolor btn-sm btn btn-primary" data-toggle="modal" data-target="#setcolormodal">Set Schedule Color</button> -->
                                                     <?php } ?>
-                                                </td>
-                                                <td>
                                                     <button class="btn btn-sm btn-danger" onclick="deleteThisJob(<?php echo $kerja['job_id'] ?>)">Delete</button>
                                                 </td>
                                             </tr>
@@ -144,8 +179,11 @@
                 },
                 dataType: 'text',
                 success: function(data) {
-                    if(data){
-                        window.location.href = '<?php echo base_url() ?>jobs/view';
+                    arrData = JSON.parse(data)
+                    console.log(arrData);
+                    if(arrData == 'true'){
+                        $('#setcolormodal').modal('hide');
+                        toastr.success("Set Color Schedule Success", "SUCCESS");
                     }
                 },
                 error: function(data) {

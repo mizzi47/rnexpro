@@ -8,6 +8,10 @@ class Dailylog extends CI_Controller
 		parent::__construct();
 		$this->load->model('Dashboard_model');
 		$this->load->library('upload');
+		if (!isset($_SESSION['userid'])) {
+			$this->session->set_flashdata('msg-warning', 'Please login');
+			redirect('');
+		}
 	}
 
 	public function index()
@@ -22,6 +26,7 @@ class Dailylog extends CI_Controller
 
 	public function attachment($job_id, $dailylog_id)
 	{
+		$data['getJobName']  = $this->Dashboard_model->getJobName();
 		$this->db->where('dailylog_id', (int) $dailylog_id);
 		$data['dailylog'] = $this->db->get('dailylog')->result_array();
 		$this->db->where('dailylog_id', (int) $dailylog_id);
@@ -73,7 +78,7 @@ class Dailylog extends CI_Controller
 
 	function addDailyLog_Web()
 	{
-		$user_id = $this->input->cookie('userid');
+		$user_id = $_SESSION['userid'];
 		$job_id = (int) $this->uri->segment(3);
 		$params = array(
 			"logdate" => $_POST['logdate'],
@@ -81,51 +86,63 @@ class Dailylog extends CI_Controller
 			"update" => $_POST['update'],
 			"pending" => $_POST['pending'],
 			"issue" => $_POST['issue'],
-			"info" => $_POST['info'],
+			// "info" => $_POST['info'],
 			"scope" => implode("|", $_POST['scope']),
 			"job_id" => $job_id,
-			"user_id" => 13,
+			"user_id" => $user_id ,
 		);
 		$this->db->trans_start();
 		$this->db->insert('dailylog', $params);
 		$dailylog_id = $this->db->insert_id();
-		$params = array(
-			"description_name" => $_POST['description'],
-			"dailylog_id" => $dailylog_id,
-		);
-		$this->db->insert('dailylog_files_description', $params);
-		$inserted_id = $this->db->insert_id();
-		$ds = DIRECTORY_SEPARATOR;
-		$storeFolder = './uploads';
-		if (!empty($_FILES)) {
-			for ($i = 0; $i < count($_FILES['file']['tmp_name']); $i++) {
-				$newFileName = 'FDL' . $dailylog_id . '_' . $inserted_id . '_' . $_FILES['file']['name'][$i];
-				$tempFile = $_FILES['file']['tmp_name'][$i];
+		// $params = array(
+		// 	"description_name" => $_POST['description'],
+		// 	"dailylog_id" => $dailylog_id,
+		// );
+		// $this->db->insert('dailylog_files_description', $params);
+		// $inserted_id = $this->db->insert_id();
+		// $ds = DIRECTORY_SEPARATOR;
+		// $storeFolder = './uploads';
+		// if (!empty($_FILES)) {
+		// 	for ($i = 0; $i < count($_FILES['file']['tmp_name']); $i++) {
+		// 		$newFileName = 'FDL' . $dailylog_id . '_' . $inserted_id . '_' . $_FILES['file']['name'][$i];
+		// 		$tempFile = $_FILES['file']['tmp_name'][$i];
 
-				$targetPath = $storeFolder . $ds;
+		// 		$targetPath = $storeFolder . $ds;
 
-				$targetFile =  $targetPath . $newFileName;
+		// 		$targetFile =  $targetPath . $newFileName;
 
-				move_uploaded_file($tempFile, $targetFile);
-				$params = array(
-					"file_name" => $newFileName,
-					"file_extension" => $_FILES['file']['type'][$i],
-					"dailylog_id" => $dailylog_id,
-					"description_id" => $inserted_id,
-				);
-				$this->db->insert('dailylog_files', $params);
-			};
-		}
+		// 		move_uploaded_file($tempFile, $targetFile);
+		// 		$params = array(
+		// 			"file_name" => $newFileName,
+		// 			"file_extension" => $_FILES['file']['type'][$i],
+		// 			"dailylog_id" => $dailylog_id,
+		// 			"description_id" => $inserted_id,
+		// 		);
+		// 		$this->db->insert('dailylog_files', $params);
+		// 	};
+		// }
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE) {
 			$this->db->trans_rollback();
 			$this->session->set_flashdata('msg-fail-add', 'Daily log update failed.');
-			echo $job_id;
+			$arrResponse = array(
+				'status' => 'false',
+				'job_id' => $job_id,
+			);
+			redirect('dailylog/dailylog_index/' . $job_id);
+			echo json_encode($arrResponse);
 			//redirect('dailylog/dailylog_index/' . $job_id);
 		} else {
 			$this->db->trans_commit();
 			$this->session->set_flashdata('msg-success-add', 'Daily log has been updated.');
-			echo $job_id;
+
+			$arrResponse = array(
+				'status' => 'true',
+				'job_id' => $job_id,
+				'dailylog_id' => $dailylog_id
+			);
+			redirect('dailylog/attachment/' . $job_id . '/' . $dailylog_id);
+			echo json_encode($arrResponse);
 			//redirect('dailylog/dailylog_index/' . $job_id);
 		}
 	}
@@ -217,14 +234,14 @@ class Dailylog extends CI_Controller
 			$this->session->set_flashdata('msg-success-add', 'Attachment has been updated.');
 			$paramsResponse = array(
 				"dailylog_id" => $dailylog_id,
-					"job_id" => $job_id,
+				"job_id" => $job_id,
 			);
 			echo json_encode($paramsResponse);
 		} else {
 			$this->session->set_flashdata('msg-fail-add', 'Attachment update failed.');
 			$paramsResponse = array(
 				"dailylog_id" => $dailylog_id,
-					"job_id" => $job_id,
+				"job_id" => $job_id,
 			);
 			echo json_encode($paramsResponse);
 		}
@@ -341,5 +358,67 @@ class Dailylog extends CI_Controller
 		$this->load->view('templates/sidebar');
 		$this->load->view('dailylog/dailylog_add_index', $data);
 		$this->load->view('templates/footer');
+	}
+
+	function deleteImage($job_id, $dailylog_id, $id)
+	{
+		$this->db->where("dailylog_files_id", $id);
+		$this->db->delete('dailylog_files');
+		$this->session->set_flashdata('msg-success-add', 'Image successfully deleted.');
+		redirect("dailylog/attachment" . '/' . $job_id . '/' . $dailylog_id);
+	}
+
+	function addNewImageToCurrentDescription()
+	{
+		$ds = DIRECTORY_SEPARATOR;
+		$dailylog_id = $_POST['dailylog_id'];
+		$job_id = $_POST['job_id'];
+		$inserted_id = $_POST['dfId'];
+		$storeFolder = './uploads';
+		if (!empty($_FILES)) {
+			for ($i = 0; $i < count($_FILES['file']['tmp_name']); $i++) {
+				$newFileName = 'FDL' . $dailylog_id . '_' . $inserted_id . '_' . $_FILES['file']['name'][$i];
+				$tempFile = $_FILES['file']['tmp_name'][$i];
+
+				$targetPath = $storeFolder . $ds;
+
+				$targetFile =  $targetPath . $newFileName;
+
+				move_uploaded_file($tempFile, $targetFile);
+				$params = array(
+					"file_name" => $newFileName,
+					"file_extension" => $_FILES['file']['type'][$i],
+					"dailylog_id" => $dailylog_id,
+					"description_id" => $inserted_id,
+				);
+				$this->db->insert('dailylog_files', $params);
+			}
+			$this->session->set_flashdata('msg-success-add', 'Attachment has been updated.');
+			$paramsResponse = array(
+				"dailylog_id" => $dailylog_id,
+				"job_id" => $job_id,
+			);
+			echo json_encode($paramsResponse);
+		} else {
+			$this->session->set_flashdata('msg-fail-add', 'Attachment update failed.');
+			$paramsResponse = array(
+				"dailylog_id" => $dailylog_id,
+				"job_id" => $job_id,
+			);
+			echo json_encode($paramsResponse);
+		}
+	}
+
+	public function editDailyLogDetails()
+	{
+		$params = array(
+			'update' => $_POST['update'],
+			'issue' => $_POST['issue'],
+			'pending' => $_POST['pending']
+		);
+		$this->db->where("dailylog_id", (int) $_POST['dailylog_id']);
+		$this->db->update('dailylog', $params);
+		$this->session->set_flashdata('msg-success-add', 'Daily log details updated.');
+		redirect('dailylog/attachment/' . $_POST['job_id'] . '/' . $_POST['dailylog_id']);
 	}
 }

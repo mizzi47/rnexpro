@@ -51,19 +51,19 @@
                       <a href="" class="nav-link">
                           <i class="nav-icon fas fa-pencil-alt"></i>
                           <p>
-                              Jobs
+                              Projects
                               <i class="fas fa-angle-left right"></i>
                           </p>
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
                               <a href="<?php echo base_url('jobs') ?>" class="nav-link">
-                                  <p>Create Jobs</p>
+                                  <p>Create Projects</p>
                               </a>
                           </li>
                           <li class="nav-item">
                               <a href="<?php echo base_url('jobs/view')?>" class="nav-link">
-                                  <p>View Jobs</p>
+                                  <p>View Projects</p>
                               </a>
                           </li>
                       </ul>

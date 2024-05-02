@@ -1,14 +1,21 @@
 <script>
-function removeThisUser(ids) {
-    if (confirm('You want to deactivate this user ?')) {
-        window.location = "<?php echo base_url(); ?>/user/removeUser/" + ids;
-    }
-};
+    function removeThisUser(ids) {
+        if (confirm('You want to deactivate this user ?')) {
+            window.location = "<?php echo base_url(); ?>/user/removeUser/" + ids;
+        }
+    };
 </script>
 <script>
     function activeThisUser(ids) {
         if (confirm('You want to activate this user ?')) {
             window.location = "<?php echo base_url(); ?>/user/activeUser/" + ids;
+        }
+    };
+</script>
+<script>
+    function deleteThisUser(ids) {
+        if (confirm('You want to permanently delete this user ?')) {
+            window.location = "<?php echo base_url(); ?>/user/deleteUser/" + ids;
         }
     };
 </script>
@@ -19,13 +26,13 @@ function removeThisUser(ids) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Internal User</h1>
+                    <h1 class="m-0 text-dark">Project In Charge</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="#">User Management</a></li>
-                        <li class="breadcrumb-item active">Internal User</li>
+                        <li class="breadcrumb-item active">Project In Charge</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -41,7 +48,7 @@ function removeThisUser(ids) {
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Internal User</h3>
+                            <h3 class="card-title">Project In Charge</h3>
                             <div class="card-tools">
                                 <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i> Add User</button>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -49,9 +56,8 @@ function removeThisUser(ids) {
                                         <div class="modal-content">
                                             <?php echo form_open('user/addUser'); ?>
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Internal User</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
+                                                <h5 class="modal-title" id="exampleModalLabel">Project In Charge</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
@@ -71,22 +77,19 @@ function removeThisUser(ids) {
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>First Name :<font color="red">&ensp;*</font></label>
-                                                            <input type="text"
-                                                                name="first_name" class="form-control" required>
+                                                            <input type="text" name="first_name" class="form-control" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Last Name :<font color="red">&ensp;*</font></label>
-                                                            <input type="text"
-                                                                name="last_name" class="form-control" required>
+                                                            <input type="text" name="last_name" class="form-control" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Username :<font color="red">&ensp;*</font></label>
-                                                            <input type="text" name="username" class="form-control"
-                                                                required>
+                                                            <input type="text" name="username" class="form-control" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -98,15 +101,13 @@ function removeThisUser(ids) {
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Email :</label>
-                                                            <input type="email" name="email" class="form-control"
-                                                                required>
+                                                            <input type="email" name="email" class="form-control" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Phone Number :</label>
-                                                            <input type="text" name="phone" class="form-control"
-                                                                required>
+                                                            <input type="text" name="phone" class="form-control" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -114,17 +115,20 @@ function removeThisUser(ids) {
                                                             <label>Roles :<font color="red">&ensp;*</font></label>
                                                             <select class="form-control select2" name="roles" required>
                                                                 <option>Choose Roles</option>
-                                                                <option value="1">Project Manager / Admin</option>
-                                                                <option value="2">Project Coordinator</option>
-                                                                <option value="3">Project Executive</option>
+                                                                <option value="1">Project Manager / Admin HQ</option>
+                                                                <option value="2">Project Coordinator HQ</option>
+                                                                <option value="3">Project Executive HQ</option>
+                                                                <option value="4">Admin</option>
+                                                                <option value="5">Project Coordinator</option>
+                                                                <option value="6">Project Executive</option>
+                                                                <option value="99">Superadmin</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger"
-                                                    data-dismiss="modal">Cancel</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                                                 <button type="submit" class="btn btn-success">Save</button>
                                             </div>
                                             <?php echo form_close(); ?>
@@ -153,13 +157,13 @@ function removeThisUser(ids) {
                                             <td style="width: 50px"><?php echo $i++; ?></td>
                                             <td><?php echo $user['name'] ?></td>
                                             <td>
-                                                <?php if($user['role'] == 1){
+                                                <?php if ($user['role'] == 1) {
                                                     echo 'Project Manager / Admin';
-                                                } else if($user['role'] == 2){
+                                                } else if ($user['role'] == 2) {
                                                     echo 'Project Coordinator';
                                                 } else {
                                                     echo 'Project Executive';
-                                                }?>
+                                                } ?>
                                             </td>
                                             <td><?php echo $user['email'] ?></td>
                                             <td>
@@ -176,9 +180,9 @@ function removeThisUser(ids) {
                                                     <div class="modal-dialog modal-lg" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Edit Internal User</h5>
+                                                                <h5 class="modal-title" id="exampleModalLabel">Edit Project In Charge</h5>
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
+                                                                    <span aria-hidden="true">&times;</span>
                                                             </div>
                                                             <?php echo form_open('user/editUser') ?>
                                                             <?php $name_parts = explode(" ", $user['name']);
@@ -190,8 +194,8 @@ function removeThisUser(ids) {
                                                                         <div class="form-group">
                                                                             <label>User Status :</label>
                                                                             <div class="col-sm-12">
-                                                                                <input type='radio' name='status' value="A" required <?=($user['status'] == "A")?"checked" :""; ?> > Active <br>
-                                                                                <input type='radio' name='status' value="B" required <?=($user['status'] == "B")?"checked" :""; ?>> Inactive
+                                                                                <input type='radio' name='status' value="A" required <?= ($user['status'] == "A") ? "checked" : ""; ?>> Active <br>
+                                                                                <input type='radio' name='status' value="B" required <?= ($user['status'] == "B") ? "checked" : ""; ?>> Inactive
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -236,9 +240,13 @@ function removeThisUser(ids) {
                                                                             <label>Roles :<font color="red">&ensp;*</font></label>
                                                                             <select class="form-control select2" name="roles" required>
                                                                                 <option>Choose Roles</option>
-                                                                                <option value="1">Project Manager / Admin</option>
-                                                                                <option value="2">Project Coordinator</option>
-                                                                                <option value="3">Project Executive</option>
+                                                                                <option value="1">Project Manager / Admin HQ</option>
+                                                                                <option value="2">Project Coordinator HQ</option>
+                                                                                <option value="3">Project Executive HQ</option>
+                                                                                <option value="4">Admin</option>
+                                                                                <option value="5">Project Coordinator</option>
+                                                                                <option value="6">Project Executive</option>
+                                                                                <option value="99">Superadmin</option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -253,8 +261,9 @@ function removeThisUser(ids) {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <?php if($user['status'] == "A"){ ?>
-                                                    <button class="btn btn-sm btn-danger" onclick="removeThisUser(<?php echo $user['id'] ?>)"><i class="fas fa-user-slash"></i> Disable</button>
+                                                <?php if ($user['status'] == "A") { ?>
+                                                    <button class="btn btn-sm btn-warning" onclick="removeThisUser(<?php echo $user['id'] ?>)"><i class="fas fa-user-slash"></i> Disable</button>
+                                                    <button class="btn btn-sm btn-danger" onclick="deleteThisUser(<?php echo $user['id'] ?>)"><i class="fas fa-trash"></i> Delete</button>
                                                 <?php } else { ?>
                                                     <button class="btn btn-sm btn-primary" onclick="activeThisUser(<?php echo $user['id'] ?>)"><i class="fas fa-user-check"></i> Enable</button>
                                                 <?php } ?>

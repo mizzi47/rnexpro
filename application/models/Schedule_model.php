@@ -19,6 +19,13 @@ class Schedule_model extends CI_Model
         return $this->db->get('schedule')->result_array();
     }
 
+    function checkScheduleIfExist($job_id)
+    {
+        $this->db->select('schedule_id');
+        $this->db->where('job_id', $job_id);
+        return $this->db->get('schedule')->result_array();
+    }
+
     function addSchedule($data, $selected_job_id)
     {
         $this->db->where('job_id', (int)$selected_job_id);

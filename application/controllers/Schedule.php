@@ -8,10 +8,14 @@ class Schedule extends CI_Controller
 		parent::__construct();
 		$this->load->model('Schedule_model');
         $this->load->library('session');
+        if (!isset($_SESSION['userid'])) {
+			$this->session->set_flashdata('msg-warning', 'Please login');
+            redirect('');
+        }
 	}
     public function index()
     {
-        $data['job'] = $this->db->get('job')->result_array();
+        $data['job'] = $this->db->where('status', 'In-progress')->get('job')->result_array();
         $this->load->view('templates/header');
 		$this->load->view('templates/navbar');
 		$this->load->view('templates/sidebar');

@@ -24,7 +24,7 @@
                                 <div class="card-header">
                                     <div class="d-flex flex-row">
                                         <div class="p-2">
-                                            <h5 id="job_name_label">JOB NAME :</h5>
+                                            <h5 id="job_name_label">Project Name :</h5>
                                         </div>
                                         <div class="p-2">
                                             <h5 id="job_name_display"><?php echo $getJobName[$job_id] ?></h5>

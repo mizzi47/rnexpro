@@ -58,7 +58,9 @@
     }
 
     $(document).ready(function() {
-        selected_job_id = null;
+        $("#display_date_start").on("change", function() {
+            $("#display_date_end").attr("min", $(this).val());
+        });
 
         $('#schedule_job_selection').on('select2:select', function(e) {
             var data = e.params.data;
@@ -104,8 +106,8 @@
             var createdObjectSchedule = {
                 title: $("#sch_title").val(),
                 body: $("#sch_body").val(),
-                start: new Date($("#data_date_start").val()),
-                end: new Date($("#data_date_end").val()),
+                start: new Date($("#display_date_start").val()),
+                end: new Date($("#display_date_end").val()),
                 color: '#ffffff',
                 bgColor: $("#sch_color").val(),
                 dragBgColor: $("#sch_color").val(),
@@ -135,7 +137,6 @@
                 },
                 dataType: 'text',
                 success: function(response) {
-                    console.log(response);
                     if (response == 'Success') {
                         window.location.href = "<?php echo base_url() ?>schedule/index";
                     } else {
@@ -175,7 +176,7 @@
             var strTime = hours + ':' + minutes + ' ' + ampm;
             // return date.getDate() + "/" + (date.getMonth() + 1) + "/" + date
             //     .getFullYear();
-            return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate();
+            return date.getFullYear() + "-" + (date.getMonth() + 1).toString().padStart(2, '0') + "-" + date.getDate().toString().padStart(2, '0');
         }
 
         var CalendarList = [];
@@ -261,8 +262,8 @@
                         var formatted_dateEnd = formatDate(selected_dateEnd);
                         $("#display_date_start").val(formatted_dateStart);
                         $("#display_date_end").val(formatted_dateEnd);
-                        $("#data_date_start").val(selected_dateStart);
-                        $("#data_date_end").val(selected_dateEnd);
+                        // $("#data_date_start").val(selected_dateStart);
+                        // $("#data_date_end").val(selected_dateEnd);
                         $('#addModal').modal('show');
                     }
                     refreshScheduleVisibility();

@@ -19,6 +19,16 @@ class Job_model extends CI_Model
         return $this->db->get('job')->result_array();
     }
 
+    function getJobsInprogress($id = null)
+    {
+        if ($id != null) {
+            $this->db->where('job_id', $id);
+         
+        }
+        $this->db->where('status', 'In-progress');
+        return $this->db->get('job')->result_array();
+    }
+
     function getUser($id = null)
     {
         if ($id != null) {
