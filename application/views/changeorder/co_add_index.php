@@ -81,9 +81,9 @@
                                     <div class="row">
                                         <div class="col">
                                         </div>
-                                        <div class="col-md-2">
+                                        <!-- <div class="col-md-2">
                                             <a onclick='generateCO()' class="btn btn-info form-control" id="code_id" id="print"><span><i class="fa fa-print"></i></span> Print</a>
-                                        </div>
+                                        </div> -->
                                         <div class="col-md-2">
                                             <button id="submitCo" class="btn btn-success form-control">Submit</button>
                                         </div>
@@ -157,7 +157,7 @@
             ],
         });
         let counter = 1;
-        
+
         function addNewRow() {
             table.row
                 .add([
@@ -179,13 +179,19 @@
                 method: 'post',
                 dataType: 'text',
                 data: {
-                    code_id:  $('#code_id').val(),
-                    issued_date:  $('#datepicker').val(),
+                    code_id: $('#code_id').val(),
+                    issued_date: $('#datepicker').val(),
                     job_id: <?php echo $job_id ?>,
                     arrItem: arrItem
                 },
                 success: function(result) {
-                   console.log(result);
+                    if (result == 'true') {
+                        toastr.error("Fail to add CO/VO", "Fail");
+                        window.location.href = "<?php echo base_url('changeorder/index') ?>";
+                    } else {
+                        toastr.success("Add CO/VO Success", "Success");
+                        window.location.href = "<?php echo base_url('changeorder/index') ?>";
+                    }
                 }
             });
         }

@@ -52,7 +52,12 @@ class Changeorder extends CI_Controller
     public function submitCo()
     {
         $params = $_POST;
-        $this->model->addCo($params);
+        $insertId = $this->model->addCo($params);
+        if($insertId == null){
+            echo 'false';
+        }else{
+            echo 'true';
+        }
     }
 
     public function generateCo()
