@@ -56,6 +56,33 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
+                                                <h5>Scopes:</h5>
+                                            </div>
+                                            <div class="row">
+                                                <ul>
+                                                    <?php $list_scope = array(
+                                                        'Wet Work',
+                                                        'Ceiling',
+                                                        'Wiring',
+                                                        'Wall Finishes',
+                                                        'Floor Finishes',
+                                                        'Carpentry Finishes',
+                                                        'Steel/aluminium Finishes',
+                                                        'Others',
+                                                        'Plumbing Works'
+                                                    );
+                                                    $arrScope = explode("|", $dailylog[0]['scope']);
+                                                    foreach ($arrScope as $scope) { ?>
+                                                        <li><?php echo $list_scope[(int)$scope] ?></li>
+                                                    <?php } ?>
+                                                    <li>Others : <?php echo isset($dailylog[0]['other_scope'])?  $dailylog[0]['other_scope'] : 'None'; ?></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
                                                 <h5>Update:</h5>
                                             </div>
                                             <div class="row">

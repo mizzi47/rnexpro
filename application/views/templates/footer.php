@@ -351,7 +351,7 @@
                         var actionButton = '<button id="' + job_id +
                             '" title="View Daily Log" onclick="window.location.href=\'<?php echo base_url('dailylog/dailylog_index') ?>/' + job_id + '\'" type="button" class="btn btn-sm btn-info"><i class="fa fa-file"></i>&nbsp View Daily Logs</button>&nbsp';
                         var changeorderButton = '<button id="' + job_id +
-                            '" title="Change Order" onclick="window.location.href=\'<?php echo base_url('changeorder/index') ?>/' + job_id + '\'" type="button" class="btn btn-sm btn-warning"><i class="fa fa-file"></i>&nbsp Change Order</button>&nbsp';
+                            '" title="Variation Order" onclick="window.location.href=\'<?php echo base_url('changeorder/index') ?>/' + job_id + '\'" type="button" class="btn btn-sm btn-warning"><i class="fa fa-file"></i>&nbsp Variation Order</button>&nbsp';
                         var tempobj = {
                             No: count,
                             Job_name: item['job_name'],

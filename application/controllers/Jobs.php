@@ -51,7 +51,10 @@ class Jobs extends CI_Controller
 				'city' => $this->input->post('city'),
 				'permit' => $this->input->post('permit'),
 				'postcode' => $this->input->post('postcode'),
-				'lot' => $this->input->post('lot')
+				'lot' => $this->input->post('lot'),
+				'group_id' => (int) $_SESSION['group_id'],
+				'start_date' => $this->input->post('start_date'),
+				'end_date' => $this->input->post('end_date'),
 			);
 			// var_dump($params);
 			// die();
@@ -161,7 +164,9 @@ class Jobs extends CI_Controller
 				'city' => $this->input->post('city'),
 				'permit' => $this->input->post('permit'),
 				'postcode' => $this->input->post('postcode'),
-				'lot' => $this->input->post('lot')
+				'lot' => $this->input->post('lot'),
+				'start_date' => $this->input->post('start_date'),
+				'end_date' => $this->input->post('end_date'),
 			);
 			$this->db->where('job_id', $job_id);
 			$this->db->update('job', $params);

@@ -8,7 +8,8 @@ class Dashboard_model extends CI_Model
     {
         $this->db->limit(10);
         $this->db->from('dailylog');
-        $this->db->order_by("dailylog_id", "desc");
+        $this->db->join('job', 'job.job_id = dailylog.job_id');
+        $this->db->where('group_id', (int) $_SESSION['group_id']);
         $result = $this->db->get();
         return $result->result_array();
     }
@@ -24,7 +25,7 @@ class Dashboard_model extends CI_Model
 
     function getUserName()
     {
-        $query = $this->db->get('user')->result_array();
+        $query = $this->db->where('group_id', (int) $_SESSION['group_id'])->get('user')->result_array();
         foreach ($query as  $value) {
             $type[$value['id']] = $value['name'];
         }
@@ -33,7 +34,7 @@ class Dashboard_model extends CI_Model
 
     function countJobIncoming()
     {
-        $query = $this->db->select('COUNT(*) as total')->where('status', 'Incoming')->get('job')->result_array();
+        $query = $this->db->select('COUNT(*) as total')->where('group_id', (int) $_SESSION['group_id'])->where('status', 'Incoming')->get('job')->result_array();
         // var_dump($query);
         // die();
         return $query[0]['total'];
@@ -41,7 +42,7 @@ class Dashboard_model extends CI_Model
 
     function countJobInprogress()
     {
-        $query = $this->db->select('COUNT(*) as total')->where('status', 'In-progress')->get('job')->result_array();
+        $query = $this->db->select('COUNT(*) as total')->where('group_id', (int) $_SESSION['group_id'])->where('status', 'In-progress')->get('job')->result_array();
         // var_dump($query);
         // die();
         return $query[0]['total'];
@@ -49,7 +50,7 @@ class Dashboard_model extends CI_Model
 
     function countJobCompleted()
     {
-        $query = $this->db->select('COUNT(*) as total')->where('status', 'Completed')->get('job')->result_array();
+        $query = $this->db->select('COUNT(*) as total')->where('group_id', (int) $_SESSION['group_id'])->where('status', 'Completed')->get('job')->result_array();
         // var_dump($query);
         // die();
         return $query[0]['total'];

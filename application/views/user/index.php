@@ -115,13 +115,9 @@
                                                             <label>Roles :<font color="red">&ensp;*</font></label>
                                                             <select class="form-control select2" name="roles" required>
                                                                 <option>Choose Roles</option>
-                                                                <option value="1">Project Manager / Admin HQ</option>
-                                                                <option value="2">Project Coordinator HQ</option>
-                                                                <option value="3">Project Executive HQ</option>
-                                                                <option value="4">Admin</option>
-                                                                <option value="5">Project Coordinator</option>
-                                                                <option value="6">Project Executive</option>
-                                                                <option value="99">Superadmin</option>
+                                                                <option value="1">Project Manager / Admin</option>
+                                                                <option value="2">Project Coordinator</option>
+                                                                <option value="3">Project Executive</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -144,7 +140,7 @@
                                         <th>No</th>
                                         <th>Name</th>
                                         <th>Role</th>
-                                        <th>Emel</th>
+                                        <th>Email</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>

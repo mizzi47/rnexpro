@@ -1,5 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+require 'vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Ganttchart extends CI_Controller
 {
@@ -82,6 +87,45 @@ class Ganttchart extends CI_Controller
         $data['allSchedule'] = $this->Schedule_model->getScheduleById($job_id);
         echo json_encode($data['allSchedule']);
     }
+
+    public function spreadSheet($job_id)
+    {
+        $dataschedule = $this->Schedule_model->getScheduleById((int) $job_id);
+        $this->db->where('job_id', (int)$job_id);
+        $dataJob = $this->db->get('job')->result_array();
+        $inputFileName = './assets/gctemplate.xlsx';
+        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
+        $activeWorksheet = $spreadsheet->getActiveSheet();
+        $count = 8;
+        $sheetCount = 1;
+        $dateStart = new DateTime($dataJob[0]['start_date']);
+        $formattedDateStart = $dateStart->format('m/d/Y');
+        $activeWorksheet->setCellValue('A1', $dataJob[0]['job_name']);
+        $activeWorksheet->setCellValue('A2', $dataJob[0]['owner']);
+        $activeWorksheet->setCellValue('C4', $formattedDateStart);
+        foreach ($dataschedule as $sch) {
+            $dts = new DateTime($sch['start']);
+            $formattedS = $dts->format('m/d/Y');
+            $dte = new DateTime($sch['end']);
+            $formattedE = $dte->format('m/d/Y');
+            $activeWorksheet->setCellValue('A' . $count, $sheetCount);
+            $activeWorksheet->setCellValue('B' . $count, $sch['title']);
+            $activeWorksheet->setCellValue('E' . $count, $formattedS);
+            $activeWorksheet->setCellValue('F' . $count, $formattedE);
+            $count++;
+            $sheetCount++;
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $writer->setPreCalculateFormulas(false);
+        // $writer->save('GanntChart_' . $dataschedule[0]['job_name'] . '.xlsx');
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $dataJob[0]['job_name'] . '.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer->save('php://output');
+    }
+
 
     public function updateGantt()
     {

@@ -8,7 +8,7 @@
                         <div class="card-header">
                             <div class="d-flex flex-row">
                                 <div class="p-2">
-                                    <h1>Change Order/ Variaton Order</h1>
+                                    <h1>Variation Order</h1>
                                 </div>
                             </div>
                         </div>
@@ -16,7 +16,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="#">Change Order</a></li>
+                            <li class="breadcrumb-item"><a href="#">Variation Order</a></li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -174,10 +174,10 @@
                                     <div class="card-header">
                                         <div class="d-flex flex-row">
                                             <div class="p-2">
-                                                <h5>List Of Change Order/ Variaton Order</h5>
+                                                <h5>List Of Variation Order</h5>
                                             </div>
                                             <div class="ml-auto p-2">
-                                                <button onclick="window.location.href='<?php echo base_url('changeorder/co_add_index/') ?><?php echo $job_id ?>';" class="btn-lg btn-success"> Add New CO/VO</button>
+                                                <button onclick="window.location.href='<?php echo base_url('changeorder/co_add_index/') ?><?php echo $job_id ?>';" class="btn-lg btn-success"> Add New Variation Order</button>
                                             </div>
                                         </div>
                                     </div>
@@ -248,7 +248,7 @@
                             var job_id = <?php echo $job_id ?>;
                             count++;
                             var actionButton = '<button id="' + item['id'] +
-                                '" title="Delete CO/VO" onclick="window.location.href=\'<?php echo base_url('changeorder/deleteCo') ?>/' + job_id + '/' + item['id'] + '\'" type="button" class="btn btn-sm btn-danger form-control"><i class="fa fa-trash"></i>&nbsp Delete CO/VO</button>&nbsp';
+                                '" title="Delete Variation Order" onclick="window.location.href=\'<?php echo base_url('changeorder/deleteCo') ?>/' + job_id + '/' + item['id'] + '\'" type="button" class="btn btn-sm btn-danger form-control"><i class="fa fa-trash"></i>&nbsp Delete Variation Order</button>&nbsp';
                             var print = ' <a onclick="generateCO('+item['id']+')" class="btn btn-sm btn-info form-control" id="code_id" id="print"><span><i class="fa fa-print"></i></span> Print</a>';
                             var tempobj = {
                                 no: count,

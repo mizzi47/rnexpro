@@ -37,6 +37,7 @@ class Welcome extends CI_Controller
 						'username' => $data[0]->username,
 						'role' => $data[0]->role,
 						'name' => $data[0]->name,
+						'group_id' => $data[0]->group_id,
 						'logged_in' => TRUE
 					);
 					setcookie("userid", $data[0]->id, time() + (86400 * 30));
@@ -72,27 +73,33 @@ class Welcome extends CI_Controller
 		if (isset($_POST) && count($_POST) > 0) {
 			$firstname = $this->input->post('first_name');
 			$lastname = $this->input->post('last_name');
-
 			$name = $firstname . ' ' . $lastname;
-
+			$this->db->trans_start();
+			$userGroup = array(
+				"company_name" => $this->input->post('company_name'),
+			);
+			$this->db->insert('user_group', $userGroup);
+			$groupId = $this->db->insert_id();
 			$params = array(
 				'username' => $this->input->post('username'),
 				'name' =>  $name,
 				'password' => $this->input->post('password'),
 				'email' => $this->input->post('email'),
-				'role' => 4,
+				'role' => 1,
 				'phone' => $this->input->post('phone'),
-				'status' => 'A'
+				'status' => 'D',
+				'group_id' => (int)$groupId
 			);
-			// var_dump($params);
-			// die();
 			$insertId = $this->User_model->addUser($params);
-			if($insertId == null){
+			$this->db->trans_complete();
+			if ($this->db->trans_status() === FALSE) {
+				$this->db->trans_rollback();
 				$this->session->set_flashdata('msg-warning', 'Registration fail');
 				redirect('welcome/register');
-			}else{
+			} else {
+				$this->db->trans_commit();
 				$this->session->set_flashdata('msg-success', 'Registration Success');
-				redirect('welcome/index');
+				redirect('welcome');
 			}
 		}
 	}

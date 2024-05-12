@@ -69,7 +69,7 @@
                                                     <label for="scope6"> Steel/aluminium Finishes</label><br>
                                                     <div class='input-group'>
                                                         <label for="scope7"> Others : </label><br>
-                                                        <input type="text" class="form-control" id="scope7" name="scopeOthers">
+                                                        <input type="text" class="form-control" id="scope7" name="other_scope">
                                                     </div>
                                                 </div>
                                             </div><br><br><br><br><br><br><br><br><br><br><br><br>

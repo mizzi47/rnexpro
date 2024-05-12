@@ -110,6 +110,10 @@
 </html>
 <script>
   $(document).ready(function() {
+    <?php if ($this->session->flashdata('msg-success')) : ?>
+            toastr.success("<?php echo $this->session->flashdata('msg-success-add') ?>", "SUCCESS");
+            document.getElementById('success').play();
+        <?php endif; ?>
     <?php if ($this->session->flashdata('msg-warning')) : ?>
       // document.getElementById('notice').play();
       toastr.warning("<?php echo $this->session->flashdata('msg-warning') ?>", "WARNING");

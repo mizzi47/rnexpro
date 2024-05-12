@@ -16,6 +16,7 @@ class Job_model extends CI_Model
         if ($id != null) {
             $this->db->where('job_id', $id);
         }
+        $this->db->where('group_id', (int) $_SESSION['group_id']);
         return $this->db->get('job')->result_array();
     }
 
@@ -25,6 +26,7 @@ class Job_model extends CI_Model
             $this->db->where('job_id', $id);
          
         }
+        $this->db->where('group_id', (int) $_SESSION['group_id']);
         $this->db->where('status', 'In-progress');
         return $this->db->get('job')->result_array();
     }
@@ -34,6 +36,7 @@ class Job_model extends CI_Model
         if ($id != null) {
             $this->db->where('id', $id);
         }
+        $this->db->where('group_id', (int) $_SESSION['group_id']);
         return $this->db->get('user')->result_array();
     }
 
@@ -51,6 +54,7 @@ class Job_model extends CI_Model
         if ($id != null) {
             $this->db->where('job_id', $id);
         }
+        $this->db->where('group_id', (int) $_SESSION['group_id']);
         return $this->db->get('job')->result_array();
     }
 }

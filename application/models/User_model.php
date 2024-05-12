@@ -21,6 +21,15 @@ class User_model extends CI_Model
         if ($id != null) {
             $this->db->where('id', $id);
         }
+        $this->db->where('group_id', (int) $_SESSION['group_id']);
+        return $this->db->get('user')->result_array();
+    }
+
+    function getUserAll($id = null)
+    {
+        if ($id != null) {
+            $this->db->where('id', $id);
+        }
         return $this->db->get('user')->result_array();
     }
 

@@ -90,6 +90,7 @@ class Dailylog extends CI_Controller
 			"scope" => implode("|", $_POST['scope']),
 			"job_id" => $job_id,
 			"user_id" => $user_id ,
+			"other_scope" => $_POST['other_scope'] ,
 		);
 		$this->db->trans_start();
 		$this->db->insert('dailylog', $params);
@@ -315,7 +316,7 @@ class Dailylog extends CI_Controller
 		$this->db->like('access', $user_id . '|', 'after');
 		$this->db->or_like('access', '|' . $user_id . '|', 'both');
 		$this->db->or_like('access', '|' . $user_id, 'before');
-		$data = $this->db->get('job')->result_array();
+		$data = $this->db->where('group_id', (int) $_SESSION['group_id'])->get('job')->result_array();
 		echo json_encode($data);
 	}
 	function getJob_Web()
@@ -324,7 +325,7 @@ class Dailylog extends CI_Controller
 		// $user_id = $this->input->cookie('userid');
 		// if ($user_role == 1) {
 		$this->db->where('status', 'In-progress');
-		$data = $this->db->get('job')->result_array();
+		$data = $this->db->where('group_id', (int) $_SESSION['group_id'])->get('job')->result_array();
 		// } else {
 		// 	$this->db->where('status', 'In-progress');
 		// 	$this->db->like('access', $user_id . '|', 'after');
@@ -414,7 +415,7 @@ class Dailylog extends CI_Controller
 		$params = array(
 			'update' => $_POST['update'],
 			'issue' => $_POST['issue'],
-			'pending' => $_POST['pending']
+			'pending' => $_POST['pending'],
 		);
 		$this->db->where("dailylog_id", (int) $_POST['dailylog_id']);
 		$this->db->update('dailylog', $params);

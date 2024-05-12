@@ -43,12 +43,12 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="d-flex flex-row">
+                            <!-- <div class="d-flex flex-row">
                                 <div class="col-md-4">
                                     <input type="month">
                                     <button class="btn btn-success" onclick="cal.today();setDate();">Go</button>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div id="container_calendar" style="height: 600px;"></div>
                         <svg id="gantt"></svg>

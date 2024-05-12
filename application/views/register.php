@@ -100,6 +100,12 @@
                                                 <input type="text" name="phone"  class="form-control" required>
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Company Name:</label>
+                                                <input type="text" name="company_name"  class="form-control" required>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <!-- <div class="form-check mb-3">

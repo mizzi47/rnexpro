@@ -7,8 +7,8 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="#">Change Order/ Variaton Order</a></li>
-                        <li class="breadcrumb-item"> Add VO/CO</li>
+                        <li class="breadcrumb-item"><a href="#">Variaton Order</a></li>
+                        <li class="breadcrumb-item"> Add Variation Order</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -46,7 +46,7 @@
                                                         <label for="">Reference Code:</label>
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <input type="text" placeholder="Code ID" id="code_id" name="code_id" rows="5" class="form-control" required></input>
+                                                        <input type="text" placeholder="Reference Code" id="code_id" name="code_id" rows="5" class="form-control" required></input>
                                                     </div>
                                                 </div><br>
                                             </div>
@@ -186,10 +186,10 @@
                 },
                 success: function(result) {
                     if (result == 'true') {
-                        toastr.error("Fail to add CO/VO", "Fail");
+                        toastr.error("Fail to add Variation Order", "Fail");
                         window.location.href = "<?php echo base_url('changeorder/index') ?>";
                     } else {
-                        toastr.success("Add CO/VO Success", "Success");
+                        toastr.success("Add Variation Order Success", "Success");
                         window.location.href = "<?php echo base_url('changeorder/index') ?>";
                     }
                 }

@@ -8,7 +8,7 @@ class User extends CI_Controller
         parent::__construct();
         $this->load->model('User_model');
         if (!isset($_SESSION['userid'])) {
-			$this->session->set_flashdata('msg-warning', 'Please login');
+            $this->session->set_flashdata('msg-warning', 'Please login');
             redirect('');
         }
     }
@@ -50,7 +50,8 @@ class User extends CI_Controller
                 'email' => $this->input->post('email'),
                 'role' => $this->input->post('roles'),
                 'phone' => $this->input->post('phone'),
-                'status' => $this->input->post('status')
+                'status' => $this->input->post('status'),
+                'group_id' => (int) $_SESSION['group_id']
             );
             // var_dump($params);
             // die();
@@ -73,7 +74,8 @@ class User extends CI_Controller
         }
     }
 
-    public function editUser(){
+    public function editUser()
+    {
         $user_id = $this->input->post('user_id');
         $firstname = $this->input->post('first_name');
         $lastname = $this->input->post('last_name');
@@ -131,5 +133,4 @@ class User extends CI_Controller
         $this->db->delete('user');
         redirect("user/index");
     }
-    
 }
