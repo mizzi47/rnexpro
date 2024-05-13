@@ -68,7 +68,7 @@
                                                 <td>
                                                     <?php if ($kerja['status'] == 'In-progress') { ?>
                                                         <span class="badge badge-primary"><?php echo $kerja['status'] ?></span>
-                                                    <?php } else if ($kerja['status'] == 'Incoming') { ?>
+                                                    <?php } else if ($kerja['status'] == 'Newproject') { ?>
                                                         <span class="badge badge-warning"><?php echo $kerja['status'] ?></span>
                                                     <?php } else if ($kerja['status'] == 'Completed') { ?>
                                                         <span class="badge badge-success"><?php echo $kerja['status'] ?></span>

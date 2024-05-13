@@ -32,7 +32,7 @@ class Dashboard_model extends CI_Model
         return $type;
     }
 
-    function countJobIncoming()
+    function countJobNewproject()
     {
         $query = $this->db->select('COUNT(*) as total')->where('group_id', (int) $_SESSION['group_id'])->where('status', 'Incoming')->get('job')->result_array();
         // var_dump($query);

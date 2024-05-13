@@ -24,7 +24,7 @@
                 <label class="col-sm-12 col-form-label">Status</label>
                 <div class="col-sm-12">
                     <select class="form-control" name="status">
-                        <option value="Incoming">Incoming</option>
+                        <option value="Newproject">New-project</option>
                         <option value="In-progress">In-progress</option>
                         <option value="Completed">Completed</option>
                     </select>

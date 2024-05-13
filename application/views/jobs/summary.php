@@ -104,6 +104,20 @@
                                                         <td><?php echo $value['city'] ?></td>
                                                     </tr>
                                                     <tr>
+                                                        <td>State</td>
+                                                        <td></td>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                        <td><?php echo $value['state'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Properties Type</td>
+                                                        <td></td>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                        <td><?php echo $value['pro_type'] ?></td>
+                                                    </tr>
+                                                    <tr>
                                                         <td>Permit</td>
                                                         <td></td>
                                                         <td>:</td>
@@ -140,6 +154,13 @@
                                                         <td></td>
                                                         <td style="text-transform:capitalize"><?php echo $value['owner'] ?>
                                                         </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>IC Number</td>
+                                                        <td></td>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                        <td><?php echo $value['ic_num'] ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Phone Number</td>

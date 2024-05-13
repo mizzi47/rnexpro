@@ -7912,7 +7912,7 @@
       delayingBlurEvent: false,
       focused: false,
       suppressEdits: false, // used to disable editing during key handlers when in readOnly mode
-      pasteIncoming: -1, cutIncoming: -1, // help recognize paste/cut edits in input.poll
+      pasteNewproject: -1, cutNewproject: -1, // help recognize paste/cut edits in input.poll
       selectingText: false,
       draggingText: false,
       highlight: new Delayed(), // stores highlight worker timeout
@@ -8151,7 +8151,7 @@
     if (!sel) { sel = doc.sel; }
 
     var recent = +new Date - 200;
-    var paste = origin == "paste" || cm.state.pasteIncoming > recent;
+    var paste = origin == "paste" || cm.state.pasteNewproject > recent;
     var textLines = splitLinesAuto(inserted), multiPaste = null;
     // When pasting N lines into N selections, insert one line per selection
     if (paste && sel.ranges.length > 1) {
@@ -8180,7 +8180,7 @@
           { from = to = Pos(from.line, 0); }
       }
       var changeEvent = {from: from, to: to, text: multiPaste ? multiPaste[i$1 % multiPaste.length] : textLines,
-                         origin: origin || (paste ? "paste" : cm.state.cutIncoming > recent ? "cut" : "+input")};
+                         origin: origin || (paste ? "paste" : cm.state.cutNewproject > recent ? "cut" : "+input")};
       makeChange(cm.doc, changeEvent);
       signalLater(cm, "inputRead", cm, changeEvent);
     }
@@ -8190,7 +8190,7 @@
     ensureCursorVisible(cm);
     if (cm.curOp.updateInput < 2) { cm.curOp.updateInput = updateInput; }
     cm.curOp.typing = true;
-    cm.state.pasteIncoming = cm.state.cutIncoming = -1;
+    cm.state.pasteNewproject = cm.state.cutNewproject = -1;
   }
 
   function handlePaste(e, cm) {
@@ -9372,7 +9372,7 @@
     on(te, "paste", function (e) {
       if (signalDOMEvent(cm, e) || handlePaste(e, cm)) { return }
 
-      cm.state.pasteIncoming = +new Date;
+      cm.state.pasteNewproject = +new Date;
       input.fastPoll();
     });
 
@@ -9393,7 +9393,7 @@
           selectInput(te);
         }
       }
-      if (e.type == "cut") { cm.state.cutIncoming = +new Date; }
+      if (e.type == "cut") { cm.state.cutNewproject = +new Date; }
     }
     on(te, "cut", prepareCopyCut);
     on(te, "copy", prepareCopyCut);
@@ -9401,7 +9401,7 @@
     on(display.scroller, "paste", function (e) {
       if (eventInWidget(display, e) || signalDOMEvent(cm, e)) { return }
       if (!te.dispatchEvent) {
-        cm.state.pasteIncoming = +new Date;
+        cm.state.pasteNewproject = +new Date;
         input.focus();
         return
       }

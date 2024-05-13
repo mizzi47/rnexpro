@@ -11,9 +11,9 @@
         }
     };
 
-    function incomingThisJob(ids) {
-        if (confirm('You want to set this job status to incoming?')) {
-            window.location = "<?php echo base_url(); ?>/jobs/incoming/" + ids;
+    function NewprojectThisJob(ids) {
+        if (confirm('You want to set this job status to New project?')) {
+            window.location = "<?php echo base_url(); ?>/jobs/Newproject/" + ids;
         }
     };
 
@@ -90,18 +90,18 @@
                                                                 <button type="button" class="btn btn-primary dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                                                 </button>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/incoming/') . $kerja['job_id'] ?>">Incoming</a>
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/Newproject/') . $kerja['job_id'] ?>">New Project</a>
                                                                     <a class="dropdown-item" href="<?php echo base_url('jobs/open/') . $kerja['job_id'] ?>">In-progress</a>
                                                                     <a class="dropdown-item" href="<?php echo base_url('jobs/completed/') . $kerja['job_id'] ?>">Completed</a>
                                                                 </div>
                                                             </div>
-                                                        <?php } else if ($kerja['status'] == 'Incoming') { ?>
+                                                        <?php } else if ($kerja['status'] == 'Newproject') { ?>
                                                             <button type="button" class="btn btn-warning" disabled><?php echo $kerja['status'] ?></button>
                                                             <div class="btn-group">
                                                                 <button type="button" class="btn btn-warning dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                                                 </button>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/incoming/') . $kerja['job_id'] ?>">Incoming</a>
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/Newproject/') . $kerja['job_id'] ?>">New Project</a>
                                                                     <a class="dropdown-item" href="<?php echo base_url('jobs/open/') . $kerja['job_id'] ?>">In-progress</a>
                                                                     <a class="dropdown-item" href="<?php echo base_url('jobs/completed/') . $kerja['job_id'] ?>">Completed</a>
                                                                 </div>
@@ -112,7 +112,7 @@
                                                                 <button type="button" class="btn btn-success dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                                                 </button>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/incoming/') . $kerja['job_id'] ?>">Incoming</a>
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/Newproject/') . $kerja['job_id'] ?>">New Project</a>
                                                                     <a class="dropdown-item" href="<?php echo base_url('jobs/open/') . $kerja['job_id'] ?>">In-progress</a>
                                                                     <a class="dropdown-item" href="<?php echo base_url('jobs/completed/') . $kerja['job_id'] ?>">Completed</a>
                                                                 </div>
@@ -137,7 +137,7 @@
                                                         <a href="<?php echo base_url('jobs/update_job_index') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-warning">Edit</a>
                                                         <!-- <button type="button" data-id="<?php echo $kerja['job_id'] ?>" class="btn_setcolor btn-sm btn btn-primary" data-toggle="modal" data-target="#setcolormodal">Set Schedule Color</button> -->
 
-                                                    <?php } else if ($kerja['status'] == "Incoming") { ?>
+                                                    <?php } else if ($kerja['status'] == "Newproject") { ?>
 
                                                         <a href="<?php echo base_url('jobs/update_job_index') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-warning">Edit</a>
                                                         <!-- <button type="button" data-id="<?php echo $kerja['job_id'] ?>" class="btn_setcolor btn-sm btn btn-primary" data-toggle="modal" data-target="#setcolormodal">Set Schedule Color</button> -->

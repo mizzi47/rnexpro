@@ -182,7 +182,7 @@ class CI_Trackback {
 	/**
 	 * Receive Trackback  Data
 	 *
-	 * This function simply validates the incoming TB data.
+	 * This function simply validates the Newproject TB data.
 	 * It returns FALSE on failure and TRUE on success.
 	 * If the data is valid it is set to the $this->data array
 	 * so that it can be inserted into a database.

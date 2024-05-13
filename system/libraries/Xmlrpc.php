@@ -409,12 +409,12 @@ class CI_Xmlrpc {
 	/**
 	 * Take Array of Data and Create Objects
 	 *
-	 * @param	array	$incoming
+	 * @param	array	$Newproject
 	 * @return	void
 	 */
-	public function request($incoming)
+	public function request($Newproject)
 	{
-		if ( ! is_array($incoming))
+		if ( ! is_array($Newproject))
 		{
 			// Send Error
 			return;
@@ -422,7 +422,7 @@ class CI_Xmlrpc {
 
 		$this->data = array();
 
-		foreach ($incoming as $key => $value)
+		foreach ($Newproject as $key => $value)
 		{
 			$this->data[$key] = $this->values_parsing($value);
 		}

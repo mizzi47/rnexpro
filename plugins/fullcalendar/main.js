@@ -3351,7 +3351,7 @@ var FullCalendar = (function (exports) {
 
     var EventApi = /** @class */ (function () {
         // instance will be null if expressing a recurring event that has no current instances,
-        // OR if trying to validate an incoming external event that has no dates assigned
+        // OR if trying to validate an Newproject external event that has no dates assigned
         function EventApi(context, def, instance) {
             this._context = context;
             this._def = def;

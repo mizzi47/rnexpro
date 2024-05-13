@@ -255,7 +255,7 @@ CodeMirror.defineMode("perl",function(){
                 foreach                         :[1,1],
                                                 //      PERL functions
                 'abs'                           :1,     // - absolute value function
-                accept                          :1,     // - accept an incoming socket connect
+                accept                          :1,     // - accept an Newproject socket connect
                 alarm                           :1,     // - schedule a SIGALRM
                 'atan2'                         :1,     // - arctangent of Y/X in the range -PI to PI
                 bind                            :1,     // - binds an address to a socket
