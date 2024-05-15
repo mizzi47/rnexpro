@@ -23,6 +23,7 @@ class Changeorder extends CI_Controller
         $this->load->view('templates/sidebar');
         $this->load->view('changeorder/index', $data);
         $this->load->view('templates/footer');
+        //test commit
     }
 
     public function co_add_index()
