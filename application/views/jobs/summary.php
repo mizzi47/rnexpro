@@ -40,13 +40,13 @@
                                                         <td style="text-transform: capitalize;">
                                                             <?php echo $value['job_name'] ?></td>
                                                     </tr>
-                                                    <!-- <tr>
-                                                        <td>Job Prefix</td>
+                                                    <tr>
+                                                        <td>Project No/Ref</td>
                                                         <td></td>
                                                         <td>:</td>
                                                         <td></td>
-                                                        <td><?php //echo $value['job_prefix'] ?></td>
-                                                    </tr> -->
+                                                        <td><?php echo $value['job_prefix'] ?></td>
+                                                    </tr>
                                                     <tr>
                                                         <td>Status</td>
                                                         <td></td>
@@ -73,7 +73,7 @@
                                                         <td></td>
                                                         <td>:</td>
                                                         <td></td>
-                                                        <td><?php echo $value['job_group'] ?></td>
+                                                        <td><?php //echo $value['job_group'] ?></td>
                                                     </tr> -->
                                                     <tr>
                                                         <td>Project Managers</td>
@@ -102,6 +102,20 @@
                                                         <td>:</td>
                                                         <td></td>
                                                         <td><?php echo $value['city'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>State</td>
+                                                        <td></td>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                        <td><?php echo $value['state'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Properties Type</td>
+                                                        <td></td>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                        <td><?php echo $value['pro_type'] ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Permit</td>
@@ -140,6 +154,13 @@
                                                         <td></td>
                                                         <td style="text-transform:capitalize"><?php echo $value['owner'] ?>
                                                         </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>IC Number</td>
+                                                        <td></td>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                        <td><?php echo $value['ic_num'] ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Phone Number</td>

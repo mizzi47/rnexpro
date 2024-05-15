@@ -49,6 +49,8 @@ class Jobs extends CI_Controller
 				'address' => $this->input->post('address'),
 				'meters' => $this->input->post('meters'),
 				'city' => $this->input->post('city'),
+				'state' => $this->input->post('state'),
+				'pro_type' => $this->input->post('pro_type'),
 				'permit' => $this->input->post('permit'),
 				'postcode' => $this->input->post('postcode'),
 				'lot' => $this->input->post('lot'),
@@ -82,6 +84,7 @@ class Jobs extends CI_Controller
 			$job_id = $this->input->post('job_id');
 			$params = array(
 				'owner' => $this->input->post('owner_name'),
+				'ic_num' => $this->input->post('ic_num'),
 				'phone' => $this->input->post('phone'),
 				'email' => $this->input->post('email')
 			);
@@ -162,6 +165,8 @@ class Jobs extends CI_Controller
 				'address' => $this->input->post('address'),
 				'meters' => $this->input->post('meters'),
 				'city' => $this->input->post('city'),
+				'state' => $this->input->post('state'),
+				'pro_type' => $this->input->post('pro_type'),
 				'permit' => $this->input->post('permit'),
 				'postcode' => $this->input->post('postcode'),
 				'lot' => $this->input->post('lot'),
@@ -180,6 +185,7 @@ class Jobs extends CI_Controller
 			$job_id = $this->input->post('job_id');
 			$params = array(
 				'owner' => $this->input->post('owner_name'),
+				'ic_num' => $this->input->post('ic_num'),
 				'phone' => $this->input->post('phone'),
 				'email' => $this->input->post('email')
 			);
@@ -273,9 +279,9 @@ class Jobs extends CI_Controller
 		redirect("jobs/view");
 	}
 
-	public function incoming($id)
+	public function Newproject($id)
 	{
-		$active = "Incoming";
+		$active = "Newproject";
 
 		$params = array(
 			'status' => $active

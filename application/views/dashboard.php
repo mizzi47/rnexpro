@@ -52,12 +52,12 @@
                       <div class="col">
                           <div class="card card-hover">
                               <div class="card-header text-center bg-light">
-                                  <h5 class="text-black">Incoming</h5>
+                                  <h5 class="text-black">New Project</h5>
                               </div>
                               <div class="box bg-warning text-center">
                                   <h1 class="font-light text-white">
                                       <h1>
-                                          <?php echo $incomingjob ?>
+                                          <?php echo $Newprojectjob ?>
                                       </h1>
                                   </h1>
                               </div>
@@ -67,7 +67,7 @@
                       <div class="col">
                           <div class="card card-hover">
                               <div class="card-header text-center bg-light">
-                                  <h5 class="text-black">In Progress</h5>
+                                  <h5 class="text-black">On Going</h5>
                               </div>
                               <div class="box bg-info text-center">
                                   <h1 class="font-light text-white">
