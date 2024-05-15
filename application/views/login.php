@@ -23,6 +23,8 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
+
+  
   <style>
     .login {
       min-height: 100vh;
@@ -42,11 +44,32 @@
       letter-spacing: 0.05rem;
       padding: 0.75rem 1rem;
     }
+
+
+    .typewriter {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.7em;
+    letter-spacing: 1px;
+    width: 100%;
+    height: 100%;
+    /* white-space: nowrap; */
+    text-align: center; 
+    /* overflow: hidden; */
+    
+    } 
+
+  .project-header {
+    display: block;
+    padding-bottom: 100px;
+  }
+
+
   </style>
 </head>
 
 <body>
   <!-- Preloader -->
+  
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="<?= base_url() ?>assets/img/RexinProSoft_logo.jpeg" alt="AdminLTELogo" height="60" width="60">
   </div>
@@ -56,8 +79,17 @@
       <div class="col-md-8 col-lg-6">
         <div class="login d-flex align-items-center py-5">
           <div class="container">
+
+
+          <div class="grid-container project-header">
+              <h1 class="typewriter">Project Management and </h1>
+              <h1 class="typewriter"> Monitoring System</h1>
+              </div>
+
+
             <div class="row">
               <div class="col-md-9 col-lg-8 mx-auto">
+
                 <img src="assets/img/RexinProSoft_logo.jpeg" style="width:140px;">
                 <h3 class="login-heading mb-4">RnexPro</h3>
 
