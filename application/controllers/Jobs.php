@@ -279,9 +279,9 @@ class Jobs extends CI_Controller
 		redirect("jobs/view");
 	}
 
-	public function Newproject($id)
+	public function Incoming($id)
 	{
-		$active = "Newproject";
+		$active = "Incoming";
 
 		$params = array(
 			'status' => $active
