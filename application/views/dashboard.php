@@ -44,7 +44,7 @@
       <section class="content">
           <div class="card">
               <div class="card-header">
-                  Jobs Info
+                  Project Info
               </div>
               <div class="card-body">
                   <div class="row">

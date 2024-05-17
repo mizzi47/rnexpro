@@ -9,20 +9,26 @@
             <div class="col-lg-8">
                 <label class="col-sm-12 col-form-label">Project Name <font color="red">*</font></label>
                 <div class="col-sm-12">
-                    <input type="text" name="job_name" class="form-control" placeholder="exp: Tuan Haikal Elmina" required>
+                    <input type="text" name="job_name" class="form-control" style="text-transform: uppercase;" placeholder="exp: Tuan Haikal Elmina" required>
                 </div>
             </div>
-            <!-- <div class="col-lg-3">
-                <label class="col-sm-12 col-form-label">Job Prefix</label>
+            <div class="col-lg-4">
+                <label class="col-sm-12 col-form-label">Project Number / Reference</label>
                 <div class="col-sm-12">
-                    <input type="text" name="job_prefix" class="form-control">
+                    <input type="text" name="job_prefix" class="form-control" placeholder="exp: 240201DJR3TGSU" >
                 </div>
-            </div> -->
+            </div>
+            <div class="col-lg-8">
+                <label class="col-sm-12 col-form-label">Project Type <font color="red">*</font></label>
+                <div class="col-sm-12">
+                    <input type="text" name="type" class="form-control" placeholder="exp: Interior Design" required>
+                </div>
+            </div>
             <div class="col-lg-4">
                 <label class="col-sm-12 col-form-label">Status</label>
                 <div class="col-sm-12">
                     <select class="form-control" name="status">
-                        <option value="Newproject">New-project</option>
+                        <option value="Incoming">New-project</option>
                         <option value="In-progress">In-progress</option>
                         <option value="Completed">Completed</option>
                     </select>

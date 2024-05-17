@@ -77,6 +77,7 @@ class Welcome extends CI_Controller
 			$this->db->trans_start();
 			$userGroup = array(
 				"company_name" => $this->input->post('company_name'),
+				"company_num" => $this->input->post('company_num'),
 			);
 			$this->db->insert('user_group', $userGroup);
 			$groupId = $this->db->insert_id();

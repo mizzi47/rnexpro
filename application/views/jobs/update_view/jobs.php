@@ -21,8 +21,8 @@
                         <input type="text" name="job_name" class="form-control" value="<?php echo $kerja['job_name'] ?>" required>
                     </div>
                 </div>
-                <!-- <div class="col-lg-3">
-                <label class="col-sm-12 col-form-label">Job Prefix</label>
+                <div class="col-lg-4">
+                <label class="col-sm-12 col-form-label">Project Number / Reference</label>
                 <div class="col-sm-12">
                     <input type="text" name="job_prefix" value="<?php echo $kerja['job_prefix'] ?>"
                         class="form-control">
@@ -38,7 +38,7 @@
                     <label class="col-sm-12 col-form-label">Status</label>
                     <div class="col-sm-12">
                         <select class="form-control" name="status">
-                            <option value="Newproject">New-project</option>
+                            <option value="Incoming">New-project</option>
                             <option value="In-progress">In-progress</option>
                             <option value="Completed">Completed</option>
                         </select>
@@ -47,9 +47,15 @@
             </div>
             <div class="form-group row">
                 <div class="col-lg-8">
-                    <label class="col-sm-12 col-form-label">Job Type <font color="red">*</font></label>
+                    <label class="col-sm-12 col-form-label">Project Type <font color="red">*</font></label>
                     <div class="col-sm-12">
                         <input type="text" name="type" value="<?php echo $kerja['job_type'] ?>" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <label class="col-sm-12 col-form-label">Contract Price</label>
+                    <div class="col-sm-12">
+                        <input type="number" step="0.01" name="price" value="<?php echo $kerja['contract'] ?>" placeholder="0.00" class="form-control">
                     </div>
                 </div>
             </div>
@@ -106,6 +112,7 @@
         <div class="card-header">
             <h2>Project Site</h2>
         </div>
+        <div class="card-body">
         <div class="form-group row">
             <div class="col-lg-12">
                 <label class="col-sm-12 col-form-label">Street Address</label>

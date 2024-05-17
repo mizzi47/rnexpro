@@ -25,7 +25,7 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <div class="d-flex flex-row">
-                                                <h4 class="m-0 text-dark">Add VO/CO</h4>
+                                                <h4 class="m-0 text-dark">Add Variation Order</h4>
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -242,7 +242,7 @@
                                 compression: "DEFLATE",
                             });
                             // Output the document using Data-URI
-                            saveAs(blob, "CO-VO.docx");
+                            saveAs(blob, "Variation_Order.docx");
                         }
                     );
                 }

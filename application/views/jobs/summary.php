@@ -40,13 +40,13 @@
                                                         <td style="text-transform: capitalize;">
                                                             <?php echo $value['job_name'] ?></td>
                                                     </tr>
-                                                    <!-- <tr>
-                                                        <td>Job Prefix</td>
+                                                    <tr>
+                                                        <td>Project No/Ref</td>
                                                         <td></td>
                                                         <td>:</td>
                                                         <td></td>
-                                                        <td><?php //echo $value['job_prefix'] ?></td>
-                                                    </tr> -->
+                                                        <td><?php echo $value['job_prefix'] ?></td>
+                                                    </tr>
                                                     <tr>
                                                         <td>Status</td>
                                                         <td></td>
@@ -73,7 +73,7 @@
                                                         <td></td>
                                                         <td>:</td>
                                                         <td></td>
-                                                        <td><?php echo $value['job_group'] ?></td>
+                                                        <td><?php //echo $value['job_group'] ?></td>
                                                     </tr> -->
                                                     <tr>
                                                         <td>Project Managers</td>

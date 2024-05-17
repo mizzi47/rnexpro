@@ -35,7 +35,7 @@
                                             <div class="form-group row">
                                                 <div class="col-6">
                                                     <div class="card-header">
-                                                        <h6 class="card-title">Job Description</h6>
+                                                        <h6 class="card-title">Project Description</h6>
                                                     </div>
                                                     <div class="card-body">
                                                         <table>
@@ -47,13 +47,13 @@
                                                                 <td style="text-transform: capitalize;">
                                                                     <?php echo $value['job_name'] ?></td>
                                                             </tr>
-                                                            <!-- <tr>
-                                                                <td>Job Prefix</td>
+                                                            <tr>
+                                                                <td>Project No/Ref</td>
                                                                 <td></td>
                                                                 <td>:</td>
                                                                 <td></td>
-                                                                <td><?php //echo $value['job_prefix'] ?></td>
-                                                            </tr> -->
+                                                                <td><?php echo $value['job_prefix'] ?></td>
+                                                            </tr>
                                                             <tr>
                                                                 <td>Status</td>
                                                                 <td></td>
@@ -62,7 +62,7 @@
                                                                 <td><?php echo $value['status'] ?></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Job Type</td>
+                                                                <td>Project Type</td>
                                                                 <td></td>
                                                                 <td>:</td>
                                                                 <td></td>
@@ -111,6 +111,20 @@
                                                                 <td><?php echo $value['city'] ?></td>
                                                             </tr>
                                                             <tr>
+                                                                <td>State</td>
+                                                                <td></td>
+                                                                <td>:</td>
+                                                                <td></td>
+                                                                <td><?php echo $value['state'] ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Properties Type</td>
+                                                                <td></td>
+                                                                <td>:</td>
+                                                                <td></td>
+                                                                <td><?php echo $value['pro_type'] ?></td>
+                                                            </tr>
+                                                            <tr>
                                                                 <td>Permit</td>
                                                                 <td></td>
                                                                 <td>:</td>
@@ -148,6 +162,13 @@
                                                                 <td style="text-transform:capitalize">
                                                                     <?php echo $value['owner'] ?>
                                                                 </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>IC Number</td>
+                                                                <td></td>
+                                                                <td>:</td>
+                                                                <td></td>
+                                                                <td><?php echo $value['ic_num'] ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Phone Number</td>
@@ -319,7 +340,7 @@
                                 compression: "DEFLATE",
                             });
                             // Output the document using Data-URI
-                            saveAs(blob, "CO-VO.docx");
+                            saveAs(blob, "Variation_Order.docx");
                         }
                     );
                 }
