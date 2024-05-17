@@ -34,10 +34,10 @@
                                               <a class="nav-link" id="custom-tabs-job-tab" data-toggle="pill" href="#custom-tabs-job" role="tab" aria-controls="custom-tabs-job" aria-selected="true">Job</a>
                                           </li>
                                           <li class="nav-item">
-                                              <a class="nav-link" id="custom-tabs-owner-tab" data-toggle="tab" href="#custom-tabs-owner" role="tab" aria-controls="custom-tabs-owner" aria-selected="false">Owner</a>
+                                              <a class="nav-link" id="custom-tabs-owner-tab" data-toggle="tab" href="#custom-tabs-owner" role="tab" aria-controls="custom-tabs-owner" aria-selected="false">Client</a>
                                           </li>
                                           <li class="nav-item">
-                                              <a class="nav-link active" id="custom-tabs-internal-tab" data-toggle="tab" href="#custom-tabs-internal" role="tab" aria-controls="custom-tabs-internal" aria-selected="false">Project In Charges</a>
+                                              <a class="nav-link active" id="custom-tabs-internal-tab" data-toggle="tab" href="#custom-tabs-internal" role="tab" aria-controls="custom-tabs-internal" aria-selected="false">Project In Charge</a>
                                           </li>
                                           <!-- <li class="nav-item">
                                               <a class="nav-link" id="custom-tabs-vendors-tab" data-toggle="tab" href="#custom-tabs-vendors" role="tab" aria-controls="custom-tabs-vendors" aria-selected="false">Subs/Vendors</a>

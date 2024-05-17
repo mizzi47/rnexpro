@@ -1,7 +1,7 @@
 <?php echo form_open('jobs/create_owner'); ?>
 <div class="form-group row">
     <div class="col-lg-3">
-        <label class="col-sm-12 col-form-label">Owner Name <font color="red">*</font></label>
+        <label class="col-sm-12 col-form-label">Client Name <font color="red">*</font></label>
         <div class="col-sm-12">
             <input type="text" name="owner_name" class="form-control" style="text-transform: uppercase;" required>
         </div>

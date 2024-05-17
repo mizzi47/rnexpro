@@ -143,12 +143,12 @@
                                         </div>
                                         <div class="col-6">
                                             <div class="card-header">
-                                                <h6 class="card-title">Owner</h6>
+                                                <h6 class="card-title">Client</h6>
                                             </div>
                                             <div class="card-body">
                                                 <table>
                                                     <tr>
-                                                        <td>Owner Name</td>
+                                                        <td>Name</td>
                                                         <td></td>
                                                         <td>:</td>
                                                         <td></td>

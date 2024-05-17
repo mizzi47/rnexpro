@@ -43,10 +43,10 @@
                                                 </div>
                                                 <div class='input-group'>
                                                     <div class="col-md-4">
-                                                        <label for="">Reference Code:</label>
+                                                        <label for="">IC/Reference/Order Number:</label>
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <input type="text" placeholder="Reference Code" id="code_id" name="code_id" rows="5" class="form-control" required></input>
+                                                        <input type="text" placeholder="" id="code_id" name="code_id" rows="5" class="form-control" required></input>
                                                     </div>
                                                 </div><br>
                                             </div>

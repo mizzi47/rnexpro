@@ -67,8 +67,8 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Project Name</th>
-                                            <th>Project Type</th>
-                                            <th>Owner</th>
+                                            <th>Job Type</th>
+                                            <th>Client</th>
                                             <th>Status</th>
                                             <th>Project In Charge</th>
                                             <th>Action</th>

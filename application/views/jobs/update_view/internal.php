@@ -42,7 +42,7 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Project In Charges</th>
+                            <th>Project In Charge</th>
                             <th>Job Viewing Access</th>
                         </tr>
                     </thead>
