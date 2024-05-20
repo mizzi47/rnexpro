@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <label class="col-sm-12 col-form-label">Project Number / Reference</label>
+                <label class="col-sm-12 col-form-label">Project / Reference Number <font color="red">*</font></label>
                 <div class="col-sm-12">
                     <input type="text" name="job_prefix" class="form-control" placeholder="exp: 240201DJR3TGSU" >
                 </div>
@@ -36,12 +36,6 @@
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-lg-8">
-                <label class="col-sm-12 col-form-label">Job Type <font color="red">*</font></label>
-                <div class="col-sm-12">
-                    <input type="text" name="type" class="form-control" placeholder="exp: Interior Design" required>
-                </div>
-            </div>
             <div class="col-lg-4">
                 <label class="col-sm-12 col-form-label">Contract Price</label>
                 <div class="col-sm-12">
@@ -150,7 +144,7 @@
 </div>
 <div class="card bg-light mb-3">
     <div class="card-header">
-        <h2>Project Details</h2>
+        <h2>Project Specification</h2>
     </div>
     <div class="card-body">
     <div class="form-group row">

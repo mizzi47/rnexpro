@@ -16,7 +16,7 @@ class Dashboard extends CI_Controller
 
 	public function index()
 	{
-		$data['Newprojectjob'] = $this->Dashboard_model->countJobNewproject();
+		$data['incomingjob'] = $this->Dashboard_model->countJobIncoming();
 		$data['inprogressjob'] = $this->Dashboard_model->countJobInprogress();
 		$data['completedjob'] = $this->Dashboard_model->countJobCompleted();
 		$data['totaldailylog']  = $this->db->count_all_results('dailylog');

@@ -57,7 +57,7 @@
                               <div class="box bg-warning text-center">
                                   <h1 class="font-light text-white">
                                       <h1>
-                                          <?php echo $Newprojectjob ?>
+                                          <?php echo $incomingjob ?>
                                       </h1>
                                   </h1>
                               </div>

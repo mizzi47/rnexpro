@@ -95,7 +95,7 @@
                           <li class="nav-item">
                               <a href="<?php echo base_url('user/vendor_index') ?>" class="nav-link">
                                   <i class="fa-solid fa-user nav-icon"></i>
-                                  <p>Subcon</p>
+                                  <p>Vendor</p>
                               </a>
                           </li>
                       </ul>

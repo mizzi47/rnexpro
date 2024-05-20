@@ -27,7 +27,7 @@
                     <td><?php echo $value['status'] ?></td>
                 </tr>
                 <tr>
-                    <td>Project Type</td>
+                    <td>Job Type</td>
                     <td></td>
                     <td>:</td>
                     <td></td>

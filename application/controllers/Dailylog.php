@@ -89,8 +89,8 @@ class Dailylog extends CI_Controller
 			// "info" => $_POST['info'],
 			"scope" => implode("|", $_POST['scope']),
 			"job_id" => $job_id,
-			"user_id" => $user_id ,
-			"other_scope" => $_POST['other_scope'] ,
+			"user_id" => $user_id,
+			"other_scope" => $_POST['other_scope'],
 		);
 		$this->db->trans_start();
 		$this->db->insert('dailylog', $params);

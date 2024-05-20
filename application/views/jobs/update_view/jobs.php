@@ -22,17 +22,11 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                <label class="col-sm-12 col-form-label">Project Number / Reference</label>
+                <label class="col-sm-12 col-form-label">Project / Reference Number <font color="red">*</font></label>
                 <div class="col-sm-12">
                     <input type="text" name="job_prefix" value="<?php echo $kerja['job_prefix'] ?>"
                         class="form-control">
                 </div>
-            </div> -->
-            <div class="col-lg-4">
-                    <label class="col-sm-12 col-form-label">Contract Price</label>
-                    <div class="col-sm-12">
-                        <input type="number" step="0.01" name="price" value="<?php echo $kerja['contract'] ?>" placeholder="0.00" class="form-control">
-                    </div>
                 </div>
                 <div class="col-lg-4 status-hide">
                     <label class="col-sm-12 col-form-label">Status</label>
@@ -160,10 +154,11 @@
                     </select>
                 </div>
             </div>
+        </div>
     </div>
     <div class="card bg-light mb-3">
     <div class="card-header">
-        <h2>Project Details</h2>
+        <h2>Project Specification</h2>
     </div>
     <div class="card-body">
     <div class="form-group row">

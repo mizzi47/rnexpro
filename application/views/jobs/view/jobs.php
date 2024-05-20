@@ -24,7 +24,7 @@
                 <label class="col-sm-12 col-form-label">Status</label>
                 <div class="col-sm-12">
                     <select class="form-control" name="status">
-                        <option value="Incoming">New-project</option>
+                        <option value="Incoming">Incoming</option>
                         <option value="In-progress">In-progress</option>
                         <option value="Completed">Completed</option>
                     </select>
@@ -33,7 +33,7 @@
         </div>
         <div class="form-group row">
             <div class="col-lg-8">
-                <label class="col-sm-12 col-form-label">Project Type <font color="red">*</font></label>
+                <label class="col-sm-12 col-form-label">Job Type <font color="red">*</font></label>
                 <div class="col-sm-12">
                     <input type="text" name="type" value="<?php echo $kerja['job_type'] ?>" class="form-control"
                         required>
