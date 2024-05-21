@@ -16,7 +16,7 @@ class Schedule extends CI_Controller
     public function index()
     {
         $this->db->join('job a', 'a.job_id = b.job_id');
-        $this->db->where('a.status', 'In-progress');
+        $this->db->where('a.status', 'Ongoing');
         $this->db->where('a.group_id', (int) $_SESSION['group_id']);
         $data['job'] = $this->db->get('job b')->result_array();
         $this->load->view('templates/header');

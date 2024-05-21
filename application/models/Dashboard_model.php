@@ -42,7 +42,7 @@ class Dashboard_model extends CI_Model
 
     function countJobInprogress()
     {
-        $query = $this->db->select('COUNT(*) as total')->where('group_id', (int) $_SESSION['group_id'])->where('status', 'In-progress')->get('job')->result_array();
+        $query = $this->db->select('COUNT(*) as total')->where('group_id', (int) $_SESSION['group_id'])->where('status', 'Ongoing')->get('job')->result_array();
         // var_dump($query);
         // die();
         return $query[0]['total'];

@@ -324,10 +324,10 @@ class Dailylog extends CI_Controller
 		// $user_role = $this->input->cookie('role');
 		// $user_id = $this->input->cookie('userid');
 		// if ($user_role == 1) {
-		$this->db->where('status', 'In-progress');
+		$this->db->where('status', 'Ongoing');
 		$data = $this->db->where('group_id', (int) $_SESSION['group_id'])->get('job')->result_array();
 		// } else {
-		// 	$this->db->where('status', 'In-progress');
+		// 	$this->db->where('status', 'Ongoing');
 		// 	$this->db->like('access', $user_id . '|', 'after');
 		// 	$this->db->or_like('access', '|' . $user_id . '|', 'both');
 		// 	$this->db->or_like('access', '|' . $user_id, 'before');

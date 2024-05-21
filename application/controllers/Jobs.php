@@ -268,7 +268,7 @@ class Jobs extends CI_Controller
 
 	public function open($id)
 	{
-		$active = "In-progress";
+		$active = "Ongoing";
 
 		$params = array(
 			'status' => $active
