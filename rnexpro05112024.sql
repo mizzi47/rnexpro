@@ -220,7 +220,7 @@ CREATE TABLE `job` (
 
 LOCK TABLES `job` WRITE;
 /*!40000 ALTER TABLE `job` DISABLE KEYS */;
-INSERT INTO `job` VALUES (3,'JOB ENCIK AIDIL ssAAss',NULL,'In-progress','SsdaAS',1233,NULL,'Abdul hadi','jalan reko','20000','cheras','none',441234,'belakang tnb','Encik Aidil','011232323','ss@gmail.com','6|',NULL,NULL,NULL,1),(4,'JOB NEW',NULL,'In-progress','1234',55888,NULL,NULL,'123','123','123','123',123,'3123','123','123','123',NULL,NULL,NULL,NULL,2),(5,'andika',NULL,'In-progress','andika',0,NULL,'Andika Putra','andika','andika','andika','andika',0,'andika','andika','andika','andika','24|',NULL,NULL,NULL,3);
+INSERT INTO `job` VALUES (3,'JOB ENCIK AIDIL ssAAss',NULL,'Ongoing','SsdaAS',1233,NULL,'Abdul hadi','jalan reko','20000','cheras','none',441234,'belakang tnb','Encik Aidil','011232323','ss@gmail.com','6|',NULL,NULL,NULL,1),(4,'JOB NEW',NULL,'Ongoing','1234',55888,NULL,NULL,'123','123','123','123',123,'3123','123','123','123',NULL,NULL,NULL,NULL,2),(5,'andika',NULL,'Ongoing','andika',0,NULL,'Andika Putra','andika','andika','andika','andika',0,'andika','andika','andika','andika','24|',NULL,NULL,NULL,3);
 /*!40000 ALTER TABLE `job` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -25,7 +25,7 @@
                 <div class="col-sm-12">
                     <select class="form-control" name="status">
                         <option value="Incoming">Incoming</option>
-                        <option value="In-progress">In-progress</option>
+                        <option value="Ongoing">Ongoing</option>
                         <option value="Completed">Completed</option>
                     </select>
                 </div>

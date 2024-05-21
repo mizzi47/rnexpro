@@ -27,7 +27,7 @@ class Job_model extends CI_Model
          
         }
         $this->db->where('group_id', (int) $_SESSION['group_id']);
-        $this->db->where('status', 'In-progress');
+        $this->db->where('status', 'Ongoing');
         return $this->db->get('job')->result_array();
     }
 

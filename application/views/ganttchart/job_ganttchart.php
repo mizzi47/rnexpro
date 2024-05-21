@@ -66,7 +66,7 @@
                                                 <td><?php echo $i++; ?></td>
                                                 <td style="text-transform: capitalize;"><?php echo $kerja['job_name'] ?></td>
                                                 <td>
-                                                    <?php if ($kerja['status'] == 'In-progress') { ?>
+                                                    <?php if ($kerja['status'] == 'Ongoing') { ?>
                                                         <span class="badge badge-primary"><?php echo $kerja['status'] ?></span>
                                                     <?php } else if ($kerja['status'] == 'Incoming') { ?>
                                                         <span class="badge badge-warning"><?php echo $kerja['status'] ?></span>

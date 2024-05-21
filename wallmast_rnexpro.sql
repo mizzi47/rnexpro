@@ -3274,8 +3274,8 @@ CREATE TABLE `job` (
 
 INSERT INTO `job` (`job_id`, `job_name`, `job_prefix`, `status`, `job_type`, `contract`, `job_group`, `manager`, `address`, `meters`, `city`, `permit`, `postcode`, `lot`, `owner`, `phone`, `email`, `access`, `start_date`, `end_date`, `group_id`) VALUES
 (47, 'TUAN FARID @ELMINA', NULL, 'Completed', 'ID', 370000, NULL, 'Wallmaster Admin', '65,JALAN FREKUENSI U16 /124,ELMINA EAST,SEKSYEN 16,', '', 'SHAH ALAM', '', 0, 'SEMI D', 'TUAN FARID BIN HUSSAIN', '97150453', 'faridfarid,@gmail.com', NULL, '2024-05-01', '2024-05-30', 1),
-(49, 'KAMPAR @ KALIMANTAN', NULL, 'In-progress', 'Cabinet and Installment ', 1222, NULL, 'Wallmaster Admin', 'KAJANG', '3421', 'BALIK PULAU', 'none', 11010, 'Bersebelahan Petronas Jalan Bersatu', 'JAMALI', '0102350893', 'syafiqalif8@gmail.com', '27|', NULL, NULL, 1),
-(51, 'TUAN FIKRI GOMBAK', NULL, 'In-progress', 'Cabinet Installment', 1000, NULL, 'Wallmaster Admin', 'Prima Sri Gombak', '25', 'Batu Caves', 'none', 43101, 'Berhadapan Maybank Prima Sri Gombak', 'Fikri syakir', '0123485795', 'fikri31@gmail.com', '27|28|', '2024-05-13', '2024-07-18', 1);
+(49, 'KAMPAR @ KALIMANTAN', NULL, 'Ongoing', 'Cabinet and Installment ', 1222, NULL, 'Wallmaster Admin', 'KAJANG', '3421', 'BALIK PULAU', 'none', 11010, 'Bersebelahan Petronas Jalan Bersatu', 'JAMALI', '0102350893', 'syafiqalif8@gmail.com', '27|', NULL, NULL, 1),
+(51, 'TUAN FIKRI GOMBAK', NULL, 'Ongoing', 'Cabinet Installment', 1000, NULL, 'Wallmaster Admin', 'Prima Sri Gombak', '25', 'Batu Caves', 'none', 43101, 'Berhadapan Maybank Prima Sri Gombak', 'Fikri syakir', '0123485795', 'fikri31@gmail.com', '27|28|', '2024-05-13', '2024-07-18', 1);
 
 -- --------------------------------------------------------
 

@@ -84,14 +84,14 @@
                                                 <td style="text-transform: capitalize;"><?php echo $kerja['owner'] ?></td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <?php if ($kerja['status'] == 'In-progress') { ?>
+                                                        <?php if ($kerja['status'] == 'Ongoing') { ?>
                                                             <button type="button" class="btn btn-primary" disabled><?php echo $kerja['status'] ?></button>
                                                             <div class="btn-group">
                                                                 <button type="button" class="btn btn-primary dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                                                 </button>
                                                                 <div class="dropdown-menu">
                                                                     <a class="dropdown-item" href="<?php echo base_url('jobs/incoming/') . $kerja['job_id'] ?>">New Project</a>
-                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/open/') . $kerja['job_id'] ?>">In-progress</a>
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/open/') . $kerja['job_id'] ?>">Ongoing</a>
                                                                     <a class="dropdown-item" href="<?php echo base_url('jobs/completed/') . $kerja['job_id'] ?>">Completed</a>
                                                                 </div>
                                                             </div>
@@ -102,7 +102,7 @@
                                                                 </button>
                                                                 <div class="dropdown-menu">
                                                                     <a class="dropdown-item" href="<?php echo base_url('jobs/incoming/') . $kerja['job_id'] ?>">New Project</a>
-                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/open/') . $kerja['job_id'] ?>">In-progress</a>
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/open/') . $kerja['job_id'] ?>">Ongoing</a>
                                                                     <a class="dropdown-item" href="<?php echo base_url('jobs/completed/') . $kerja['job_id'] ?>">Completed</a>
                                                                 </div>
                                                             </div>
@@ -113,7 +113,7 @@
                                                                 </button>
                                                                 <div class="dropdown-menu">
                                                                     <a class="dropdown-item" href="<?php echo base_url('jobs/incoming/') . $kerja['job_id'] ?>">New Project</a>
-                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/open/') . $kerja['job_id'] ?>">In-progress</a>
+                                                                    <a class="dropdown-item" href="<?php echo base_url('jobs/open/') . $kerja['job_id'] ?>">Ongoing</a>
                                                                     <a class="dropdown-item" href="<?php echo base_url('jobs/completed/') . $kerja['job_id'] ?>">Completed</a>
                                                                 </div>
                                                             </div>
@@ -132,7 +132,7 @@
                                                 </td>
                                                 <td>
                                                     <a href="<?php echo base_url('jobs/summary') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-info"></i>View</a>
-                                                    <?php if ($kerja['status'] == "In-progress") { ?>
+                                                    <?php if ($kerja['status'] == "Ongoing") { ?>
 
                                                         <a href="<?php echo base_url('jobs/update_job_index') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-warning">Edit</a>
                                                         <!-- <button type="button" data-id="<?php echo $kerja['job_id'] ?>" class="btn_setcolor btn-sm btn btn-primary" data-toggle="modal" data-target="#setcolormodal">Set Schedule Color</button> -->
