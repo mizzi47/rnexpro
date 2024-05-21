@@ -117,13 +117,13 @@
                                                         <td></td>
                                                         <td><?php echo $value['pro_type'] ?></td>
                                                     </tr>
-                                                    <tr>
+                                                    <!-- <tr>
                                                         <td>Permit</td>
                                                         <td></td>
                                                         <td>:</td>
                                                         <td></td>
                                                         <td><?php echo $value['permit'] ?></td>
-                                                    </tr>
+                                                    </tr> -->
                                                     <tr>
                                                         <td>Postcode</td>
                                                         <td></td>
@@ -131,13 +131,13 @@
                                                         <td></td>
                                                         <td><?php echo $value['postcode'] ?></td>
                                                     </tr>
-                                                    <tr>
+                                                    <!-- <tr>
                                                         <td>Lot</td>
                                                         <td></td>
                                                         <td>:</td>
                                                         <td></td>
                                                         <td><?php echo $value['lot'] ?></td>
-                                                    </tr>
+                                                    </tr> -->
                                                 </table>
                                             </div>
                                         </div>
@@ -156,7 +156,7 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>IC Number</td>
+                                                        <td>Reference/IC Number</td>
                                                         <td></td>
                                                         <td>:</td>
                                                         <td></td>
