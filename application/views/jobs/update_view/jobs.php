@@ -153,31 +153,55 @@
                         <option value="Kuala Lumpur">W.P. Kuala Lumpur</option>
                     </select>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="card bg-light mb-3">
-    <div class="card-header">
-        <h2>Project Specification</h2>
-    </div>
-    <div class="card-body">
-    <div class="form-group row">
-            <div class="col-lg-12">
+            <!-- </div> -->
+ <!-- <div class="form-group row">
+            <div class="col-lg-12"> -->
                 <label class="col-sm-12 col-form-label">Properties Type</label>
                 <div class="col-sm-12">
-                    <input type="text" name="pro_type" value="<?php echo $kerja['pro_type'] ?>"  class="form-control">
+                <select class="form-control" name="pro_type" required>
+                        <option value="" disable selected hidden>Select Properties type</option>
+                    <!-- <input type="text" name="pro_type" class="form-control"> -->
+                    <option value="Government">Government</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Residential">Residential</option>
+                    </select>
                 </div>
+                    <!-- </div> -->
             </div>
         </div>
         <div class="form-group row">
-        <div class="col-lg-12">
+        <!-- <div class="form-group row"> -->
+            <div class="col-lg-4">
+                <label class="col-sm-12 col-form-label">Square Meters</label>
+                <div class="col-sm-12">
+                    <input type="text" name="meters" class="form-control">
+                </div>
+            </div>
+        <!-- </div>   -->
+    </div>
+</div>
+    <div class="card bg-light mb-3">
+    <div class="card-header">
+        <h2>Project Details</h2>
+    </div>
+    <div class="card-body">
+    <!-- <div class="form-group row"> -->
+            <!-- <div class="col-lg-12">
+                <label class="col-sm-12 col-form-label">Properties Details</label>
+                <div class="col-sm-12">
+                    <input type="text" name="pro_type" value="<?php echo $kerja['pro_type'] ?>"  class="form-control">
+                </div>
+            </div> -->
+        <!-- </div> -->
+        <!-- <div class="form-group row"> -->
+        <!-- <div class="col-lg-12">
                 <br>
                 <label class="col-sm-12 col-form-label">Square Meters</label>
                 <div class="col-sm-12">
                     <input type="text" name="meters" value="<?php echo $kerja['meters'] ?>" class="form-control">
                 </div>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div>
         <div class="form-group row">
         <div class="col-lg-12">
                 <label class="col-sm-12 col-form-label">Lot Info</label>
@@ -193,7 +217,7 @@
                     <input type="text" name="permit" value="<?php echo $kerja['permit'] ?>" class="form-control">
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
     <input type="hidden" value="<?php echo $this->uri->segment(3);  ?>" name="job_id">
