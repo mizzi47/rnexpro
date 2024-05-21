@@ -29,7 +29,7 @@
         }
 
         .bg-image {
-            background-image: url('<?= base_url() ?>assets/img/rnexpro.png');
+            background-image: url('<?= base_url() ?>assets/img/gambar2.png');
             background-size: cover;
         }
 
@@ -58,8 +58,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-9 col-lg-8 mx-auto">
-                                <img src="<?= base_url() ?>assets/img/RexinProSoft_logo.jpeg" style="width:140px;">
-                                <h3 class="login-heading mb-4">RnexPro</h3>
+                                <img src="<?= base_url() ?>assets/img/2.jpg" style="width:450px; padding:30px;">
+                                <!-- <h3 class="login-heading mb-4">RnexPro</h3> -->
 
                                 <!-- Sign In Form -->
                                 <form action="<?php echo base_url('welcome/register_user'); ?>" method="post">
