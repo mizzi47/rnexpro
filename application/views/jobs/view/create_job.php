@@ -117,11 +117,12 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-                <label class="col-sm-12 col-form-label">State</label>
+    <div class="col-lg-4">
+        <div class="form-group row">
+                <label class="col-sm-8 col-form-label">State</label>
                 <div class="col-sm-12">
                     <select class="form-control" name="state" required>
-                        <option value="" disable selected hidden>Select State Here</option>
+                        <option value="" disable selected hidden>Select State</option>
                         <option value="Johor">Johor</option>
                         <!--<option value="Labuan"></option>-->
                         <option value="Kedah">Kedah</option>
@@ -139,31 +140,66 @@
                         <option value="Kuala Lumpur">W.P. Kuala Lumpur</option>
                     </select>
                 </div>
-            </div>
-    </div>
-</div>
-<div class="card bg-light mb-3">
-    <div class="card-header">
-        <h2>Project Specification</h2>
-    </div>
-    <div class="card-body">
-    <div class="form-group row">
-            <div class="col-lg-12">
-                <label class="col-sm-12 col-form-label">Properties Type</label>
+            <!-- </div> -->
+      <!-- </div> -->
+
+      <!-- <div class="form-group row"> -->
+            <!-- <div class="col-lg-12"> -->
+                <label class="col-sm-8 col-form-label">Properties Type</label>
                 <div class="col-sm-12">
-                    <input type="text" name="pro_type" class="form-control">
+                <select class="form-control" name="pro_type" required>
+                        <option value="" disable selected hidden>Select Properties type</option>
+                    <!-- <input type="text" name="pro_type" class="form-control"> -->
+                    <option value="Government">Government</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Residential">Residential</option>
+                    </select>
                 </div>
-            </div>
-        </div>
+            <!-- </div> -->
+        </div> 
+    </div>           
         <div class="form-group row">
-            <div class="col-lg-12">
+            <div class="col-lg-4">
                 <label class="col-sm-12 col-form-label">Square Meters</label>
                 <div class="col-sm-12">
                     <input type="text" name="meters" class="form-control">
                 </div>
             </div>
         </div>
-        <div class="form-group row">
+    </div>
+    <!-- </div> -->
+        <!-- <div class="form-group row">
+            <div class="col-lg-12">
+                <label class="col-sm-12 col-form-label">Square Meters</label>
+                <div class="col-sm-12">
+                    <input type="text" name="meters" class="form-control">
+                </div>
+            </div>
+        </div> -->
+    
+</div>
+<div class="card bg-light mb-3">
+    <div class="card-header">
+        <h2>Project Details</h2>
+    </div>
+    <div class="card-body">
+    <!-- <div class="form-group row">
+            <div class="col-lg-12">
+                <label class="col-sm-12 col-form-label">Properties Type</label>
+                <div class="col-sm-12">
+                    <input type="text" name="pro_type" class="form-control">
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="form-group row">
+            <div class="col-lg-12">
+                <label class="col-sm-12 col-form-label">Square Meters</label>
+                <div class="col-sm-12">
+                    <input type="text" name="meters" class="form-control">
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="form-group row">
             <div class="col-lg-12">
                 <label class="col-sm-12 col-form-label">Lot Info</label>
                 <div class="col-sm-12">
@@ -178,7 +214,7 @@
                     <input type="text" name="permit" class="form-control">
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <button type="submit" class="btn btn-success float-right" style="margin-bottom: 20px;">Save</button>
