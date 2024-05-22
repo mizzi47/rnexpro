@@ -115,8 +115,8 @@
                                     </div>
 
                                     <!-- <form action="/action_page.php"> -->
-                                        <div class="form-check mb-3">
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">   
+                                        <div class="form-check mb-4">
+                                    <input type="checkbox" id="pdpa" name="pdpa" value="" required>   
                                     <label for="i agreed"> By signing up,<a href="https://www.w3schools.com/html/" title=" Go to W3Schools HTML section"> I agree to Terms of Use and Privacy Statement.</label><br></a>
     </div>
 

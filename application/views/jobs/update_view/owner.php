@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="col-lg-3">
-            <label class="col-sm-12 col-form-label">IC Number <font color="red">*</font></label>
+            <label class="col-sm-12 col-form-label">Reference/IC Number<font color="red">*</font></label>
             <div class="col-sm-12">
                 <input type="text" name="ic_num" value="<?php echo $owner['ic_num'] ?>" class="form-control">
             </div>

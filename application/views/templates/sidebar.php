@@ -89,13 +89,13 @@
                           <li class="nav-item">
                               <a href="<?php echo base_url('user/index') ?>" class="nav-link">
                                   <i class="far fa-user nav-icon"></i>
-                                  <p>User</p>
+                                  <p>Client</p>
                               </a>
                           </li>
                           <li class="nav-item">
                               <a href="<?php echo base_url('user/vendor_index') ?>" class="nav-link">
                                   <i class="fa-solid fa-user nav-icon"></i>
-                                  <p>Vendor</p>
+                                  <p>Sub-contractor/ Team</p>
                               </a>
                           </li>
                       </ul>
