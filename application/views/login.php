@@ -31,8 +31,8 @@
     }
 
     .bg-image {
-      background-image: url('assets/img/gambar2.png');
-      background-size: cover;
+      background-image: url('assets/img/gambar3.jpg');
+      background-size: auto;
     }
 
     .login-heading {
@@ -87,7 +87,7 @@
           <div class="container">
 
 
-          <div class="grid-container project-header">
+           <div class="grid-container project-header">
               <h1 class="typewriter">Project Management and </h1>
               <h1 class="typewriter"> Monitoring System</h1>
               </div>

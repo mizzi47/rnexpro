@@ -30,7 +30,7 @@
 
         .bg-image {
             background-image: url('<?= base_url() ?>assets/img/gambar2.png');
-            background-size: cover;
+            background-size: auto;
         }
 
         .login-heading {
@@ -116,8 +116,8 @@
 
                                     <!-- <form action="/action_page.php"> -->
                                         <div class="form-check mb-4">
-                                    <input type="checkbox" id="pdpa" name="pdpa" value="" required>   
-                                    <label for="i agreed"> By signing up,<a href="https://www.w3schools.com/html/" title=" Go to W3Schools HTML section"> I agree to Terms of Use and Privacy Statement.</label><br></a>
+                                    <input type="checkbox" id="pdpa" name="pdpa" value="form-control" required>   
+                                    <label for="i agreed"> <h8>By signing up,<a href= <?php echo base_url('welcome/pdpa') ?>> I agree to Terms of Use and Privacy Statement.</h8></label><br></a>
     </div>
 
                                     <!-- <div class="form-check mb-3">
