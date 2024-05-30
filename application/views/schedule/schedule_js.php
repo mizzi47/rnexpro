@@ -415,4 +415,12 @@
         $("#currentMonth").text(monthNames[new Date(cal.getDate()).getMonth()] + " " + new Date(cal.getDate())
             .getFullYear());
     }
+
+    function setMonth(e){
+        var newMonth = new Date(e.target.value).getMonth();
+        var newYear = new Date(e.target.value).getFullYear();
+        cal.setDate(new Date(newYear, newMonth, 1));
+        $("#currentMonth").text(monthNames[new Date(cal.getDate()).getMonth()] + " " + new Date(cal.getDate())
+            .getFullYear());
+    }
 </script>

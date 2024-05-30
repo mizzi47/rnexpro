@@ -76,7 +76,7 @@
                                                 </td>
                                                 <td>
                                                     <a href="<?php echo base_url('ganttchart/view_gantt') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-info"></i>Gantt Chart</a>
-                                                    <a href="<?php echo base_url('ganttchart/spreadSheet') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-warning"></i>Download Timeline</a>
+                                                    <a href="<?php echo base_url('ganttchart/view_gantt_download') ?>/<?php echo $kerja['job_id'] ?>" class="btn btn-sm btn-warning"></i>Download Timeline</a>
                                                 </td>
                                             </tr>
                                         <?php } ?>
