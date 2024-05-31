@@ -61,6 +61,36 @@ class Jobs extends CI_Controller
 			// var_dump($params);
 			// die();
 			$job_id = $this->Job_model->addJob($params);
+
+			if (!empty($_FILES['projectFiles']['name'][0])) {
+				$ds = DIRECTORY_SEPARATOR;
+				$storeFolder = './uploads';
+				$uploadData = array();
+				for ($i = 0; $i < count($_FILES['projectFiles']['tmp_name']); $i++) {
+					$newFileName = 'FP' . $job_id . '_' . $_FILES['projectFiles']['name'][$i];
+					$tempFile = $_FILES['projectFiles']['tmp_name'][$i];
+					$targetPath = $storeFolder . $ds;
+					$targetFile = $targetPath . $newFileName;
+
+					if (move_uploaded_file($tempFile, $targetFile)) {
+						$uploadData[] = array(
+							"pj_filename" => $newFileName,
+							"pj_extension" => $_FILES['projectFiles']['type'][$i],
+							"pj_jobid" => $job_id
+						);
+					}
+				}
+
+				if (!empty($uploadData)) {
+					$this->db->insert_batch('projectfiles', $uploadData);
+					$this->session->set_flashdata('msg-success-add', 'Job and attachment(s) have been created successfully.');
+				} else {
+					$this->session->set_flashdata('msg-fail-add', 'Job created but attachment(s) upload failed.');
+				}
+			} else {
+				$this->session->set_flashdata('msg-success-add', 'Job has been created successfully.');
+			}
+
 			redirect('jobs/owner/' . $job_id);
 		}
 	}
