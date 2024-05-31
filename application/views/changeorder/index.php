@@ -208,6 +208,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th>No</th>
+                                                        <th>Project Name</th>
                                                         <th>Reference Code</th>
                                                         <th>Created Date</th>
                                                         <th>Issued Date</th>
@@ -239,6 +240,9 @@
                 ],
                 columns: [{
                         "data": "no"
+                    },
+                    {
+                        "data": "project_name"
                     },
                     {
                         "data": "code_id"
@@ -273,6 +277,7 @@
                             var print = ' <a onclick="generateCO('+item['id']+')" class="btn btn-sm btn-info form-control" id="code_id" id="print"><span><i class="fa fa-print"></i></span> Print</a>';
                             var tempobj = {
                                 no: count,
+                                project_name: "<?php echo $value['job_name'] ?>",
                                 code_id: item['code_id'],
                                 created_date: item['created_date'],
                                 issued_date: item['issued_date'],
@@ -283,7 +288,7 @@
                     } else {
                         changeorder.clear().draw();
                     }
-                }
+                } 
             });
         })
 
