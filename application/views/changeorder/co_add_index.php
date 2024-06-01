@@ -48,7 +48,15 @@
                                                     <div class="col-md-8">
                                                         <input type="text" placeholder="" id="code_id" name="code_id" rows="5" class="form-control" required></input>
                                                     </div>
-                                                </div><br>
+                                                </div>
+                                                <div class='input-group'>
+                                                    <div class="col-md-4">
+                                                        <label for="">Project name:</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" placeholder="" id="project_name" name="project_name" rows="6" class="form-control" required></input>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

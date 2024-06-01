@@ -186,12 +186,13 @@
 	<div class="col-12">
 		<!-- <div class="card"> -->
 		<div class="card-header">
-			<h2>Upload Files</h2>
+			<h2>Project Details</h2>
 		</div>
+		
 		<div class="card-body">
 			<div class="form-group row">
 				<div class="col-12">
-					
+				<label class="col-sm-12 col-form-label">Project Specification</label>
 					<div class="card-body">
 						<div class="form-group">
 							<input type="file" name="projectFiles[]" class="form-control" id="projectFiles" multiple>
