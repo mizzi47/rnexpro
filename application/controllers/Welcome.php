@@ -21,6 +21,27 @@ class Welcome extends CI_Controller
 		$this->load->view('register');
 	}
 
+	public function forgot()
+	{
+		$this->load->view('forgot');
+	}
+
+	public function reset()
+	{
+		$this->load->view('reset');
+	}
+
+	public function sendpass()
+	{
+		$this->load->view('sendpass');
+	}
+
+	public function processreset()
+	{
+		$this->load->view('processreset');
+	}
+
+
 	public function auth()
 	{
 		if (isset($_POST) && count($_POST) > 0) {
