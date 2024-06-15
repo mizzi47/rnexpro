@@ -53,11 +53,11 @@
 
     
     <div class="container-fluid ps-md-0">
-        <div class="row g-0">
+        <!-- <div class="row g-0">
             <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
             <div class="col-md-8 col-lg-6">
                 <div class="login d-flex align-items-center py-5">
-                    <div class="container">
+                    <div class="container"> -->
                         <div class="row">
                             <div class="col-md-9 col-lg-8 mx-auto">
                                 <img src="<?= base_url() ?>assets/img/2.jpg" style="width:150px; padding:15px;">

@@ -27,17 +27,19 @@
   
   <style>
     body {
-      background-image: url('assets/img/gambar6.jpg');
+      background-image: url('assets/img/gambar7.jpg');
       background-size: 100% 100%;
       background-repeat: no-repeat;
     }
+
+
     .login {
       min-height: 100vh;
     }
 
     /* .bg-image {
-      background-image: url('assets/img/gambar3.jpg');
-      background-size: auto;
+      background-image: url('assets/img/gambar2.png');
+      background-size: cover;
     } */
 
     .login-heading {
@@ -48,12 +50,8 @@
       font-size: 0.9rem;
       letter-spacing: 0.05rem;
       padding: 0.75rem 1rem;
-      
-
-    
 
     }
-
 
     .typewriter {
     font-family: 'Open Sans', sans-serif;
@@ -72,11 +70,6 @@
     padding-bottom: 100px;
   }
 
-  .resin {
-    padding-left: 900px;
-    
-  }
-
 
   </style>
 </head>
@@ -88,24 +81,32 @@
     <img class="animation__shake" src="<?= base_url() ?>assets/img/RexinProSoft_logo.jpeg" alt="AdminLTELogo" height="60" width="60">
   </div>
   <!-- <div class="container-fluid ps-md-0">
-    <div class="row g-0"> -->
-
-      <!-- <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div> -->
-      <!-- <div class="col-md-8 col-lg-6"> -->
+    <div class="row g-0">
+      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+      <div class="col-md-8 col-lg-6"> -->
         <!-- <div class="pro-man">
         <h2> PROJECT MANAGEMENT & MONITORING SYSTEM </h2>    --- Create CSS ---
         </div> -->
         <div class="login d-flex align-items-center py-5">
           <div class="container">
-           <!-- <div class="grid-container project-header">
+          <div class="col-md-9 col-lg-8 mx-auto">
+          <img src="assets/img/logo1.png" style="width:600px; padding-left: 130px; height:200px;">
+
+
+          <!-- <div class="grid-container project-header">
               <h1 class="typewriter">Project Management and </h1>
               <h1 class="typewriter"> Monitoring System</h1>
               </div> -->
+
+
             <!-- <div class="row"> -->
-              <div class="col-md-9 col-lg-4 mx-auto">
+              <div class="col-md-9 col-lg-6 mx-auto">
+
+                <!-- <img src="assets/img/2.jpg" style="width:450px; padding-bottom: 70px;"> -->
                 <!-- <h3 class="login-heading mb-4">RnexPro</h3> -->
+
                 <!-- Sign In Form -->
-                <form action="<?php echo base_url('welcome/auth'); ?>" method="post" >
+                <form action="<?php echo base_url('welcome/auth'); ?>" method="post">
                   <div class="form-floating input-group mb-3">
                     <input type="text" class="form-control" placeholder="Username" name="username" required>
                     <div class="input-group-append">
@@ -123,6 +124,7 @@
                     </div>
                   </div>
 
+                  <p><a href="<?php echo base_url('welcome/forgot') ?>">Forgot your password?</a></p>
                   <!-- <div class="form-check mb-3">
 									<input class="form-check-input" type="checkbox" value="" id="remember">
                   <label class="form-check-label" for="rememberPasswordCheck">
