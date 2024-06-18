@@ -11,7 +11,7 @@ class Schedule_model extends CI_Model
             $this->db->where('schedule_id', $id);
         }
         $this->db->join('job', 'job.job_id = schedule.job_id');
-        $this->db->where('group_id', (int) $_SESSION['group_id']);
+        $this->db->where('group_id', (int) $_SESSION['group_id'])->order_by('start');
         return $this->db->get('schedule')->result_array();
     }
 

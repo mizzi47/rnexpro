@@ -31,6 +31,11 @@
                         cal.createSchedules([savedSchedules]);
                     }
                 } else {
+                    var newMonth = new Date(all_schedule[0]['start']).getMonth();
+                    var newYear = new Date(all_schedule[0]['start']).getFullYear();
+                    cal.setDate(new Date(newYear, newMonth, 1));
+                    $("#currentMonth").text(monthNames[new Date(cal.getDate()).getMonth()] + " " + new Date(cal.getDate())
+                        .getFullYear());
                     for (var i = 0; i < all_schedule.length; i++) {
                         if (all_schedule[i]['job_id'] == parseInt(job_id)) {
                             var savedSchedules = {

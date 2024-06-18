@@ -2,6 +2,115 @@
  * @author myzking
  * @copyright 2022
 -->
+<style>
+    .box {
+        float: left;
+        height: 20px;
+        width: 20px;
+        margin-bottom: 15px;
+        border: 1px solid black;
+        clear: both;
+        background-color: red;
+    }
+</style>
+<?php
+
+$data = [
+    'EXTERIOR WORK' => [
+        'Foundation Work' => [
+            'Color' => 'Red',
+            'Code' => '#FF0000'
+        ],
+        'Structure Work' => [
+            'Color' => 'Orange',
+            'Code' => '#FFA500'
+        ],
+        'Framing Work' => [
+            'Color' => 'Yellow',
+            'Code' => '#FFFF00'
+        ],
+        'Siding Work' => [
+            'Color' => 'Brown',
+            'Code' => '#A52A2A'
+        ],
+        'Plastering Work' => [
+            'Color' => 'Purple',
+            'Code' => '#800080'
+        ],
+        'Facade Work' => [
+            'Color' => 'Grey',
+            'Code' => '#808080'
+        ],
+        'Painting Work' => [
+            'Color' => 'Cyan',
+            'Code' => '#00FFFF'
+        ],
+        'Landscaping Work' => [
+            'Color' => 'Green',
+            'Code' => '#008000'
+        ]
+    ],
+    'INTERIOR WORK' => [
+        'Site Protection' => [
+            'Color' => 'Blue',
+            'Code' => '#0000FF'
+        ],
+        'Demolish Work' => [
+            'Color' => 'Dark Raspberry',
+            'Code' => '#872657'
+        ],
+        'Extension Work' => [
+            'Color' => 'Aquamarine',
+            'Code' => '#7FFFD4'
+        ],
+        'Partition Work' => [
+            'Color' => 'Golden Yellow',
+            'Code' => '#FFDF00'
+        ],
+        'Floor Finishes' => [
+            'Color' => 'Irish Green',
+            'Code' => '#08A04B'
+        ],
+        'Wiring & Electrical' => [
+            'Color' => 'Dark Blue',
+            'Code' => '#00008B'
+        ],
+        'Wall Finishes' => [
+            'Color' => 'Coral Peach',
+            'Code' => '#FBD5AB'
+        ],
+        'Ceiling Finishes' => [
+            'Color' => 'Dark White',
+            'Code' => '#E1D9D1'
+        ],
+        'Carpentry Work' => [
+            'Color' => 'FireBrick',
+            'Code' => '#B22222'
+        ],
+        'Aluminium & Glass' => [
+            'Color' => 'Jet Gray',
+            'Code' => '#616D7E'
+        ],
+        'Steel Work' => [
+            'Color' => 'Silver',
+            'Code' => '#C0C0C0'
+        ],
+        'Plumbing' => [
+            'Color' => 'Red Brown',
+            'Code' => '#622F22'
+        ],
+        'Furnishing & Decoration' => [
+            'Color' => 'Violet Red',
+            'Code' => '#F6358A'
+        ],
+        'Cleaning' => [
+            'Color' => 'Lime',
+            'Code' => '#00FF00'
+        ]
+    ]
+];
+
+?>
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid">
@@ -28,7 +137,7 @@
                                 <div class="col-md-4">
                                     <button class="btn btn-info" onclick="cal.prev();setDate();"><span><i class="fa-solid fa fa-chevron-circle-left"></i></span>
                                         Previous</button>
-                                    <button class="btn btn-info" onclick="cal.today();setDate();">Today</button>
+                                    <button class="btn btn-info" onclick="cal.today();setDate();">Today's Date</button>
                                     <button class="btn btn-info" onclick="cal.next();setDate();">Next <span><i class="fa-solid fa fa-chevron-circle-right"></i></button>
                                 </div>
                                 <div class="col">
@@ -44,8 +153,11 @@
                                 </div>
                             </div>
                             <div class="d-flex flex-row">
-                                <div class="col-md-4">
-                                <input type="month" onchange="setMonth(event)" >
+                                <div class="col-md-auto">
+                                            PICK DATE
+                                </div>
+                                <div class="col-md-2">
+                                    <input placeholder="select month" class="form-control" type="month" onchange="setMonth(event)">
                                 </div>
                             </div>
                         </div>
@@ -71,36 +183,40 @@
                     <div class="col-md-4">
                         <label for="display_date_start">Start Date:</label>
                     </div>
-                    <div class="col-md-2">
-                        <input type="date" id="display_date_start" value="<?= date('Y-m-d'); ?>" required>
+                    <div class="col">
+                        <input class="form-control" type="date" id="display_date_start" value="<?= date('Y-m-d'); ?>" required>
                     </div>
                 </div>
                 <div class='input-group date'>
                     <div class="col-md-4">
                         <label for="display_date_end">End Date:</label>
                     </div>
-                    <div class="col-md-2">
-                        <input type="date" id="display_date_end" value="<?= date('Y-m-d'); ?>" required>
+                    <div class="col">
+                        <input class="form-control" type="date" id="display_date_end" value="<?= date('Y-m-d'); ?>" required>
                     </div>
                 </div>
                 <div class='input-group'>
                     <div class="col-md-4">
-                        <label for="sch_color">Schedule Color:</label>
+                        <label for="sch_color">Scope:</label>
                     </div>
-                    <div class="col-md-2">
-                        <input type="color" id="sch_color" name="sch_color" list="presetColors">
-                        <datalist id="presetColors">
-                            <option>#FF3333</option>
-                            <option>#FFFF00</option>
-                            <option>#00FF00</option>
-                            <option>#00FFFF</option>
-                            <option>#0000FF</option>
-                            <option>#9933FF</option>
-                            <option>#FF99CC</option>
-                            <option>#606060</option>
-                        </datalist>
+                    <div class="col-md-auto">
+                        <select class="form-control" name="sch_color" id="sch_color">
+                            <?php foreach ($data as $category => $items) : ?>
+                                <optgroup label="<?= $category ?>">
+                                    <?php foreach ($items as $work => $details) : ?>
+                                        <option value="<?php echo htmlspecialchars($details['Code']); ?>">
+                                            <?php echo $work; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </optgroup>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input id="previewColor" class="form-control" type='color' disabled>
                     </div>
                 </div>
+                <br>
                 <div class='input-group'>
                     <div class="col-md-4">
                         <label for="sch_title">Schedule Title:</label>
@@ -146,52 +262,6 @@
                             <input type="text" name="job_name" class="form-control" id="details_view_job" value="" disabled>
                         </div>
                     </div>
-                    <!-- <div class='input-group date'>
-                        <div class="col-md-4">
-                            <label for="logdate">Date:</label>
-                        </div>
-                        <script type="text/javascript">
-                        $(function() {
-                            $('#details_view_date_start').datepicker({
-                                format: "dd/mm/yyyy"
-                            });
-                        });
-                        </script>
-                        <div class="col-md-4">
-                            <div class="input-group">
-                                <input id="details_view_date_start" name="date_start" type="text" class="form-control date-input"
-                                    required />
-                                <label class="input-group-btn" for="txtDate">
-                                    <span class="btn btn-default">
-                                        <span class="fa fa-calendar"></span>
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='input-group date'>
-                        <div class="col-md-4">
-                            <label for="logdate">Date:</label>
-                        </div>
-                        <script type="text/javascript">
-                        $(function() {
-                            $('#details_view_date_end').datepicker({
-                                format: "dd/mm/yyyy"
-                            });
-                        });
-                        </script>
-                        <div class="col-md-4">
-                            <div class="input-group">
-                                <input id="details_view_date_end" name="date_end" type="text" class="form-control date-input"
-                                    required />
-                                <label class="input-group-btn" for="txtDate">
-                                    <span class="btn btn-default">
-                                        <span class="fa fa-calendar"></span>
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class='input-group date'>
                         <div class="col-md-4">
                             <label for="details_view_date_start">Start Date:</label>
@@ -236,3 +306,11 @@
             </form>
         </div>
     </div>
+</div>
+<script>
+    var colors = document.getElementById('sch_color');
+    colors.onchange = function() {
+        var previewColor = document.getElementById("previewColor");
+        previewColor.value = colors.value;
+    };
+</script>

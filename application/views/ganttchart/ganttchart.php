@@ -74,85 +74,151 @@
     });
     google.charts.setOnLoadCallback(drawChart);
 
+    // function drawChart() {
+    //     var container = document.getElementById('timeline');
+    //     var chart = new google.visualization.Timeline(container);
+    //     var dataTable = new google.visualization.DataTable();
+    //     var tasks = [];
+    //     $(document).ready(function() {
+    //         $.ajax({
+    //             url: '<?php echo base_url() ?>ganttchart/getGantt',
+    //             method: 'post',
+    //             data: {
+    //                 job_id: <?php echo $job_id ?>,
+    //             },
+    //             dataType: 'text',
+    //             success: function(data) {
+    //                 var all_schedule = JSON.parse(data);
+    //                 CountSchedule = all_schedule.length;
+    //                 for (var i = 0; i < all_schedule.length; i++) {
+    //                     var savedSchedules = {
+    //                         id: all_schedule[i]['schedule_id'],
+    //                         name: all_schedule[i]['title'],
+    //                         body: all_schedule[i]['body'],
+    //                         start: all_schedule[i]['start'],
+    //                         end: all_schedule[i]['end'],
+    //                         progress: 100
+    //                     };
+    //                     tasks.push(savedSchedules);
+    //                 }
+    //                 console.log(tasks);
+    //                 dataTable.addColumn({
+    //                     type: 'string',
+    //                     id: 'Title'
+    //                 });
+    //                 dataTable.addColumn({
+    //                     type: 'date',
+    //                     id: 'Start'
+    //                 });
+    //                 dataTable.addColumn({
+    //                     type: 'date',
+    //                     id: 'End'
+    //                 });
+    //                 for (var i = 0; i < tasks.length; i++) {
+    //                     dataTable.addRows([
+    //                         [all_schedule[i]['title'], new Date(all_schedule[i]['start']), new Date(all_schedule[i]['end'])],
+    //                     ]);
+    //                 }
+
+    //                 var options = {
+    //                     height: 1200,
+    //                     timeline: {
+    //                         groupByRowLabel: true
+    //                     },
+    //                     "hAxis": {
+    //                         "gridlines": {
+    //                             "count": "-1",
+    //                             "units": {
+    //                                 "minutes": {
+    //                                     "format": [
+    //                                         "HH:mm"
+    //                                     ]
+    //                                 },
+    //                                 "hours": {
+    //                                     "format": [
+    //                                         "MM/dd HH",
+    //                                         "HH"
+    //                                     ]
+    //                                 },
+    //                                 "days": {
+    //                                     "format": [
+    //                                         "yyyy/MM/dd"
+    //                                     ]
+    //                                 }
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+    //                 chart.draw(dataTable, options);
+    //             }
+    //         });
+    //     })
+    // }
     function drawChart() {
         var container = document.getElementById('timeline');
         var chart = new google.visualization.Timeline(container);
         var dataTable = new google.visualization.DataTable();
-        var tasks = [];
-        $(document).ready(function() {
-            $.ajax({
-                url: '<?php echo base_url() ?>ganttchart/getGantt',
-                method: 'post',
-                data: {
-                    job_id: <?php echo $job_id ?>,
-                },
-                dataType: 'text',
-                success: function(data) {
-                    var all_schedule = JSON.parse(data);
-                    CountSchedule = all_schedule.length;
-                    for (var i = 0; i < all_schedule.length; i++) {
-                        var savedSchedules = {
-                            id: all_schedule[i]['schedule_id'],
-                            name: all_schedule[i]['title'],
-                            body: all_schedule[i]['body'],
-                            start: all_schedule[i]['start'],
-                            end: all_schedule[i]['end'],
-                            progress: 100
-                        };
-                        tasks.push(savedSchedules);
-                    }
-                    console.log(tasks);
-                    dataTable.addColumn({
-                        type: 'string',
-                        id: 'Title'
-                    });
-                    dataTable.addColumn({
-                        type: 'date',
-                        id: 'Start'
-                    });
-                    dataTable.addColumn({
-                        type: 'date',
-                        id: 'End'
-                    });
-                    for (var i = 0; i < tasks.length; i++) {
-                        dataTable.addRows([
-                            [all_schedule[i]['title'], new Date(all_schedule[i]['start']), new Date(all_schedule[i]['end'])],
-                        ]);
-                    }
+        var all_schedule = <?php echo json_encode($ganttChartData); ?>;
+        console.log(all_schedule);
+        dataTable.addColumn({
+            type: 'string',
+            id: 'Group'
+        });
+        dataTable.addColumn({
+            type: 'string',
+            id: 'ID'
+        });
+        dataTable.addColumn({
+            type: 'string',
+            role: 'style'
+        });
+        dataTable.addColumn({
+            type: 'date',
+            id: 'Start'
+        });
+        dataTable.addColumn({
+            type: 'date',
+            id: 'End'
+        });
+        for (var i = 0; i < all_schedule.length; i++) {
+            dataTable.addRows([
+                [all_schedule[i]['title'], all_schedule[i]['body'], all_schedule[i]['bgColor'], new Date(all_schedule[i]['start']), new Date(all_schedule[i]['end'])],
+            ]);
+        }
 
-                    var options = {
-                        height: 1200,
-                        timeline: {
-                            groupByRowLabel: true
+        var rowHeight = 41;
+        var chartHeight = (dataTable.getNumberOfRows() + 1) * rowHeight;
+
+        var options = {
+            height: 1200,
+            timeline: {
+                groupByRowLabel: true
+            },
+            "hAxis": {
+                "gridlines": {
+                    "count": "-1",
+                    "units": {
+                        "minutes": {
+                            "format": [
+                                "HH:mm"
+                            ]
                         },
-                        "hAxis": {
-                            "gridlines": {
-                                "count": "-1",
-                                "units": {
-                                    "minutes": {
-                                        "format": [
-                                            "HH:mm"
-                                        ]
-                                    },
-                                    "hours": {
-                                        "format": [
-                                            "MM/dd HH",
-                                            "HH"
-                                        ]
-                                    },
-                                    "days": {
-                                        "format": [
-                                            "yyyy/MM/dd"
-                                        ]
-                                    }
-                                }
-                            }
+                        "hours": {
+                            "format": [
+                                "MM/dd HH",
+                                "HH"
+                            ]
+                        },
+                        "days": {
+                            "format": [
+                                "yyyy/MM/dd"
+                            ]
                         }
                     }
-                    chart.draw(dataTable, options);
                 }
-            });
-        })
+            }
+        }
+        chart.draw(dataTable, options);
     }
 
     function printDiv() {
