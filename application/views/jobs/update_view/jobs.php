@@ -103,121 +103,114 @@
         </div>
     </div>
     <div class="card bg-light mb-3">
-        <div class="card-header">
-            <h2>Project Site</h2>
-        </div>
-        <div class="card-body">
-        <div class="form-group row">
+	<div class="card-header">
+		<h2>Project Site</h2>
+	</div>
+	<div class="card-body">
+		<div class="form-group row">
+			<div class="col-lg-12">
+				<label class="col-sm-12 col-form-label">Street Address</label>
+				<div class="col-sm-12">
+					<input type="text" name="address" value="<?php echo $kerja['address'] ?>" class="form-control"
+						placeholder="EXP: No.69, Jalan Ampang,Kampung Datuk Keramat">
+				</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-lg-12">
+				<label class="col-sm-12 col-form-label">City</label>
+				<div class="col-sm-12">
+					<input type="text" name="city" value="<?php echo $kerja['city'] ?>" class="form-control" placeholder="EXP: SHAH ALAM">
+				</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-lg-12">
+				<label class="col-sm-12 col-form-label">Postcode</label>
+				<div class="col-sm-12">
+					<input type="text" value="<?php echo $kerja['postcode'] ?>" name="postcode" class="form-control" placeholder="EXP: 40400">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label class="col-form-label">State<font color="red">*</font></label>
+					<div>
+						<select class="form-control" name="state" required>
+							<option value="" disabled selected hidden>Select State</option>
+							<option value="Johor">Johor</option>
+							<!--<option value="Labuan"></option>-->
+							<option value="Kedah">Kedah</option>
+							<option value="Kelantan">Kelantan</option>
+							<option value="Melaka">Melaka</option>
+							<option value="Negeri Sembilan">Negeri Sembilan</option>
+							<option value="Pahang">Pahang</option>
+							<option value="Pulau Pinang">Pulau Pinang</option>
+							<option value="Perak">Perak</option>
+							<option value="Perlis">Perlis</option>
+							<option value="Sabah">Sabah</option>
+							<option value="Sarawak">Sarawak</option>
+							<option value="Selangor">Selangor</option>
+							<option value="Terengganu">Terengganu</option>
+							<option value="Kuala Lumpur">W.P. Kuala Lumpur</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label class="col-form-label">Properties Type</label>
+					<div>
+						<select class="form-control" name="pro_type" required>
+							<option value="" disabled selected hidden>Select Properties type</option>
+							<option value="Government">Government</option>
+							<option value="Commercial">Commercial</option>
+							<option value="Residential">Residential</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label class="col-form-label">Square Meters</label>
+					<div>
+						<input type="text" name="meters" value="<?php echo $kerja['meters'] ?>" class="form-control">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- </div> -->
+		<!-- <div class="form-group row">
             <div class="col-lg-12">
-                <label class="col-sm-12 col-form-label">Street Address</label>
-                <div class="col-sm-12">
-                    <input type="text" name="address" value="<?php echo $kerja['address'] ?>" class="form-control">
-                </div>
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-lg-12">
-                <label class="col-sm-12 col-form-label">City</label>
-                <div class="col-sm-12">
-                    <input type="text" name="city" value="<?php echo $kerja['city'] ?>" class="form-control">
-                </div>
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-lg-12">
-                <label class="col-sm-12 col-form-label">Postcode</label>
-                <div class="col-sm-12">
-                    <input type="text" name="postcode" value="<?php echo $kerja['postcode'] ?>" class="form-control">
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-                <label class="col-sm-12 col-form-label">State</label>
-                <div class="col-sm-12">
-                    <select class="form-control" name="state" required>
-                        <option value="" disable selected hidden>Select State Here</option>
-                        <option value="Johor">Johor</option>
-                        <!--<option value="Labuan"></option>-->
-                        <option value="Kedah">Kedah</option>
-                        <option value="Kelantan">Kelantan</option>
-                        <option value="Melaka">Melaka</option>
-                        <option value="Negeri Sembilan">Negeri Sembilan</option>
-                        <option value="Pahang">Pahang</option>
-                        <option value="Pulau Pinang">Pulau Pinang</option>
-                        <option value="Perak">Perak</option>
-                        <option value="Perlis">Perlis</option>
-                        <option value="Sabah">Sabah</option>
-                        <option value="Sarawak">Sarawak</option>
-                        <option value="Selangor">Selangor</option>
-                        <option value="Terengganu">Terengganu</option>
-                        <option value="Kuala Lumpur">W.P. Kuala Lumpur</option>
-                    </select>
-                </div>
-            <!-- </div> -->
- <!-- <div class="form-group row">
-            <div class="col-lg-12"> -->
-                <label class="col-sm-12 col-form-label">Properties Type</label>
-                <div class="col-sm-12">
-                <select class="form-control" name="pro_type" required>
-                        <option value="" disable selected hidden>Select Properties type</option>
-                    <!-- <input type="text" name="pro_type" class="form-control"> -->
-                    <option value="Government">Government</option>
-                        <option value="Commercial">Commercial</option>
-                        <option value="Residential">Residential</option>
-                    </select>
-                </div>
-                    <!-- </div> -->
-            </div>
-        </div>
-        <div class="form-group row">
-        <!-- <div class="form-group row"> -->
-            <div class="col-lg-4">
                 <label class="col-sm-12 col-form-label">Square Meters</label>
                 <div class="col-sm-12">
                     <input type="text" name="meters" class="form-control">
                 </div>
             </div>
-        <!-- </div>   -->
-    </div>
+        </div> -->
+
+	</div>
 </div>
     <div class="card bg-light mb-3">
     <div class="card-header">
         <h2>Project Details</h2>
     </div>
     <div class="card-body">
-    <!-- <div class="form-group row"> -->
-            <!-- <div class="col-lg-12">
-                <label class="col-sm-12 col-form-label">Properties Details</label>
-                <div class="col-sm-12">
-                    <input type="text" name="pro_type" value="<?php echo $kerja['pro_type'] ?>"  class="form-control">
-                </div>
-            </div> -->
-        <!-- </div> -->
-        <!-- <div class="form-group row"> -->
-        <!-- <div class="col-lg-12">
-                <br>
-                <label class="col-sm-12 col-form-label">Square Meters</label>
-                <div class="col-sm-12">
-                    <input type="text" name="meters" value="<?php echo $kerja['meters'] ?>" class="form-control">
-                </div>
-            </div> -->
-        <!-- </div>
-        <div class="form-group row">
-        <div class="col-lg-12">
-                <label class="col-sm-12 col-form-label">Lot Info</label>
-                <div class="col-sm-12">
-                    <input type="text" name="lot" value="<?php echo $kerja['lot'] ?>" class="form-control">
-                </div>
-            </div>
-        </div>
-        <div class="form-group row">
-        <div class="col-lg-12">
-                <label class="col-sm-12 col-form-label">Permit #</label>
-                <div class="col-sm-12">
-                    <input type="text" name="permit" value="<?php echo $kerja['permit'] ?>" class="form-control">
-                </div>
-            </div>
-        </div> -->
+    <div class="form-group row">
+				<!-- <div class="col-12"> -->
+					<div class="card-body">
+						<div class="form-group">
+						    <label class="col-form-label">Project Specification</label>
+							<div class="col-12">
+							   <input type="text" name="project_desc" value="<?php echo $kerja['project_desc'] ?>" class="form-control" rows="8" style="width: 100%;" id="projectDesc">
+							</div>
+						</div>
+					</div>
+				<!-- </div> -->
+			</div>
+    
     </div>
 </div>
     <input type="hidden" value="<?php echo $this->uri->segment(3);  ?>" name="job_id">
