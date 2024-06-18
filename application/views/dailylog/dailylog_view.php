@@ -233,15 +233,32 @@
                                             <div class="row">
                                                 <ul>
                                                     <?php $list_scope = array(
-                                                        'Wet Work',
-                                                        'Ceiling',
-                                                        'Wiring',
-                                                        'Wall Finishes',
-                                                        'Floor Finishes',
-                                                        'Carpentry Finishes',
-                                                        'Steel/aluminium Finishes',
+                                                        // <EXTERIOR WORK>
+                                                        'Foundation Work',
+                                                        'Structure Work',
+                                                        'Framing Work',
+                                                        'Siding Work',
+                                                        'Plastering Work',
+                                                        'Facade Work',
+                                                        'Painting Work',
                                                         'Others',
-                                                        'Plumbing Works'
+                                                        'Landscaping Work',
+                                                        // <INTERIOR WORK>
+                                                        'Site Protection',
+                                                        'Demolish Work',
+                                                        'Extension Work',
+                                                        'Partition Work',
+                                                        'Floor Finishes ',
+                                                        'Wiring & Electrical',
+                                                        'Wall Finishes',
+                                                        'Ceiling Finishes',
+                                                        'Carpentry Work',
+                                                        'Aluminium & Glass', 
+                                                        'Steel Work',
+                                                        'Plumbing',
+                                                        'Furnishing & Decoration',
+                                                        'Cleaning',
+                                                        'Others:'
                                                     );
                                                     $arrScope = explode("|", $dailylog[0]['scope']);
                                                     foreach ($arrScope as $scope) { ?>

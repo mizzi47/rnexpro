@@ -89,13 +89,19 @@
                           <li class="nav-item">
                               <a href="<?php echo base_url('user/index') ?>" class="nav-link">
                                   <i class="far fa-user nav-icon"></i>
-                                  <p>Client</p>
+                                  <p>Project coordinator</p>
                               </a>
                           </li>
                           <li class="nav-item">
                               <a href="<?php echo base_url('user/vendor_index') ?>" class="nav-link">
                                   <i class="fa-solid fa-user nav-icon"></i>
-                                  <p>Sub-contractor/ Team</p>
+                                  <p>Sub-contractor</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="<?php echo base_url('user/client') ?>" class="nav-link">
+                                  <i class="fa-solid fa-user nav-icon"></i>
+                                  <p>Client</p>
                               </a>
                           </li>
                       </ul>

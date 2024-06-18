@@ -40,7 +40,7 @@
                                               <a class="nav-link" id="custom-tabs-internal-tab" data-toggle="tab" href="#custom-tabs-internal" role="tab" aria-controls="custom-tabs-internal" aria-selected="false">Project In Charge</a>
                                           </li>
                                           <li class="nav-item">
-                                              <a class="nav-link active" id="custom-tabs-vendors-tab" data-toggle="tab" href="#custom-tabs-vendors" role="tab" aria-controls="custom-tabs-vendors" aria-selected="false">Subs/Vendors</a>
+                                              <a class="nav-link active" id="custom-tabs-vendors-tab" data-toggle="tab" href="#custom-tabs-vendors" role="tab" aria-controls="custom-tabs-vendors" aria-selected="false">Sub-contractor</a>
                                           </li>
                                       </ul>
                                   </div>

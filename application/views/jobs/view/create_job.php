@@ -188,19 +188,23 @@
 		<div class="card-header">
 			<h2>Project Details</h2>
 		</div>
-		
 		<div class="card-body">
 			<div class="form-group row">
-				<div class="col-12">
-				<label class="col-sm-12 col-form-label">Project Specification</label>
+				<!-- <div class="col-12"> -->
 					<div class="card-body">
 						<div class="form-group">
-							<input type="file" name="projectFiles[]" class="form-control" id="projectFiles" multiple>
-							<!-- <input type="hidden" name="job_id" value="<?php echo $this->uri->segment(3) ?>"> -->
+						    <label class="col-form-label">Project Specification</label>
+							<div class="col-12">
+							   <textarea type="text" name="project_desc" class="form-control" rows="3" style="width: 100%;" id="project_desc"></textarea>
+							</div>
+							<br>
+							<label class="col-form-label">Project File</label>
+							<div class="col-8">
+							   <input type="file" name="projectFiles[]" class="form-control" id="projectFiles" multiple>
+							</div>
 						</div>
 					</div>
-				</div>
-				
+				<!-- </div> -->
 			</div>
 		</div>
 
@@ -211,3 +215,5 @@
 
 <button type="submit" class="btn btn-success float-right" style="margin-bottom: 20px;">Save</button>
 <?php echo form_close(); ?>
+
+

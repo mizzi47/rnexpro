@@ -55,8 +55,11 @@
                                                 echo 'Project Manager / Admin';
                                             } else if ($user['role'] == 2) {
                                                 echo 'Project Coordinator';
-                                            } else {
-                                                echo 'Project Executive';
+                                            } else if ($user['role'] == 3) {
+                                                echo 'Sub-Contractor';
+                                            } else if ($user['role'] ==4 ){
+                                                echo 'Client';
+
                                             } ?>
                                         </td>
                                         <td><?php echo $user['email'] ?></td>
@@ -137,9 +140,10 @@
                                                                             <option value="1">Project Manager / Admin HQ</option>
                                                                             <option value="2">Project Coordinator HQ</option>
                                                                             <option value="3">Project Executive HQ</option>
-                                                                            <option value="4">Admin</option>
-                                                                            <option value="5">Project Coordinator</option>
-                                                                            <option value="6">Project Executive</option>
+                                                                            <option value="4">Client</option>
+                                                                            <option value="5">Admin</option>
+                                                                            <option value="6">Project Coordinator</option>
+                                                                            <option value="7">Sub-Contractor</option>
                                                                             <option value="99">Superadmin</option>
                                                                         </select>
                                                                     </div>
@@ -229,15 +233,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
 <script>
     var list_scope = [
-        'Wet Work',
-        'Ceiling',
-        'Wiring',
-        'Wall Finishes',
-        'Floor Finishes',
-        'Carpentry Finishes',
-        'Steel/aluminium Finishes',
+        'foundation work',
+        'structure work',
+        'Framing work ',
+        'siding work',
+        'plastering work',
+        'facade work',
+        'painting work',
         'Others',
-        'Plumbing Works'
+        'landscaping work'
     ];
 
     var list_dailylog = [];

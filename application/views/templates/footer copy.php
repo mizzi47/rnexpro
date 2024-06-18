@@ -72,14 +72,30 @@
 // gantt.change_view_mode('Week');
 
 var list_scope = [
-    'Wet Work',
-    'Ceiling',
-    'Wiring',
+    'Foundation Work',
+    'Structure Work',
+    'Framing Work',
+    'Siding Work',
+    'Facade Work',
+    'Painting Work',
+    'Landscaping Work',
+    'Others',
+    // <INTERIOR WORK>
+    'Site Protection',
+    'Demolish Work',
+    'Partition Work',
+    'Floor Finishes ',
+    'Wiring & Electrical',
     'Wall Finishes',
-    'Floor Finishes',
-    'Carpentry Finishes',
-    'Steel/aluminium Finishes',
-    'Others'
+    'Ceiling Finishes',
+    'Carpentry Work',
+    'Aluminium & Glass', 
+    'Steel Work',
+    'Plumbing',
+    'Furnishing & Decoration',
+    'Cleaning',
+    'Others:',
+    'Extension Work'
 ];
 
 var list_dailylog = [];

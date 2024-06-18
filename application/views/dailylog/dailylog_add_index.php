@@ -52,27 +52,75 @@
                                                 <div class="col-md-4">
                                                     <label for="">Scope:</label>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-6"><br>
+                                                <label for="">EXTERIOR WORK:</label>
                                                     <input type="checkbox" id="scope0" name="scope[]" value="0">
-                                                    <label for="scope0" checked> Wet Work</label><br>
+                                                    <label for="scope0" checked>Foundation Work</label><br>
                                                     <input type="checkbox" id="scope1" name="scope[]" value="1">
-                                                    <label for="scope1"> Ceiling</label><br>
+                                                    <label for="scope1">Structure Work</label><br>
                                                     <input type="checkbox" id="scope2" name="scope[]" value="2">
-                                                    <label for="scope2"> Wiring</label><br>
+                                                    <label for="scope2">Framing Work </label><br>
                                                     <input type="checkbox" id="scope3" name="scope[]" value="3">
-                                                    <label for="scope3"> Wall Finishes</label><br>
+                                                    <label for="scope3">Siding Work</label><br>
                                                     <input type="checkbox" id="scope4" name="scope[]" value="4">
-                                                    <label for="scope4"> Floor Finishes</label><br>
-                                                    <input type="checkbox" id="scope5" name="scope[]" value="5">
-                                                    <label for="scope5"> Carpentry Finishes</label><br>
-                                                    <input type="checkbox" id="scope6" name="scope[]" value="6">
-                                                    <label for="scope6"> Steel/aluminium Finishes</label><br>
+                                                    <label for="scope3">Plastering Work</label><br>
+                                                    <input type="checkbox" id="scope4" name="scope[]" value="5">
+                                                    <label for="scope4">Facade Work</label><br>
+                                                    <input type="checkbox" id="scope5" name="scope[]" value="6">
+                                                    <label for="scope5">Painting Work</label><br>
+                                                    <input type="checkbox" id="scope6" name="scope[]" value="7">
+                                                    <label for="scope6">Landscaping Work</label><br>
+                                                    
                                                     <div class='input-group'>
-                                                        <label for="scope7"> Others : </label><br>
+                                                        <label for="scope7"> Others : </label>
                                                         <input type="text" class="form-control" id="scope7" name="other_scope">
                                                     </div>
                                                 </div>
                                             </div><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                                            <div class='input-group'>
+                                                <div class="col-md-4">
+                                                    <label for="">Scope:</label>
+                                                </div>
+                                                <div class="col-md-6"><br>
+                                                <label for="">INTERIOR WORK:</label><br>
+                                                    <!-- <input type="checkbox" id="scope0" name="scope[]" value="00">
+                                                    <label for="scope0" checked>INTERIOR WORK</label><br> -->
+                                                    <input type="checkbox" id="scope0" name="scope[]" value="11">
+                                                    <label for="scope0" checked>Site Protection</label><br>
+                                                    <input type="checkbox" id="scope1" name="scope[]" value="12">
+                                                    <label for="scope1">Demolish Work</label><br>
+                                                    <input type="checkbox" id="scope2" name="scope[]" value="13">
+                                                    <label for="scope2">Extension Work</label><br>
+                                                    <input type="checkbox" id="scope3" name="scope[]" value="14">
+                                                    <label for="scope3">Partition Work</label><br>
+                                                    <input type="checkbox" id="scope4" name="scope[]" value="15">
+                                                    <label for="scope3">Floor Finishes </label><br>
+                                                    <input type="checkbox" id="scope4" name="scope[]" value="16">
+                                                    <label for="scope4">Wiring & Electrical</label><br>
+                                                    <input type="checkbox" id="scope5" name="scope[]" value="17">
+                                                    <label for="scope5">Wall Finishes</label><br>
+                                                    <input type="checkbox" id="scope6" name="scope[]" value="18">
+                                                    <label for="scope6">Ceiling Finishes</label><br>
+                                                    <input type="checkbox" id="scope6" name="scope[]" value="19">
+                                                    <label for="scope6">Carpentry Work</label><br>
+                                                    <input type="checkbox" id="scope6" name="scope[]" value="20">
+                                                    <label for="scope6">Aluminium & Glass</label><br>
+                                                    <input type="checkbox" id="scope6" name="scope[]" value="21">
+                                                    <label for="scope6">Steel Work</label><br>
+                                                    <input type="checkbox" id="scope6" name="scope[]" value="22">
+                                                    <label for="scope6">Plumbing</label><br>
+                                                    <input type="checkbox" id="scope6" name="scope[]" value="22">
+                                                    <label for="scope6">Furnishing & Decoration</label><br>
+                                                    <input type="checkbox" id="scope6" name="scope[]" value="22">
+                                                    <label for="scope6">Cleaning</label><br>
+                                                    
+                                                    <div class='input-group'>
+                                                        <label for="scope8"> Others : </label>
+                                                        <input type="text" class="form-control" id="scope8" name="other_scope">
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class='input-group'>
                                                 <div class="col-md-4">
                                                     <label for="">Update<font color="red">*</font>:</label>

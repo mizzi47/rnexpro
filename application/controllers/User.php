@@ -24,6 +24,17 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function client()
+    {
+        $data['client'] = $this->User_model->getclient();
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/navbar');
+        $this->load->view('templates/sidebar');
+        $this->load->view('user/client', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function vendor_index()
     {
         $data['vendor'] = $this->User_model->getVendor();
@@ -57,6 +68,33 @@ class User extends CI_Controller
             // die();
             $this->User_model->addUser($params);
             redirect('user/index');
+        }
+    }
+
+    public function addclient()
+    {
+        if (isset($_POST) && count($_POST) > 0) {
+            $firstname = $this->input->post('first_name');
+            $lastname = $this->input->post('last_name');
+
+            $name = $firstname . ' ' . $lastname;
+
+            $params = array(
+                'client_username' => $this->input->post('client_username'),
+                'client_name' =>  $this->input->post('client_name'),
+                'ref_icnum' => $this->input->post('ref_icnum'),
+                'client_password' => $this->input->post('client_password'),
+                'client_email' => $this->input->post('client_email'),
+                'phone_num' => $this->input->post('phone_num'),
+                // 'role' => $this->input->post('roles'),
+                'client_status' => $this->input->post('client_status'),
+                'client_address' => $this->input->post('client_address'),
+                'group_id' => (int) $_SESSION['group_id']
+            );
+            // var_dump($params);
+            // die();
+            $this->User_model->addclient($params);
+            redirect('user/client');
         }
     }
 
@@ -94,7 +132,7 @@ class User extends CI_Controller
         // var_dump($params);
         // die();
         $this->db->where("id", $user_id);
-        $this->db->update('user', $params);
+        $this->db->update('maincon_user', $params);
         redirect("user/index");
     }
 
@@ -106,7 +144,7 @@ class User extends CI_Controller
             'status' => $active
         );
         $this->db->where("id", $id);
-        $this->db->update('user', $params);
+        $this->db->update('maincon_user', $params);
         redirect("user/index");
     }
 
@@ -118,7 +156,7 @@ class User extends CI_Controller
             'status' => $active
         );
         $this->db->where("id", $id);
-        $this->db->update('user', $params);
+        $this->db->update('maincon_user', $params);
         redirect("user/index");
     }
 
@@ -130,7 +168,7 @@ class User extends CI_Controller
             'status' => $active
         );
         $this->db->where("id", $id);
-        $this->db->delete('user');
+        $this->db->delete('maincon_user');
         redirect("user/index");
     }
 }

@@ -24,7 +24,7 @@
                             borderColor: all_schedule[i]['bgColor'],
                             calendarId: ++CountSchedule,
                             category: 'allday',
-                            isReadOnly: true,
+                            isReadOnly: false,
                             body: all_schedule[i]['body'],
                             raw: all_schedule[i]['job_name']
                         };
@@ -214,11 +214,16 @@
             var useCreationPopup = false;
             var useDetailPopup = false;
             var datePicker, selectedCalendar;
-
+            if(<?php echo $_SESSION['role'] ?>== 1){
+                viewOnly =false
+                } else{
+                    viewOnly =true
+            }
             cal = new Calendar('#container_calendar', {
                 defaultView: 'month',
                 taskView: false,
                 disableDragging: true,
+                isReadOnly: viewOnly,
                 useCreationPopup: useCreationPopup,
                 useDetailPopup: useDetailPopup,
                 hourStart: 0,

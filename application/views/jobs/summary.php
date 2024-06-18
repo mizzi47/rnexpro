@@ -55,6 +55,20 @@
                                                         <td><?php echo $value['status'] ?></td>
                                                     </tr>
                                                     <tr>
+                                                        <td>Start Date</td>
+                                                        <td></td>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                        <td><?php echo $value['start_date'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>End Date</td>
+                                                        <td></td>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                        <td><?php echo $value['end_date'] ?></td>
+                                                    </tr>
+                                                    <tr>
                                                         <td>Project Type</td>
                                                         <td></td>
                                                         <td>:</td>
@@ -210,9 +224,20 @@
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <div class="card-header">
-                                                <h6 class="card-title">Project Folder</h6>
+                                                <h6 class="card-title">Project Description</h6>
                                             </div>
                                             <div class="card-body">
+                                                <table>
+                                                    <tr>
+                                                        <td>Project Description</td>
+                                                        <td></td>
+                                                        <td>:</td>
+                                                        <td></td>
+                                                        <td><?php echo $value['project_desc'] ?></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <!-- <div class="card-body">
                                                 <form id="uploadProjectFiles" method="post" class="dropzone" action="<?php echo site_url('jobs/uploadProjectFiles') ?>">
                                                     <div class="d-flex flex-row">
                                                         <div class="col">
@@ -221,9 +246,8 @@
                                                             <input type="hidden" name="job_id" value="<?php echo $this->uri->segment(3) ?>">
                                                             <button class="btn btn-success" type="submit">Submit</button>
                                                         </div>
-
                                                     </div>
-                                                </form>
+                                                </form> -->
                                                 <div class="card-header">
                                                     <h6 class="card-title">Uploaded Files</h6>
                                                 </div>

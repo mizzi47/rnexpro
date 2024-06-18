@@ -52,15 +52,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
 <script>
     var list_scope = [
-        'Wet Work',
-        'Ceiling',
-        'Wiring',
-        'Wall Finishes',
-        'Floor Finishes',
-        'Carpentry Finishes',
-        'Steel/aluminium Finishes',
+        // <EXTERIOR WORK>
+        'Foundation Work',
+        'Structure Work',
+        'Framing Work',
+        'Siding Work',
+        'Plastering Work',
+        'Facade Work',
+        'Painting Work',
         'Others',
-        'Plumbing Works'
+        'Landscaping Work',
+        // <INTERIOR WORK>
+        'Site Protection',
+    'Demolish Work',
+    'Partition Work',
+    'Floor Finishes ',
+    'Wiring & Electrical',
+    'Wall Finishes',
+    'Ceiling Finishes',
+    'Carpentry Work',
+    'Aluminium & Glass', 
+    'Steel Work',
+    'Plumbing',
+    'Furnishing & Decoration',
+    'Cleaning',
+    'Others:',
+    'Extension Work'
     ];
 
     var list_dailylog = [];
