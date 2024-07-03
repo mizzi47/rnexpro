@@ -121,6 +121,7 @@
                                               <th>Date</th>
                                               <th>Date Created</th>
                                               <th>Actions</th>
+                                              <th>Status</th>
                                           </tr>
                                       </thead>
                                       <tbody>
@@ -135,6 +136,11 @@
                                                   <td>
                                                       <button id="<?php echo $dl['dailylog_id'] ?>" title="View Details" onclick="window.location.href = '<?php echo site_url('dailylog/view/') ?><?php echo $dl['job_id']?>/<?php echo $dl['dailylog_id']?>'" type="button" class="btn btn-sm btn-info"><i class="fa fa-eye"></i> View Details</button>
                                                   </td>
+                                                  <td>    <h4> <span class="badge badge-success">Accepted</span></h4>
+                                                  <h4> <span class="badge badge-warning">Pending</span></h4>
+                                                  <h4> <span class="badge badge-danger">Decline</span></h4>
+                                          </td>
+                                          </td>
                                               </tr>
                                           <?php $count++;
                                             } ?>

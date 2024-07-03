@@ -1,3 +1,8 @@
+
+<link rel="stylesheet" type="text/css" href="<?= base_url() ?>plugins/ekko-lightbox/ekko-lightbox.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
     #imgtn {
         border: 1px solid #ddd;
@@ -21,9 +26,15 @@
         display: none;
     }
 
-    /* .logo-print {
+    .footer {
         display: none;
-    } */
+    }
+
+    .logo-print {
+        display: none;
+    }
+
+    
 
     /* @page {
   margin: 1in; 
@@ -39,15 +50,15 @@
 
 
         @page {
-               margin-top: 2.0cm;
-               margin-bottom: 2.0cm;
+               /* margin-top: 2.0cm;
+               margin-bottom: 2.0cm; */
+               margin: 0;
             }
-       /* @page {
-            margin: 2.0cm;
-        } */
+
+            
 
         body {
-            margin-top: 38px;
+            margin-top: 0;
         }
 
         button {
@@ -57,6 +68,20 @@
         .details-header {
         display: none;
     }
+
+    .print {
+        display: none;
+    }
+
+    .accept {
+        display: none;
+        position: absolute;
+        
+    }
+    .decline {
+        display: none;
+    }
+    
 
     /* .project *************/
         .project {
@@ -70,7 +95,7 @@
     }
         .input-group .col-md-2 {
             /* Adjust the width to accommodate the label */
-            width: 105px; /* You can adjust the width as needed */
+            width: 105px;
         }
 
         .input-group .col-md-8 {
@@ -97,76 +122,74 @@
         }*/
 
         .scope-border {
-            border-top: 0.5px solid;
-            border-right: 0.5px solid;
-            border-bottom: 0.5px solid;
-            border-left: 0.5px solid;
+            border: 0.5px solid;
+            border-radius: 8px;
+            margin: 10px;
+            /* padding: 5px; */
         }
 
 
         .update-border {
-            border-right: 0.5px solid;
-            /* border-top: 0.5px solid; */
-            border-left: 0.5px solid;
-            border-bottom: 0.5px solid; 
-                  /*border-radius: 5px;*/  /*round border*/
-                  /*padding: 5px;*/
-                 }
+            border: 0.5px solid;
+            border-radius: 8px;
+            margin: 10px;
+            /* padding: 5px; */
+        }
 
         .pending-border {
-            /*border: 0.5px solid;*/
-            /*border-top: 0.5px solid;*/
-            border-right: 0.5px solid;
-            border-bottom: 0.5px solid;
-            border-left: 0.5px solid; 
+            border: 0.5px solid;
+            border-radius: 8px;
+            margin: 10px;
+            /* padding: 5px; */
         }
 
         .issue-border {
-            border-right: 0.5px solid;
-            border-bottom: 0.5px solid;
-            border-left: 0.5px solid; 
-            margin-bottom: 0.8cm;
+            border: 0.5px solid;
+            border-radius: 8px;
+            margin: 10px;
+            /* padding: 5px; */
         }
 
         .header-print {
             display: block;
             text-align: center;
-            margin-bottom: 40px;
+            /* margin-bottom: 40px; */
             font-size: 300px;
-
-           /* position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-            margin-bottom: 40px;*/
         }
 
-        /* .logo-print {
+        .logo-print {
             display: block;
-            text-align: center;
-            padding-bottom: 20px;
-        } */
+            text-align: left;
+        }
 
-        .border-secondary {
+        .footer {
+            display: block;
+            /* content: "Rnexpro.com"; */
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            /* transform: translate(-50%, -50%); */
+            font-size: 24px;
+            color: rgba(0, 0, 0, 1);
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .border-secondary{
             page-break-inside: avoid;
         }
 
         .Loa {
-            margin-bottom: 0;
+            margin: 0;
+            padding: 0;
         }
-
-        /* .h1 {
-            font-size: 300px;
-        } */
-
+        .accept{
+            border-radius: 12px;
+        }
 
     }
 
-
-
 </style>
-<link rel="stylesheet" type="text/css" href="<?= base_url() ?>plugins/ekko-lightbox/ekko-lightbox.css">
 <!--link rel="stylesheet" type="text/css" href="dailylog_print.css" media="print"-->
 <div class="content-wrapper">
     <div class="content-header">
@@ -199,12 +222,20 @@
                                     </div>
                                 </div>
                                 <div class="modal-body">
-                                    <!-- <div class="logo-print">
-                                    <img src="https://renovation.wallmaster.com.my/wp-content/uploads/2019/11/LOGO-WALLMASTER-2019.png" style="width: 450px;height: 70px;" alt="logo">
-                                    </div> -->
+                                    <div class="row">
+                                    <div class="logo-print">
+                                    <img src="<?= base_url() ?>assets/img/LOGO-WALLMASTER-(M)-5.png" style="width: 200px;height: 175px;" alt="logo">
+                                    </div>
+                                    <div class="logo-address">
+                                        
+                                    </div>
+                                    </div>
+
+                                    <hr> 
+
                                     <div class="header-print">
-                                            <h1><b>PROJECT PROGRESS REPORT</b></h1>
-                                        </div>
+                                        <h1><b>DAILY PROGRESS REPORT</b></h1>
+                                    </div>
                                     <div class="upper-border">
                                     <div class='input-group project'>
                                         <div class="col-md-2">
@@ -387,45 +418,82 @@
                             </div>
                         </div>
                     </section>
-                </div>
-            </div>
-            <button id="printButton" style='font-size: 22px'>Print <i class='fas fa-print'></i></button>
-            <!--button id="printButton">Print</button-->
-            <!--button onclick="printPage()">Print This Page</button-->
-        </div>
-    </section>
+                    <!-- <div class="col-md-8">
+                                            <div class="card">
+                                                    <div class="card-header">
+                                                    
+                                                <div class="col-md-6">
+                                                    <label for="">Comment<font color="red">*</font>:</label>
+                                                    <div class="col-md-12">
+                                                    <textarea placeholder="Enter update" name="update" rows="5" class="form-control" required></textarea>
 
-</div>
-<script>
-    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-        event.preventDefault();
-        $(this).ekkoLightbox();
-    });
-</script>
-<script src="<?= base_url() ?>plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
-<script src="<?= base_url() ?>plugins/ekko-lightbox/ekko-lightbox.js"></script>
-
-
-<!-- PRINT FUNCTION / STYLE -->
-<script>
-
-const printBtn = document.getElementById('printButton');
-
-printBtn.addEventListener('click', function() {
-    print();
-})
-
-</script>
-<!--script>
-    function printPage() {
-        window.print();
-    }
-</script-->
-
-<!--style>
-    @media print {
-        button {
-            display: none;
-        }
-    }
-</style-->
+                                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                
+                                </div> -->
+                                <div class="card bg-light mb-3">
+                                    <div class="card-header">
+                                        <h3>Comment</h3>
+                                        
+                                    </div>
+                                    <div class="card-body">
+                                    <div class="form-group row">
+                                                <!-- <div class="col-12"> -->
+                                                    <div class="card-body">
+                                                        <div class="form-group">
+                                                            <!-- <label class="col-form-label">Enter comment</label> -->
+                                                            <div class="col-12">
+                                                               
+                                                               <textarea placeholder="Enter Comment" name="update" rows="5" class="form-control" required></textarea>
+                                                               <?php if($this->session->userdata('role') == 1){?>
+                                                               <button value="accept" class="btn btn-success accept">Accept</button>
+                                                               <button value="decline" class="btn btn-danger decline">Decline</button>
+                                                               <div class="card-header">
+                                                               <h6> Notes:</h6> <h6>Once Daily Log is Accepted. It will be sent to Client.</h6>
+                                                               <h6> If Daily Log is Decline. It will be sent back to Person In Charge</h6>
+                                                                </div>
+                                                               <?php } ?>
+                                                               <?php if($this->session->userdata('role') == 4){?>
+                                                               <button type="Submit" class="btn btn-success">Submit</button>
+                                                               <?php } ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <!-- </div> -->
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                <div class="w3-section">
+                                                    <button class="btn btn-primary print" id="printButton" >Print <i class='fas fa-print'></i></button>
+                                      </div>
+                                                </div>
+                                            </div>
+                                            <!--button id="printButton">Print</button-->
+                                            <!--button onclick="printPage()">Print This Page</button-->
+                                        </div>
+                                        <div class="footer">Rnexpro.com</div>
+                                    </section>
+                                </div>
+                                    
+                                <script>
+                                    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                                        event.preventDefault();
+                                        $(this).ekkoLightbox();
+                                    });
+                                </script>
+                                <script src="<?= base_url() ?>plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+                                <script src="<?= base_url() ?>plugins/ekko-lightbox/ekko-lightbox.js"></script>
+                                <!-- PRINT FUNCTION / STYLE -->
+                                <script>
+                                
+                                const printBtn = document.getElementById('printButton');
+                                
+                                printBtn.addEventListener('click', function() {
+                                    print();
+                                })
+                                
+                                </script>
+                                

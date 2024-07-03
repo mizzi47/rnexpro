@@ -16,7 +16,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="#">Variation Order</a></li>
+                            <li class="breadcrumb-item active">Variation Order</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -60,6 +60,20 @@
                                                                 <td>:</td>
                                                                 <td></td>
                                                                 <td><?php echo $value['status'] ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Start Date</td>
+                                                                <td></td>
+                                                                <td>:</td>
+                                                                <td></td>
+                                                                <td><?php echo $value['start_date'] ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>End Date</td>
+                                                                <td></td>
+                                                                <td>:</td>
+                                                                <td></td>
+                                                                <td><?php echo $value['end_date'] ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Project Type</td>
@@ -197,9 +211,11 @@
                                             <div class="p-2">
                                                 <h5>List Of Variation Order</h5>
                                             </div>
+                                            <?php if($this->session->userdata('role') == 1){?>
                                             <div class="ml-auto p-2">
-                                                <button onclick="window.location.href='<?php echo base_url('changeorder/co_add_index/') ?><?php echo $job_id ?>';" class="btn-lg btn-success"> Add New Variation Order</button>
+                                                <button onclick="window.location.href='<?php echo base_url('changeorder/co_add_index/') ?><?php echo $job_id ?>';" class="btn-lg btn-success"> Add Variation Order </button>
                                             </div>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -209,9 +225,10 @@
                                                     <tr>
                                                         <th>No</th>
                                                         <th>Project Name</th>
-                                                        <th>Reference Code</th>
+                                                        <th>IC/Reference/Order Number:</th>
                                                         <th>Created Date</th>
                                                         <th>Issued Date</th>
+                                                        <th>Status</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -254,11 +271,14 @@
                         "data": "issued_date"
                     },
                     {
+                         "data": "vo_status"
+                    },
+                    {
                         "data": "action"
                     },
                 ]
             });
-
+            
             $.ajax({
                 url: '<?php echo base_url() ?>changeorder/getCo',
                 method: 'post',
@@ -272,8 +292,10 @@
                         $.each(listco, function(count, item) {
                             var job_id = <?php echo $job_id ?>;
                             count++;
+                            
                             var actionButton = '<button id="' + item['id'] +
-                                '" title="Delete Variation Order" onclick="window.location.href=\'<?php echo base_url('changeorder/deleteCo') ?>/' + job_id + '/' + item['id'] + '\'" type="button" class="btn btn-sm btn-danger form-control"><i class="fa fa-trash"></i>&nbsp Delete Variation Order</button>&nbsp';
+                                '" title="Delete" onclick="window.location.href=\'<?php echo base_url('changeorder/deleteCo') ?>/' + job_id + '/' + item['id'] + '\'" type="button" class="btn btn-sm btn-danger form-control"></i>&nbsp Delete </button>&nbsp';
+                               
                             var print = ' <a onclick="generateCO('+item['id']+')" class="btn btn-sm btn-info form-control" id="code_id" id="print"><span><i class="fa fa-print"></i></span> Print</a>';
                             var tempobj = {
                                 no: count,
